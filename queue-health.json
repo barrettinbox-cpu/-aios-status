@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-10T04:05:30Z",
-    "published_at_utc":  "2026-09-10T04:05:36Z",
-    "sequence":  113,
-    "age_seconds_at_publish":  6,
+    "generated_at_utc":  "2026-09-10T04:07:29Z",
+    "published_at_utc":  "2026-09-10T04:07:34Z",
+    "sequence":  114,
+    "age_seconds_at_publish":  5,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -15,16 +15,16 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  27,
+                  "ready":  26,
                   "running":  1,
                   "done":  326,
-                  "draft":  139,
+                  "draft":  140,
                   "failed":  2,
                   "dependency_wait":  25,
                   "capability_wait":  4,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
-                                           "declaration-wait":  5,
+                                           "declaration-wait":  4,
                                            "human-step":  1,
                                            "dependency-open":  21
                                        },
@@ -33,15 +33,15 @@
               },
     "throughput":  {
                        "completed_24h":  20,
-                       "admissions_24h":  19,
-                       "reroutes_24h":  36
+                       "admissions_24h":  20,
+                       "reroutes_24h":  38
                    },
     "starvation":  {
                        "current_seconds":  0,
                        "p50_seconds":  0,
                        "p95_seconds":  644,
                        "max_seconds":  644,
-                       "samples_24h":  253,
+                       "samples_24h":  254,
                        "incidents_24h":  8
                    },
     "lanes":  {
@@ -79,18 +79,6 @@
                                }
                   },
     "recent_reroutes":  [
-                            {
-                                "at_utc":  "2026-09-09T20:36:03Z",
-                                "from_lane":  "",
-                                "signature":  "quota-exhausted",
-                                "attempt":  1
-                            },
-                            {
-                                "at_utc":  "2026-09-09T20:38:04Z",
-                                "from_lane":  "",
-                                "signature":  "quota-exhausted",
-                                "attempt":  1
-                            },
                             {
                                 "at_utc":  "2026-09-09T21:54:05Z",
                                 "from_lane":  "codex",
@@ -138,24 +126,36 @@
                                 "from_lane":  "codex",
                                 "signature":  "helper_unknown_error",
                                 "attempt":  2
+                            },
+                            {
+                                "at_utc":  "2026-09-10T04:06:04Z",
+                                "from_lane":  "codex",
+                                "signature":  "helper_unknown_error",
+                                "attempt":  1
+                            },
+                            {
+                                "at_utc":  "2026-09-10T04:07:03Z",
+                                "from_lane":  "codex",
+                                "signature":  "helper_unknown_error",
+                                "attempt":  2
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1372,
+                    "last_run_age_seconds":  1490,
                     "next_run_utc":  "2026-09-10T04:11:26Z",
                     "gaps":  4,
                     "admitted":  4,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  119,
+                          "reconciliation_age_seconds":  116,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-10T04:03:35Z",
+                        "last_change_utc":  "2026-09-10T04:05:36Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
