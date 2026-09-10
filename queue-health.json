@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
     "generated_at_utc":  "2026-09-10T00:47:29Z",
-    "published_at_utc":  "2026-09-10T00:48:16Z",
-    "sequence":  34,
-    "snapshot_age_seconds":  47,
+    "published_at_utc":  "2026-09-10T00:49:10Z",
+    "sequence":  35,
+    "snapshot_age_seconds":  101,
     "stale_after_seconds":  600,
     "verdict":  "DEGRADED",
     "problems":  [
@@ -21,6 +21,10 @@
                   "dependency_wait":  25,
                   "capability_wait":  4,
                   "claimable_now":  0,
+                  "ready_blocked_by":  {
+                                           "dependency-open":  21,
+                                           "human-step":  1
+                                       },
                   "oldest_runnable_age_hours":  0,
                   "minutes_since_last_claim":  64.2
               },
