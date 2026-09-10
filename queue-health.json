@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-10T13:49:30Z",
-    "published_at_utc":  "2026-09-10T13:49:35Z",
-    "sequence":  362,
-    "age_seconds_at_publish":  5,
+    "generated_at_utc":  "2026-09-10T13:51:29Z",
+    "published_at_utc":  "2026-09-10T13:51:34Z",
+    "sequence":  363,
+    "age_seconds_at_publish":  4,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
@@ -27,8 +27,8 @@
                                            "dependency-open":  21,
                                            "human-step":  1
                                        },
-                  "oldest_runnable_age_hours":  71.6,
-                  "minutes_since_last_claim":  245.3
+                  "oldest_runnable_age_hours":  71.7,
+                  "minutes_since_last_claim":  247.2
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -36,11 +36,11 @@
                        "reroutes_24h":  44
                    },
     "starvation":  {
-                       "current_seconds":  1550,
+                       "current_seconds":  1669,
                        "p50_seconds":  0,
-                       "p95_seconds":  1550,
-                       "max_seconds":  1550,
-                       "samples_24h":  545,
+                       "p95_seconds":  1669,
+                       "max_seconds":  1669,
+                       "samples_24h":  546,
                        "incidents_24h":  18
                    },
     "lanes":  {
@@ -149,7 +149,7 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  406,
+                    "last_run_age_seconds":  525,
                     "next_run_utc":  "2026-09-10T14:11:26Z",
                     "gaps":  2,
                     "admitted":  4,
@@ -163,7 +163,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-10T13:46:41Z",
+                        "last_change_utc":  "2026-09-10T13:49:35Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
