@@ -1,16 +1,18 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T11:07:30Z",
-    "published_at_utc":  "2026-09-11T11:07:35Z",
-    "sequence":  949,
-    "age_seconds_at_publish":  5,
+    "generated_at_utc":  "2026-09-11T11:09:29Z",
+    "published_at_utc":  "2026-09-11T11:09:40Z",
+    "sequence":  950,
+    "age_seconds_at_publish":  10,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "DEGRADED",
+    "verdict":  "UNHEALTHY",
     "problems":  [
+                     "stuck lease: 1 registered worker pid(s) no longer exist",
                      "provider openai is exhausted",
                      "provider xai is exhausted",
-                     "truth sources disagree: Notion holds 65 non-terminal row(s); watcher telemetry reports ready=46"
+                     "truth sources disagree: Notion holds 65 non-terminal row(s); watcher telemetry reports ready=46",
+                     "THE HISTORICAL FAILURE MODE: 2 claimable row(s), scheduler reports 6 eligible, 4 lane(s) free, a provider admissible, and NOTHING running"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -30,7 +32,7 @@
                                            "dependency-open":  18
                                        },
                   "oldest_runnable_age_hours":  438.9,
-                  "minutes_since_last_claim":  7.1
+                  "minutes_since_last_claim":  9.2
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -46,7 +48,7 @@
                        "incidents_24h":  31
                    },
     "lanes":  {
-                  "active_workers":  1,
+                  "active_workers":  0,
                   "usable_capacity":  4
               },
     "providers":  {
@@ -95,14 +97,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1539,
+                    "last_run_age_seconds":  1663,
                     "next_run_utc":  "2026-09-11T11:11:26Z",
                     "gaps":  8,
                     "admitted":  4,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  117,
+                          "reconciliation_age_seconds":  121,
                           "sources_agree":  false,
                           "disagreement_count":  1
                       },
