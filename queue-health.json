@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T20:09:30Z",
-    "published_at_utc":  "2026-09-11T20:09:35Z",
-    "sequence":  1197,
+    "generated_at_utc":  "2026-09-11T20:11:30Z",
+    "published_at_utc":  "2026-09-11T20:11:36Z",
+    "sequence":  1198,
     "age_seconds_at_publish":  5,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -31,8 +31,8 @@
                                            "human-step":  4,
                                            "dependency-open":  15
                                        },
-                  "oldest_runnable_age_hours":  454.6,
-                  "minutes_since_last_claim":  44.2
+                  "oldest_runnable_age_hours":  454.7,
+                  "minutes_since_last_claim":  46.2
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -40,7 +40,7 @@
                        "reroutes_24h":  0
                    },
     "starvation":  {
-                       "current_seconds":  1915,
+                       "current_seconds":  2035,
                        "p50_seconds":  115,
                        "p95_seconds":  7920,
                        "max_seconds":  8402,
@@ -97,8 +97,8 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1645,
-                    "next_run_utc":  "2026-09-11T20:11:26Z",
+                    "last_run_age_seconds":  1765,
+                    "next_run_utc":  "2026-09-11T20:41:26Z",
                     "gaps":  6,
                     "admitted":  4,
                     "verified_completions":  2
