@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T11:19:29Z",
-    "published_at_utc":  "2026-09-11T11:19:34Z",
-    "sequence":  955,
+    "generated_at_utc":  "2026-09-11T11:21:29Z",
+    "published_at_utc":  "2026-09-11T11:21:34Z",
+    "sequence":  956,
     "age_seconds_at_publish":  4,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -10,7 +10,7 @@
     "problems":  [
                      "provider openai is exhausted",
                      "provider xai is exhausted",
-                     "truth sources disagree: Notion holds 65 non-terminal row(s); watcher telemetry reports ready=46"
+                     "truth sources disagree: Notion holds 63 non-terminal row(s); watcher telemetry reports ready=46"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -30,7 +30,7 @@
                                            "dependency-open":  16
                                        },
                   "oldest_runnable_age_hours":  439.1,
-                  "minutes_since_last_claim":  1.2
+                  "minutes_since_last_claim":  3.2
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -47,7 +47,7 @@
                    },
     "lanes":  {
                   "active_workers":  1,
-                  "usable_capacity":  3
+                  "usable_capacity":  4
               },
     "providers":  {
                       "claude":  {
@@ -95,21 +95,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  449,
+                    "last_run_age_seconds":  569,
                     "next_run_utc":  "2026-09-11T11:41:26Z",
                     "gaps":  8,
                     "admitted":  4,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  114,
+                          "reconciliation_age_seconds":  116,
                           "sources_agree":  false,
                           "disagreement_count":  1
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-11T11:15:36Z",
+                        "last_change_utc":  "2026-09-11T11:19:34Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
