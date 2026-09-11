@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T03:55:30Z",
-    "published_at_utc":  "2026-09-11T03:55:34Z",
-    "sequence":  750,
+    "generated_at_utc":  "2026-09-11T03:57:30Z",
+    "published_at_utc":  "2026-09-11T03:57:34Z",
+    "sequence":  751,
     "age_seconds_at_publish":  4,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -15,21 +15,21 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  29,
+                  "ready":  30,
                   "running":  1,
                   "done":  358,
                   "draft":  106,
                   "failed":  0,
                   "dependency_wait":  18,
                   "capability_wait":  1,
-                  "claimable_now":  5,
+                  "claimable_now":  6,
                   "ready_blocked_by":  {
                                            "conflict-blocked":  1,
                                            "human-step":  2,
                                            "dependency-open":  21
                                        },
                   "oldest_runnable_age_hours":  431.7,
-                  "minutes_since_last_claim":  6.1
+                  "minutes_since_last_claim":  8.1
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -42,11 +42,11 @@
                        "p95_seconds":  5637,
                        "max_seconds":  8402,
                        "samples_24h":  720,
-                       "incidents_24h":  26
+                       "incidents_24h":  25
                    },
     "lanes":  {
                   "active_workers":  1,
-                  "usable_capacity":  3
+                  "usable_capacity":  2
               },
     "providers":  {
                       "claude":  {
@@ -153,7 +153,7 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  809,
+                    "last_run_age_seconds":  930,
                     "next_run_utc":  "2026-09-11T04:11:26Z",
                     "gaps":  5,
                     "admitted":  4,
@@ -167,7 +167,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-11T03:49:36Z",
+                        "last_change_utc":  "2026-09-11T03:55:34Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
