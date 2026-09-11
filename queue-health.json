@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T17:23:30Z",
-    "published_at_utc":  "2026-09-11T17:23:35Z",
-    "sequence":  1122,
+    "generated_at_utc":  "2026-09-11T17:25:30Z",
+    "published_at_utc":  "2026-09-11T17:25:34Z",
+    "sequence":  1123,
     "age_seconds_at_publish":  5,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -10,17 +10,17 @@
     "problems":  [
                      "provider openai is exhausted",
                      "provider xai is exhausted",
-                     "truth sources disagree: Notion holds 52 non-terminal row(s); watcher telemetry reports ready=39"
+                     "truth sources disagree: Notion holds 51 non-terminal row(s); watcher telemetry reports ready=39"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
                   "ready":  20,
-                  "running":  1,
+                  "running":  0,
                   "done":  386,
                   "draft":  78,
-                  "failed":  0,
+                  "failed":  1,
                   "dependency_wait":  18,
                   "capability_wait":  1,
                   "claimable_now":  2,
@@ -29,8 +29,8 @@
                                            "human-step":  2,
                                            "dependency-open":  15
                                        },
-                  "oldest_runnable_age_hours":  445.1,
-                  "minutes_since_last_claim":  4.5
+                  "oldest_runnable_age_hours":  445.2,
+                  "minutes_since_last_claim":  6.4
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -46,8 +46,8 @@
                        "incidents_24h":  31
                    },
     "lanes":  {
-                  "active_workers":  1,
-                  "usable_capacity":  3
+                  "active_workers":  0,
+                  "usable_capacity":  4
               },
     "providers":  {
                       "claude":  {
@@ -95,21 +95,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  689,
+                    "last_run_age_seconds":  808,
                     "next_run_utc":  "2026-09-11T17:41:26Z",
                     "gaps":  8,
                     "admitted":  4,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  115,
+                          "reconciliation_age_seconds":  116,
                           "sources_agree":  false,
                           "disagreement_count":  1
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-11T17:21:36Z",
+                        "last_change_utc":  "2026-09-11T17:23:35Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
