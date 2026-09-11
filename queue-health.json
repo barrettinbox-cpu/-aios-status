@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T19:19:30Z",
-    "published_at_utc":  "2026-09-11T19:19:37Z",
-    "sequence":  1177,
-    "age_seconds_at_publish":  8,
+    "generated_at_utc":  "2026-09-11T19:23:31Z",
+    "published_at_utc":  "2026-09-11T19:23:36Z",
+    "sequence":  1178,
+    "age_seconds_at_publish":  5,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -31,7 +31,7 @@
                                            "dependency-open":  15
                                        },
                   "oldest_runnable_age_hours":  447.1,
-                  "minutes_since_last_claim":  5.2
+                  "minutes_since_last_claim":  9.2
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -96,7 +96,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  452,
+                    "last_run_age_seconds":  691,
                     "next_run_utc":  "2026-09-11T19:41:26Z",
                     "gaps":  6,
                     "admitted":  4,
@@ -110,7 +110,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-11T19:17:34Z",
+                        "last_change_utc":  "2026-09-11T19:19:37Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
