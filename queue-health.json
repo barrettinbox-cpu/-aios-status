@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T05:39:30Z",
-    "published_at_utc":  "2026-09-11T05:39:35Z",
-    "sequence":  798,
+    "generated_at_utc":  "2026-09-11T05:41:30Z",
+    "published_at_utc":  "2026-09-11T05:41:35Z",
+    "sequence":  799,
     "age_seconds_at_publish":  5,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -28,12 +28,12 @@
                                            "dependency-open":  21
                                        },
                   "oldest_runnable_age_hours":  433.4,
-                  "minutes_since_last_claim":  3.2
+                  "minutes_since_last_claim":  5.2
               },
     "throughput":  {
                        "completed_24h":  20,
-                       "admissions_24h":  7,
-                       "reroutes_24h":  2
+                       "admissions_24h":  6,
+                       "reroutes_24h":  1
                    },
     "starvation":  {
                        "current_seconds":  0,
@@ -45,7 +45,7 @@
                    },
     "lanes":  {
                   "active_workers":  1,
-                  "usable_capacity":  2
+                  "usable_capacity":  1
               },
     "providers":  {
                       "claude":  {
@@ -91,12 +91,6 @@
                   },
     "recent_reroutes":  [
                             {
-                                "at_utc":  "2026-09-10T05:41:06Z",
-                                "from_lane":  "codex",
-                                "signature":  "quota-exhausted",
-                                "attempt":  1
-                            },
-                            {
                                 "at_utc":  "2026-09-10T05:43:05Z",
                                 "from_lane":  "codex",
                                 "signature":  "quota-exhausted",
@@ -104,21 +98,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1648,
-                    "next_run_utc":  "2026-09-11T05:41:26Z",
+                    "last_run_age_seconds":  1768,
+                    "next_run_utc":  "2026-09-11T06:11:26Z",
                     "gaps":  5,
                     "admitted":  4,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  118,
+                          "reconciliation_age_seconds":  116,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-11T05:37:34Z",
+                        "last_change_utc":  "2026-09-11T05:39:35Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
