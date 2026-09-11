@@ -1,25 +1,26 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T10:45:30Z",
-    "published_at_utc":  "2026-09-11T10:45:36Z",
-    "sequence":  938,
-    "age_seconds_at_publish":  6,
+    "generated_at_utc":  "2026-09-11T10:47:29Z",
+    "published_at_utc":  "2026-09-11T10:47:33Z",
+    "sequence":  939,
+    "age_seconds_at_publish":  4,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "DEGRADED",
+    "verdict":  "UNHEALTHY",
     "problems":  [
                      "provider openai is exhausted",
                      "provider xai is exhausted",
-                     "truth sources disagree: Notion holds 68 non-terminal row(s); watcher telemetry reports ready=49"
+                     "truth sources disagree: Notion holds 68 non-terminal row(s); watcher telemetry reports ready=49",
+                     "THE HISTORICAL FAILURE MODE: 2 claimable row(s), scheduler reports 8 eligible, 1 lane(s) free, a provider admissible, and NOTHING running"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
                   "ready":  29,
-                  "running":  1,
+                  "running":  0,
                   "done":  380,
-                  "draft":  64,
+                  "draft":  65,
                   "failed":  1,
                   "dependency_wait":  18,
                   "capability_wait":  1,
@@ -30,7 +31,7 @@
                                            "dependency-open":  18
                                        },
                   "oldest_runnable_age_hours":  438.5,
-                  "minutes_since_last_claim":  0.1
+                  "minutes_since_last_claim":  2.1
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -46,8 +47,8 @@
                        "incidents_24h":  29
                    },
     "lanes":  {
-                  "active_workers":  1,
-                  "usable_capacity":  2
+                  "active_workers":  0,
+                  "usable_capacity":  1
               },
     "providers":  {
                       "claude":  {
@@ -95,21 +96,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  220,
+                    "last_run_age_seconds":  337,
                     "next_run_utc":  "2026-09-11T11:11:26Z",
                     "gaps":  8,
                     "admitted":  4,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  119,
+                          "reconciliation_age_seconds":  113,
                           "sources_agree":  false,
                           "disagreement_count":  1
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-11T10:43:34Z",
+                        "last_change_utc":  "2026-09-11T10:45:36Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
