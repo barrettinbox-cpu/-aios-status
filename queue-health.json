@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T04:09:30Z",
-    "published_at_utc":  "2026-09-11T04:09:34Z",
-    "sequence":  757,
-    "age_seconds_at_publish":  4,
+    "generated_at_utc":  "2026-09-11T04:11:30Z",
+    "published_at_utc":  "2026-09-11T04:11:36Z",
+    "sequence":  758,
+    "age_seconds_at_publish":  6,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -29,12 +29,12 @@
                                            "dependency-open":  21
                                        },
                   "oldest_runnable_age_hours":  431.9,
-                  "minutes_since_last_claim":  5.1
+                  "minutes_since_last_claim":  7.1
               },
     "throughput":  {
                        "completed_24h":  20,
-                       "admissions_24h":  36,
-                       "reroutes_24h":  5
+                       "admissions_24h":  35,
+                       "reroutes_24h":  4
                    },
     "starvation":  {
                        "current_seconds":  0,
@@ -92,12 +92,6 @@
                   },
     "recent_reroutes":  [
                             {
-                                "at_utc":  "2026-09-10T04:10:03Z",
-                                "from_lane":  "codex",
-                                "signature":  "helper_unknown_error",
-                                "attempt":  2
-                            },
-                            {
                                 "at_utc":  "2026-09-10T05:02:05Z",
                                 "from_lane":  "codex",
                                 "signature":  "helper_unknown_error",
@@ -123,21 +117,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1650,
-                    "next_run_utc":  "2026-09-11T04:11:26Z",
+                    "last_run_age_seconds":  1771,
+                    "next_run_utc":  "2026-09-11T04:41:26Z",
                     "gaps":  5,
                     "admitted":  4,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  116,
+                          "reconciliation_age_seconds":  118,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-11T04:07:35Z",
+                        "last_change_utc":  "2026-09-11T04:09:34Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
