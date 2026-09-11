@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T11:25:29Z",
-    "published_at_utc":  "2026-09-11T11:25:35Z",
-    "sequence":  958,
-    "age_seconds_at_publish":  5,
+    "generated_at_utc":  "2026-09-11T11:27:29Z",
+    "published_at_utc":  "2026-09-11T11:27:35Z",
+    "sequence":  959,
+    "age_seconds_at_publish":  6,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -16,20 +16,20 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  25,
+                  "ready":  24,
                   "running":  1,
                   "done":  381,
                   "draft":  69,
-                  "failed":  0,
+                  "failed":  1,
                   "dependency_wait":  18,
                   "capability_wait":  1,
-                  "claimable_now":  8,
+                  "claimable_now":  7,
                   "ready_blocked_by":  {
                                            "dependency-retired":  1,
                                            "dependency-open":  16
                                        },
                   "oldest_runnable_age_hours":  439.2,
-                  "minutes_since_last_claim":  7.2
+                  "minutes_since_last_claim":  0.3
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -94,7 +94,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  809,
+                    "last_run_age_seconds":  930,
                     "next_run_utc":  "2026-09-11T11:41:26Z",
                     "gaps":  8,
                     "admitted":  4,
