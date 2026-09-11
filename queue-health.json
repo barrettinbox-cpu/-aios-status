@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T04:33:30Z",
-    "published_at_utc":  "2026-09-11T04:33:34Z",
-    "sequence":  768,
-    "age_seconds_at_publish":  4,
+    "generated_at_utc":  "2026-09-11T04:35:30Z",
+    "published_at_utc":  "2026-09-11T04:35:35Z",
+    "sequence":  769,
+    "age_seconds_at_publish":  5,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -29,7 +29,7 @@
                                            "dependency-open":  21
                                        },
                   "oldest_runnable_age_hours":  432.3,
-                  "minutes_since_last_claim":  6.1
+                  "minutes_since_last_claim":  8.1
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -117,21 +117,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1290,
+                    "last_run_age_seconds":  1411,
                     "next_run_utc":  "2026-09-11T04:41:26Z",
                     "gaps":  5,
                     "admitted":  4,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  112,
+                          "reconciliation_age_seconds":  117,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-11T04:31:37Z",
+                        "last_change_utc":  "2026-09-11T04:33:34Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
