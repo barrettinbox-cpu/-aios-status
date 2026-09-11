@@ -1,16 +1,18 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T21:37:30Z",
-    "published_at_utc":  "2026-09-11T21:37:35Z",
-    "sequence":  1240,
+    "generated_at_utc":  "2026-09-11T21:39:31Z",
+    "published_at_utc":  "2026-09-11T21:39:35Z",
+    "sequence":  1241,
     "age_seconds_at_publish":  5,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "DEGRADED",
+    "verdict":  "UNHEALTHY",
     "problems":  [
+                     "stuck lease: 1 registered worker pid(s) no longer exist",
                      "provider openai is exhausted",
                      "provider xai is exhausted",
-                     "truth sources disagree: Notion holds 59 non-terminal row(s); watcher telemetry reports ready=53"
+                     "truth sources disagree: Notion holds 59 non-terminal row(s); watcher telemetry reports ready=53",
+                     "THE HISTORICAL FAILURE MODE: 2 claimable row(s), scheduler reports 19 eligible, 4 lane(s) free, a provider admissible, and NOTHING running"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -31,7 +33,7 @@
                                            "dependency-open":  14
                                        },
                   "oldest_runnable_age_hours":  449.4,
-                  "minutes_since_last_claim":  4.2
+                  "minutes_since_last_claim":  6.2
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -47,7 +49,7 @@
                        "incidents_24h":  38
                    },
     "lanes":  {
-                  "active_workers":  1,
+                  "active_workers":  0,
                   "usable_capacity":  4
               },
     "providers":  {
@@ -96,7 +98,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1528,
+                    "last_run_age_seconds":  1649,
                     "next_run_utc":  "2026-09-11T21:41:26Z",
                     "gaps":  6,
                     "admitted":  4,
