@@ -1,17 +1,15 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-11T04:05:30Z",
-    "published_at_utc":  "2026-09-11T04:05:35Z",
-    "sequence":  755,
+    "generated_at_utc":  "2026-09-11T04:07:30Z",
+    "published_at_utc":  "2026-09-11T04:07:35Z",
+    "sequence":  756,
     "age_seconds_at_publish":  5,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
                      "provider openai is exhausted",
-                     "provider xai is exhausted",
-                     "truth sources disagree: Notion says 1 row(s) Running; 0 registered worker process(es) are alive (0 of them settled past the claim/finalize window)",
-                     "truth sources disagree: worker registry holds 1 pid(s) that no longer exist: 17840 -- stale lease"
+                     "provider xai is exhausted"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -30,13 +28,13 @@
                                            "human-step":  2,
                                            "dependency-open":  21
                                        },
-                  "oldest_runnable_age_hours":  431.8,
-                  "minutes_since_last_claim":  1.1
+                  "oldest_runnable_age_hours":  431.9,
+                  "minutes_since_last_claim":  3.1
               },
     "throughput":  {
                        "completed_24h":  20,
-                       "admissions_24h":  37,
-                       "reroutes_24h":  8
+                       "admissions_24h":  36,
+                       "reroutes_24h":  6
                    },
     "starvation":  {
                        "current_seconds":  0,
@@ -48,7 +46,7 @@
                    },
     "lanes":  {
                   "active_workers":  1,
-                  "usable_capacity":  2
+                  "usable_capacity":  3
               },
     "providers":  {
                       "claude":  {
@@ -94,18 +92,6 @@
                   },
     "recent_reroutes":  [
                             {
-                                "at_utc":  "2026-09-10T04:06:04Z",
-                                "from_lane":  "codex",
-                                "signature":  "helper_unknown_error",
-                                "attempt":  1
-                            },
-                            {
-                                "at_utc":  "2026-09-10T04:07:03Z",
-                                "from_lane":  "codex",
-                                "signature":  "helper_unknown_error",
-                                "attempt":  2
-                            },
-                            {
                                 "at_utc":  "2026-09-10T04:08:04Z",
                                 "from_lane":  "codex",
                                 "signature":  "helper_unknown_error",
@@ -143,7 +129,7 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1411,
+                    "last_run_age_seconds":  1531,
                     "next_run_utc":  "2026-09-11T04:11:26Z",
                     "gaps":  5,
                     "admitted":  4,
@@ -151,13 +137,13 @@
                 },
     "truth_monitor":  {
                           "reconciliation_age_seconds":  116,
-                          "sources_agree":  false,
-                          "disagreement_count":  8
+                          "sources_agree":  true,
+                          "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-11T04:03:36Z",
+                        "last_change_utc":  "2026-09-11T04:05:35Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
