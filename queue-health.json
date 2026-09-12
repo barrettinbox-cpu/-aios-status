@@ -1,27 +1,25 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-12T02:39:30Z",
-    "published_at_utc":  "2026-09-12T02:39:35Z",
-    "sequence":  1389,
-    "age_seconds_at_publish":  5,
+    "generated_at_utc":  "2026-09-12T02:41:29Z",
+    "published_at_utc":  "2026-09-12T02:41:36Z",
+    "sequence":  1390,
+    "age_seconds_at_publish":  7,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
                      "provider openai is exhausted",
                      "provider xai is exhausted",
-                     "truth sources disagree: Notion says 2 row(s) Running; 0 registered worker process(es) are alive (0 of them settled past the claim/finalize window)",
-                     "truth sources disagree: worker registry holds 1 pid(s) that no longer exist: 27380 -- stale lease",
-                     "truth sources disagree: Notion holds 36 non-terminal row(s); watcher telemetry reports ready=30",
-                     "truth sources disagree: 1 AI runtime process(es) are running with no worker-registry record: 26348"
+                     "truth sources disagree: Notion says 1 row(s) Running; 0 registered worker process(es) are alive (0 of them settled past the claim/finalize window)",
+                     "truth sources disagree: Notion holds 36 non-terminal row(s); watcher telemetry reports ready=30"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  18,
+                  "ready":  17,
                   "running":  1,
-                  "done":  413,
+                  "done":  414,
                   "draft":  104,
                   "failed":  0,
                   "dependency_wait":  12,
@@ -29,10 +27,10 @@
                   "claimable_now":  2,
                   "ready_blocked_by":  {
                                            "human-step":  1,
-                                           "dependency-open":  15
+                                           "dependency-open":  14
                                        },
                   "oldest_runnable_age_hours":  454.4,
-                  "minutes_since_last_claim":  3.9
+                  "minutes_since_last_claim":  0.5
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -40,7 +38,7 @@
                        "reroutes_24h":  0
                    },
     "starvation":  {
-                       "current_seconds":  0,
+                       "current_seconds":  116,
                        "p50_seconds":  0,
                        "p95_seconds":  7080,
                        "max_seconds":  7920,
@@ -48,7 +46,7 @@
                        "incidents_24h":  53
                    },
     "lanes":  {
-                  "active_workers":  0,
+                  "active_workers":  1,
                   "usable_capacity":  3
               },
     "providers":  {
@@ -97,21 +95,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1647,
-                    "next_run_utc":  "2026-09-12T02:41:26Z",
+                    "last_run_age_seconds":  1768,
+                    "next_run_utc":  "2026-09-12T03:11:26Z",
                     "gaps":  6,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  113,
+                          "reconciliation_age_seconds":  118,
                           "sources_agree":  false,
                           "disagreement_count":  8
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-12T02:37:39Z",
+                        "last_change_utc":  "2026-09-12T02:39:35Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
