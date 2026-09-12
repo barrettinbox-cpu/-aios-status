@@ -1,16 +1,15 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-12T17:47:31Z",
-    "published_at_utc":  "2026-09-12T17:47:38Z",
-    "sequence":  1829,
-    "age_seconds_at_publish":  7,
+    "generated_at_utc":  "2026-09-12T17:49:28Z",
+    "published_at_utc":  "2026-09-12T17:49:36Z",
+    "sequence":  1830,
+    "age_seconds_at_publish":  8,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
                      "provider openai is exhausted",
-                     "provider xai is exhausted",
-                     "truth sources disagree: Notion holds 42 non-terminal row(s); watcher telemetry reports ready=39"
+                     "provider xai is exhausted"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -30,7 +29,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  8
+                  "minutes_since_last_claim":  10
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -95,21 +94,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  323,
+                    "last_run_age_seconds":  441,
                     "next_run_utc":  "2026-09-12T18:11:26Z",
                     "gaps":  6,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  116,
-                          "sources_agree":  false,
-                          "disagreement_count":  1
+                          "reconciliation_age_seconds":  114,
+                          "sources_agree":  true,
+                          "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-12T17:45:38Z",
+                        "last_change_utc":  "2026-09-12T17:47:38Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
