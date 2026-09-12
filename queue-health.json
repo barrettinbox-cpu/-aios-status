@@ -1,17 +1,15 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-12T22:03:30Z",
-    "published_at_utc":  "2026-09-12T22:03:37Z",
-    "sequence":  1956,
+    "generated_at_utc":  "2026-09-12T22:05:30Z",
+    "published_at_utc":  "2026-09-12T22:05:37Z",
+    "sequence":  1957,
     "age_seconds_at_publish":  7,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
                      "provider openai is exhausted",
-                     "provider xai is exhausted",
-                     "truth sources disagree: Notion says 1 row(s) Running; 0 registered worker process(es) are alive (0 of them settled past the claim/finalize window)",
-                     "truth sources disagree: worker registry holds 1 pid(s) that no longer exist: 23708 -- stale lease"
+                     "provider xai is exhausted"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -30,7 +28,7 @@
                                            "conflict-blocked":  7
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  0.2
+                  "minutes_since_last_claim":  2.2
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -47,7 +45,7 @@
                    },
     "lanes":  {
                   "active_workers":  1,
-                  "usable_capacity":  4
+                  "usable_capacity":  3
               },
     "providers":  {
                       "claude":  {
@@ -95,21 +93,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1288,
+                    "last_run_age_seconds":  1408,
                     "next_run_utc":  "2026-09-12T22:11:26Z",
                     "gaps":  5,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  114,
-                          "sources_agree":  false,
-                          "disagreement_count":  8
+                          "reconciliation_age_seconds":  115,
+                          "sources_agree":  true,
+                          "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-12T22:01:38Z",
+                        "last_change_utc":  "2026-09-12T22:03:37Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
