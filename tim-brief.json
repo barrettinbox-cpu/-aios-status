@@ -1,0 +1,33 @@
+{
+    "schema":  "aios.tim-brief.v1",
+    "generated_at_utc":  "2026-09-13T19:19:42.9420151Z",
+    "source":  "n8n:WIC1hxPFUUN0cXQd/exec/64293/node/Extract brief text",
+    "found":  true,
+    "execution_id":  "64293",
+    "execution_started_at_utc":  "2026-09-13T13:30:46.251Z",
+    "empty_reason":  null,
+    "body_text":  "Here\u0027s what your day looks like today — Sunday, September 13.\n\nAgenda\n6:00 AM — Portland/PDX Trip - Returning\n1:20 PM — Flight to Phoenix (WN 2571)\n6:00 PM — FCA Hosting at Barrett\u0027s\n7:00 PM — Stacy 1:1\n\nTo do\nReview and decide the SAM.gov physical address question — confirm whether to use Trent/Brittany\u0027s home as the registered physical address before the GSA incident auto-resolves Monday 8/25. \nRespond to the Kietzke lease demand letter from Aleem Dhalla — your call on position and tone before this escalates further. \n\nWorth knowing\nAZCC filed Articles of Termination for Barrett Properties LLC on 9/11 — AIOS has flagged the associated Notion task for closure; no action needed from you unless you want to confirm.\nThe aios-host healthchecks.io monitor showed a DOWN alert at 8:55 AM today after last night\u0027s refresh showed clean — AIOS could not diagnose from this session; someone with host shell access should do a two-minute check before or during travel.\n\nAIOS\nSystem functioning normally. No intervention required.",
+    "sections":  [
+                     {
+                         "name":  "intro",
+                         "text":  "Here\u0027s what your day looks like today — Sunday, September 13."
+                     },
+                     {
+                         "name":  "Agenda",
+                         "text":  "6:00 AM — Portland/PDX Trip - Returning\n1:20 PM — Flight to Phoenix (WN 2571)\n6:00 PM — FCA Hosting at Barrett\u0027s\n7:00 PM — Stacy 1:1"
+                     },
+                     {
+                         "name":  "To do",
+                         "text":  "Review and decide the SAM.gov physical address question — confirm whether to use Trent/Brittany\u0027s home as the registered physical address before the GSA incident auto-resolves Monday 8/25. \nRespond to the Kietzke lease demand letter from Aleem Dhalla — your call on position and tone before this escalates further."
+                     },
+                     {
+                         "name":  "Worth knowing",
+                         "text":  "AZCC filed Articles of Termination for Barrett Properties LLC on 9/11 — AIOS has flagged the associated Notion task for closure; no action needed from you unless you want to confirm.\nThe aios-host healthchecks.io monitor showed a DOWN alert at 8:55 AM today after last night\u0027s refresh showed clean — AIOS could not diagnose from this session; someone with host shell access should do a two-minute check before or during travel."
+                     },
+                     {
+                         "name":  "AIOS",
+                         "text":  "System functioning normally. No intervention required."
+                     }
+                 ],
+    "doctrine":  "Same content as overnight/daily Telegram brief; Tim-facing rules applied (Notion URLs stripped; Human execution Open census removed). Never invent."
+}
