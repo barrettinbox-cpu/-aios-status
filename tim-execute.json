@@ -1,6 +1,6 @@
 {
     "schema":  "aios.tim-execute.v2",
-    "generated_at_utc":  "2026-09-13T19:13:39.6111626Z",
+    "generated_at_utc":  "2026-09-13T19:15:40.6463360Z",
     "doctrine":  "Cap-proved Tim-irreducible only: pay / login / send-yes / apply-secret / KYC / UAC. No failed_parked census. No Notion URLs. Mark-complete writeback clears Cap/HRQ.",
     "primary":  [
                     {
