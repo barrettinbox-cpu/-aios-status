@@ -1,6 +1,6 @@
 {
     "schema":  "aios.tim-brief.v1",
-    "generated_at_utc":  "2026-09-13T22:03:58.8857588Z",
+    "generated_at_utc":  "2026-09-13T22:05:55.9689483Z",
     "source":  "n8n:WIC1hxPFUUN0cXQd/exec/64293/node/Extract brief text",
     "found":  true,
     "execution_id":  "64293",
