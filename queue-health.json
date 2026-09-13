@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-13T12:59:30Z",
-    "published_at_utc":  "2026-09-13T12:59:38Z",
-    "sequence":  2345,
-    "age_seconds_at_publish":  8,
+    "generated_at_utc":  "2026-09-13T13:01:38Z",
+    "published_at_utc":  "2026-09-13T13:01:49Z",
+    "sequence":  2346,
+    "age_seconds_at_publish":  11,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -27,7 +27,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  350.8
+                  "minutes_since_last_claim":  353
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -37,14 +37,14 @@
     "starvation":  {
                        "current_seconds":  0,
                        "p50_seconds":  0,
-                       "p95_seconds":  2404,
-                       "max_seconds":  6600,
+                       "p95_seconds":  1199,
+                       "max_seconds":  2404,
                        "samples_24h":  720,
-                       "incidents_24h":  38
+                       "incidents_24h":  37
                    },
     "lanes":  {
                   "active_workers":  0,
-                  "usable_capacity":  5
+                  "usable_capacity":  0
               },
     "providers":  {
                       "claude":  {
@@ -92,14 +92,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1053,
+                    "last_run_age_seconds":  1183,
                     "next_run_utc":  "2026-09-13T13:11:26Z",
                     "gaps":  5,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  117,
+                          "reconciliation_age_seconds":  126,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
