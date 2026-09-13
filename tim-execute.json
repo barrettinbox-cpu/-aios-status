@@ -1,6 +1,6 @@
 {
     "schema":  "aios.tim-execute.v3",
-    "generated_at_utc":  "2026-09-13T21:29:38.6418208Z",
+    "generated_at_utc":  "2026-09-13T21:30:27.9422936Z",
     "doctrine":  "Cap-proved Tim-irreducible only. Summary+Steps: Cap prep to the click; Tim opens link/runs command; final step = Mark complete (writeback clears Cap/HRQ; card drops off #tim). No Telegram done-signal paste required. No failed_parked census. No Notion URLs.",
     "primary":  [
 
@@ -56,7 +56,7 @@
                       "id":  "human:iam-authority",
                       "kind":  "uac",
                       "title":  "Claude Code: restore metabase-reader impersonation so BigQuery reads stop running as the writer identity",
-                      "summary":  "Unlocks metabase-reader impersonation by granting one IAM binding Tim alone can authorize in GCP.",
+                      "summary":  "Unlocks metabase-reader impersonation by granting roles/iam.serviceAccountTokenCreator to dbt-prod-runner on metabase-reader (forged-data).",
                       "step":  "GATE: external IAM authority. Needs roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON the metabase-reader service account in project forged-data. The machine identity cannot grant itself token-creator on another principal, and it cannot list IAM to verify one, so this is a genuine authorization boundary and not a scheduling question. Everything machine-side is already done: the capability is configured for impersonation (impersonate_reads=true) and falls back correctly today, so the change is a single IAM binding plus a preflight re-run. NOT urgent -- the current path works, this is defence in depth.",
                       "why_machine_cannot":  "granting an IAM role on a service account in another project requires an account with that project admin authority; no credential on this host carries it",
                       "est_minutes":  10,
@@ -66,18 +66,22 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Open GCP IAM for project forged-data and grant roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON the metabase-reader service account:",
-                                        "href":  "https://console.cloud.google.com/iam-admin/iam?project=forged-data"
+                                        "text":  "WHO: Tim (GCP project admin on forged-data). Cap cannot grant this binding. Account: your Tim Google identity with IAM Admin on project forged-data. Open Service Accounts for forged-data:",
+                                        "href":  "https://console.cloud.google.com/iam-admin/serviceaccounts?project=forged-data"
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Mark complete when done - Cap/HRQ clear the IAM unlock; card drops off #tim."
+                                        "text":  "POST-CLICK: find/open service account metabase-reader@forged-data.iam.gserviceaccount.com -\u003e Permissions (or Principals with access) -\u003e Grant Access. Principal to ADD: dbt-prod-runner@forged-data.iam.gserviceaccount.com. Role: Service Account Token Creator (roles/iam.serviceAccountTokenCreator). Save."
+                                    },
+                                    {
+                                        "n":  3,
+                                        "text":  "SUCCESS CUE: the Permissions list on metabase-reader shows dbt-prod-runner with roles/iam.serviceAccountTokenCreator. Then Mark complete - Cap re-runs BQ impersonation preflight; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
                                           {
                                               "label":  "Open link",
-                                              "value":  "https://console.cloud.google.com/iam-admin/iam?project=forged-data",
+                                              "value":  "https://console.cloud.google.com/iam-admin/serviceaccounts?project=forged-data",
                                               "kind":  "url",
                                               "run_where":  "Browser"
                                           }
@@ -88,7 +92,7 @@
                       "id":  "human:third-party-cli-login",
                       "kind":  "login",
                       "title":  "n8n: migrate Plaud captures sync off cloud Cowork (poll + Note ID dedupe + Captures write)",
-                      "summary":  "Unlocks Plaud CLI sync on aios-host by Tim browser login once (vendor consent is owner-bound).",
+                      "summary":  "Unlocks Plaud CLI sync on aios-host by Tim running plaud login once (vendor browser consent is owner-bound).",
                       "step":  "Install the official Plaud CLI on aios-host and run `plaud login` once to authorize it in Tim\u0027s browser (10 minutes)",
                       "why_machine_cannot":  "the vendor CLI opens a browser consent flow bound to the account owner; there is no unattended credential path",
                       "est_minutes":  10,
@@ -98,7 +102,7 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Open PowerShell on aios-host and run this one command, then finish the browser consent that opens:",
+                                        "text":  "WHO: Tim on aios-host first (RDP/interactive PowerShell on aios-host). Cap does not run plaud login. Install Plaud CLI if missing, then run this command - it opens the vendor browser consent flow:",
                                         "copy":  {
                                                      "label":  "Command",
                                                      "value":  "plaud login"
@@ -106,7 +110,11 @@
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Mark complete when done - Cap/HRQ clear the Plaud login ask; card drops off #tim."
+                                        "text":  "In the browser that opens: sign in / approve as Tim\u0027s Plaud account (the account that owns Forged captures). Approve the CLI device/authorization request. Do not use a shared or Cap identity."
+                                    },
+                                    {
+                                        "n":  3,
+                                        "text":  "SUCCESS CUE: back in aios-host PowerShell, plaud login exits 0 and `plaud whoami` (or equivalent status) shows the Tim Plaud account. Then Mark complete - Cap/HRQ clear the Plaud login ask; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
@@ -123,7 +131,7 @@
                       "id":  "human:bank-portal-enrolment",
                       "kind":  "pay",
                       "title":  "Forged: get a daily bank alert feed for the Enterprise CC (the last 13WCF hole)",
-                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert in the Enterprise Bank portal.",
+                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert to data@ in the Enterprise Bank portal.",
                       "step":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert. Confirm the first alert email lands before this row is set Ready.",
                       "why_machine_cannot":  "enrolling a financial account in an alert feed requires authenticating to the issuer portal as the account holder; this host holds no such credential and must not",
                       "est_minutes":  10,
@@ -133,12 +141,16 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Open Enterprise Bank online banking, sign in as the account holder, and enrol a daily balance Account Alert Notification for the Enterprise CC to data@ (mirror #7262 checking alert). Confirm the first alert from Notifications@enterprisebank.com lands:",
+                                        "text":  "WHO: Tim (account holder). BANK: Enterprise Bank. CARD: Forged Enterprise CC (issuer portal; mirror the existing #7262 checking Account Alert). Alert destination: data@ (Forged data mailbox). Cap does not hold bank credentials. Open Enterprise Bank online banking:",
                                         "href":  "https://www.enterprisebank.com/personal/online-banking"
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Mark complete when done - Cap/HRQ clear this unlock; card drops off #tim."
+                                        "text":  "POST-CLICK: sign in as the account holder -\u003e Account Alerts / Notifications -\u003e enrol a daily balance Account Alert Notification for the Enterprise CC to data@ (same pattern as checking #7262). Save/confirm enrolment."
+                                    },
+                                    {
+                                        "n":  3,
+                                        "text":  "SUCCESS CUE: first alert email lands in data@ (from Notifications@enterprisebank.com or issuer alert address). Then Mark complete - Cap/HRQ clear this unlock; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
@@ -295,7 +307,7 @@
                       "id":  "human:slack-app-install",
                       "kind":  "uac",
                       "title":  "Claude Code: CBS Slack local-only rail, Phase 1 read and notify",
-                      "summary":  "Unlocks CBS Slack local-only rail by Tim installing the Slack app in Camelback Society workspace.",
+                      "summary":  "Unlocks CBS Slack Cap Fabric by Tim installing the CBS Read-Only Rail app into Camelback Society and minting xapp+xoxb for Cap resume.",
                       "step":  "Create the CBS Slack app from the manifest below, install it to the Camelback Society workspace, generate an app-level token, and invite the bot to exactly the 12 named channels (15-25 minutes; longer if CBS workspace admin approval is required for install).",
                       "why_machine_cannot":  "creating and installing a Slack app, and minting an app-level token, requires a workspace admin acting in Slack own UI",
                       "est_minutes":  25,
@@ -305,12 +317,24 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Open Slack API Apps, create/install the CBS Slack app to Camelback Society, mint the app-level token, and invite the bot to the 12 named channels:",
+                                        "text":  "WHO: Tim (Camelback Society workspace admin). Cap prepared the manifest at C:\\AIOS\\n8n-workflows\\runtime\\cbs_slack_app_manifest.json (display name CBS Read-Only Rail). Cap does NOT create the app. Open Slack API Apps:",
                                         "href":  "https://api.slack.com/apps"
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Mark complete when done - Cap/HRQ clear the Slack install unlock; card drops off #tim."
+                                        "text":  "POST-CLICK: Create New App -\u003e From an app manifesto -\u003e paste/upload Cap manifest (cbs_slack_app_manifest.json) -\u003e Create. Install App to workspace Camelback Society (approve bot scopes). On Install App page copy Bot User OAuth Token (xoxb-...). On Basic Information -\u003e App-Level Tokens create a token with connections:write (xapp-...)."
+                                    },
+                                    {
+                                        "n":  3,
+                                        "text":  "After tokens exist, Cap/Tim on aios-host set $env:CBS_SLACK_BOT_TOKEN and $env:CBS_SLACK_APP_TOKEN then run Cap resume (invites bot to the 12 mapped channels + activates lanes):",
+                                        "copy":  {
+                                                     "label":  "Command",
+                                                     "value":  "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\cbs-slack-resume.ps1 -StoreTokens -ActivateWorkflows"
+                                                 }
+                                    },
+                                    {
+                                        "n":  4,
+                                        "text":  "SUCCESS CUE: cbs-slack-resume auth.test ok for Camelback Society; channel invites done; Cap Fabric slack preflight no longer machine_auth_failed. Then Mark complete - Cap/HRQ clear the Slack install unlock; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
@@ -319,6 +343,12 @@
                                               "value":  "https://api.slack.com/apps",
                                               "kind":  "url",
                                               "run_where":  "Browser"
+                                          },
+                                          {
+                                              "label":  "Command",
+                                              "value":  "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\cbs-slack-resume.ps1 -StoreTokens -ActivateWorkflows",
+                                              "kind":  "text",
+                                              "run_where":  "see step text"
                                           }
                                       ],
                       "unblocks":  1
@@ -329,6 +359,6 @@
                    "primary":  0,
                    "from_cap":  2,
                    "from_hrq":  5,
-                   "acks_filtered":  6
+                   "acks_filtered":  7
                }
 }
