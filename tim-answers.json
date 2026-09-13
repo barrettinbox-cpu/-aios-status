@@ -1,7 +1,7 @@
 {
-    "updated_at_utc":  "2026-09-13T19:24:19.9193519Z",
-    "answers":  [
-
-                ],
-    "schema":  "aios.tim-answers.v1"
+    "schema":  "aios.redacted.v1",
+    "redacted":  true,
+    "path":  "tim-answers.json",
+    "reason":  "Operator Surface lockdown 2026-09-13 — public raw retired; packets served from private CF KV via token-gated worker",
+    "updated_at_utc":  "2026-09-13T22:59:50.6580723Z"
 }
