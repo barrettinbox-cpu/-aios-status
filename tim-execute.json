@@ -1,72 +1,11 @@
 {
     "schema":  "aios.tim-execute.v3",
-    "generated_at_utc":  "2026-09-13T21:11:42.0675972Z",
+    "generated_at_utc":  "2026-09-13T21:13:40.8975402Z",
     "doctrine":  "Cap-proved Tim-irreducible only. Summary+Steps: Cap prep to the click; Tim opens link/runs command; final step = Mark complete (writeback clears Cap/HRQ; card drops off #tim). No Telegram done-signal paste required. No failed_parked census. No Notion URLs.",
     "primary":  [
-                    {
-                        "id":  "cos-harbor-982391",
-                        "kind":  "pay",
-                        "title":  "Harbor invoice #982391 - Crosstown Media AZ registered agent",
-                        "summary":  "Unlocks Crosstown Media AZ agent name/address/acceptance by paying Harbor invoice #982391 (Tim pays in Harbor portal).",
-                        "step":  "Pay Harbor invoice #982391 for Crosstown Media AZ registered agent (thread 1a04a61303b20ee8). Unlocks agent name/address/acceptance.",
-                        "why_machine_cannot":  "Payment requires Tim bank/card authority.",
-                        "est_minutes":  5,
-                        "source":  "cap",
-                        "primary":  true,
-                        "state":  "OPEN",
-                        "steps":  [
-                                      {
-                                          "n":  1,
-                                          "text":  "Here is the link to pay Harbor invoice #982391 (Crosstown Media AZ RA). No per-invoice pay URL in the email - Harbor portal login is the live-proved path; open invoice #982391 and pay:",
-                                          "href":  "https://www.harborcompliance.com/users/login"
-                                      },
-                                      {
-                                          "n":  2,
-                                          "text":  "Mark complete when paid - that writeback signals Cap/HRQ and drops this card off #tim."
-                                      }
-                                  ],
-                        "copy_fields":  [
-                                            {
-                                                "label":  "Open link",
-                                                "value":  "https://www.harborcompliance.com/users/login",
-                                                "kind":  "url",
-                                                "run_where":  "Browser"
-                                            }
-                                        ]
-                    }
+
                 ],
     "items":  [
-                  {
-                      "id":  "cos-harbor-982391",
-                      "kind":  "pay",
-                      "title":  "Harbor invoice #982391 - Crosstown Media AZ registered agent",
-                      "summary":  "Unlocks Crosstown Media AZ agent name/address/acceptance by paying Harbor invoice #982391 (Tim pays in Harbor portal).",
-                      "step":  "Pay Harbor invoice #982391 for Crosstown Media AZ registered agent (thread 1a04a61303b20ee8). Unlocks agent name/address/acceptance.",
-                      "why_machine_cannot":  "Payment requires Tim bank/card authority.",
-                      "est_minutes":  5,
-                      "source":  "cap",
-                      "primary":  true,
-                      "state":  "OPEN",
-                      "steps":  [
-                                    {
-                                        "n":  1,
-                                        "text":  "Here is the link to pay Harbor invoice #982391 (Crosstown Media AZ RA). No per-invoice pay URL in the email - Harbor portal login is the live-proved path; open invoice #982391 and pay:",
-                                        "href":  "https://www.harborcompliance.com/users/login"
-                                    },
-                                    {
-                                        "n":  2,
-                                        "text":  "Mark complete when paid - that writeback signals Cap/HRQ and drops this card off #tim."
-                                    }
-                                ],
-                      "copy_fields":  [
-                                          {
-                                              "label":  "Open link",
-                                              "value":  "https://www.harborcompliance.com/users/login",
-                                              "kind":  "url",
-                                              "run_where":  "Browser"
-                                          }
-                                      ]
-                  },
                   {
                       "id":  "human:n8n-api-key",
                       "kind":  "apply-secret",
@@ -92,6 +31,38 @@
 
                                       ],
                       "unblocks":  2
+                  },
+                  {
+                      "id":  "human:iam-authority",
+                      "kind":  "uac",
+                      "title":  "Claude Code: restore metabase-reader impersonation so BigQuery reads stop running as the writer identity",
+                      "summary":  "Unlocks metabase-reader impersonation by granting one IAM binding Tim alone can authorize in GCP.",
+                      "step":  "GATE: external IAM authority. Needs roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON the metabase-reader service account in project forged-data. The machine identity cannot grant itself token-creator on another principal, and it cannot list IAM to verify one, so this is a genuine authorization boundary and not a scheduling question. Everything machine-side is already done: the capability is configured for impersonation (impersonate_reads=true) and falls back correctly today, so the change is a single IAM binding plus a preflight re-run. NOT urgent -- the current path works, this is defence in depth.",
+                      "why_machine_cannot":  "granting an IAM role on a service account in another project requires an account with that project admin authority; no credential on this host carries it",
+                      "est_minutes":  10,
+                      "source":  "hrq-filtered",
+                      "primary":  false,
+                      "state":  "WAITING_FOR_PROBE",
+                      "steps":  [
+                                    {
+                                        "n":  1,
+                                        "text":  "Here is the link to grant roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON metabase-reader (project forged-data):",
+                                        "href":  "https://console.cloud.google.com/iam-admin/iam"
+                                    },
+                                    {
+                                        "n":  2,
+                                        "text":  "Mark complete when done - Cap/HRQ clear the IAM unlock; card drops off #tim."
+                                    }
+                                ],
+                      "copy_fields":  [
+                                          {
+                                              "label":  "Open link",
+                                              "value":  "https://console.cloud.google.com/iam-admin/iam",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
+                                          }
+                                      ],
+                      "unblocks":  1
                   },
                   {
                       "id":  "human:google-oauth-consent",
@@ -161,12 +132,12 @@
                       "unblocks":  1
                   },
                   {
-                      "id":  "human:iam-authority",
-                      "kind":  "uac",
-                      "title":  "Claude Code: restore metabase-reader impersonation so BigQuery reads stop running as the writer identity",
-                      "summary":  "Unlocks metabase-reader impersonation by granting one IAM binding Tim alone can authorize in GCP.",
-                      "step":  "GATE: external IAM authority. Needs roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON the metabase-reader service account in project forged-data. The machine identity cannot grant itself token-creator on another principal, and it cannot list IAM to verify one, so this is a genuine authorization boundary and not a scheduling question. Everything machine-side is already done: the capability is configured for impersonation (impersonate_reads=true) and falls back correctly today, so the change is a single IAM binding plus a preflight re-run. NOT urgent -- the current path works, this is defence in depth.",
-                      "why_machine_cannot":  "granting an IAM role on a service account in another project requires an account with that project admin authority; no credential on this host carries it",
+                      "id":  "human:bank-portal-enrolment",
+                      "kind":  "pay",
+                      "title":  "Forged: get a daily bank alert feed for the Enterprise CC (the last 13WCF hole)",
+                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert in the issuer portal.",
+                      "step":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert. Confirm the first alert email lands before this row is set Ready.",
+                      "why_machine_cannot":  "enrolling a financial account in an alert feed requires authenticating to the issuer portal as the account holder; this host holds no such credential and must not",
                       "est_minutes":  10,
                       "source":  "hrq-filtered",
                       "primary":  false,
@@ -174,21 +145,15 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Here is the link to grant roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON metabase-reader (project forged-data):",
-                                        "href":  "https://console.cloud.google.com/iam-admin/iam"
+                                        "text":  "Log into the Enterprise CC issuer portal and enrol a daily balance Account Alert Notification to data@ (mirror #7262 checking alert). Confirm the first alert email lands."
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Mark complete when done - Cap/HRQ clear the IAM unlock; card drops off #tim."
+                                        "text":  "Mark complete when done - Cap/HRQ clear this unlock; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
-                                          {
-                                              "label":  "Open link",
-                                              "value":  "https://console.cloud.google.com/iam-admin/iam",
-                                              "kind":  "url",
-                                              "run_where":  "Browser"
-                                          }
+
                                       ],
                       "unblocks":  1
                   },
@@ -216,32 +181,6 @@
                       "copy_fields":  [
 
                                       ]
-                  },
-                  {
-                      "id":  "human:bank-portal-enrolment",
-                      "kind":  "pay",
-                      "title":  "Forged: get a daily bank alert feed for the Enterprise CC (the last 13WCF hole)",
-                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert in the issuer portal.",
-                      "step":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert. Confirm the first alert email lands before this row is set Ready.",
-                      "why_machine_cannot":  "enrolling a financial account in an alert feed requires authenticating to the issuer portal as the account holder; this host holds no such credential and must not",
-                      "est_minutes":  10,
-                      "source":  "hrq-filtered",
-                      "primary":  false,
-                      "state":  "WAITING_FOR_PROBE",
-                      "steps":  [
-                                    {
-                                        "n":  1,
-                                        "text":  "Log into the Enterprise CC issuer portal and enrol a daily balance Account Alert Notification to data@ (mirror #7262 checking alert). Confirm the first alert email lands."
-                                    },
-                                    {
-                                        "n":  2,
-                                        "text":  "Mark complete when done - Cap/HRQ clear this unlock; card drops off #tim."
-                                    }
-                                ],
-                      "copy_fields":  [
-
-                                      ],
-                      "unblocks":  1
                   },
                   {
                       "id":  "commerce-stripe-cap-ready",
@@ -308,9 +247,9 @@
                   }
               ],
     "counts":  {
-                   "total":  9,
-                   "primary":  1,
-                   "from_cap":  3,
+                   "total":  8,
+                   "primary":  0,
+                   "from_cap":  2,
                    "from_hrq":  6,
                    "acks_filtered":  6
                }
