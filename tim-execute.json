@@ -1,6 +1,6 @@
 {
     "schema":  "aios.tim-execute.v2",
-    "generated_at_utc":  "2026-09-13T19:19:39.8534043Z",
+    "generated_at_utc":  "2026-09-13T19:20:39.3390870Z",
     "doctrine":  "Cap-proved Tim-irreducible only: pay / login / send-yes / apply-secret / KYC / UAC. No failed_parked census. No Notion URLs. Mark-complete writeback clears Cap/HRQ.",
     "primary":  [
                     {
@@ -27,17 +27,20 @@
                                             {
                                                 "label":  "Invoice",
                                                 "value":  "#982391 (Harbor / Crosstown Media AZ registered agent)",
-                                                "kind":  "text"
+                                                "kind":  "text",
+                                                "run_where":  "Browser (Harbor pay portal / invoice email)"
                                             },
                                             {
                                                 "label":  "Thread ref",
                                                 "value":  "1a04a61303b20ee8",
-                                                "kind":  "text"
+                                                "kind":  "text",
+                                                "run_where":  "Gmail search (Tim mailbox) â€” paste into search box"
                                             },
                                             {
                                                 "label":  "Done signal (TG/reply)",
                                                 "value":  "harbor 982391 paid",
-                                                "kind":  "prompt"
+                                                "kind":  "prompt",
+                                                "run_where":  "Telegram reply to CoS (or Cap signal) â€” paste as message text"
                                             }
                                         ]
                     }
@@ -67,17 +70,20 @@
                                           {
                                               "label":  "Invoice",
                                               "value":  "#982391 (Harbor / Crosstown Media AZ registered agent)",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "Browser (Harbor pay portal / invoice email)"
                                           },
                                           {
                                               "label":  "Thread ref",
                                               "value":  "1a04a61303b20ee8",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "Gmail search (Tim mailbox) â€” paste into search box"
                                           },
                                           {
                                               "label":  "Done signal (TG/reply)",
                                               "value":  "harbor 982391 paid",
-                                              "kind":  "prompt"
+                                              "kind":  "prompt",
+                                              "run_where":  "Telegram reply to CoS (or Cap signal) â€” paste as message text"
                                           }
                                       ]
                   },
@@ -101,17 +107,20 @@
                                           {
                                               "label":  "Secret path (name only)",
                                               "value":  "C:\\AIOS\\secrets\\  (N8N_API_KEY - do not paste key in chat)",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "aios-host apply-secret path (file write â€” never chat paste)"
                                           },
                                           {
                                               "label":  "Webhook path (local)",
                                               "value":  "http://127.0.0.1:5678/webhook/quo-comms-ledger",
-                                              "kind":  "url"
+                                              "kind":  "url",
+                                              "run_where":  "Browser or PowerShell on aios-host (local n8n)"
                                           },
                                           {
                                               "label":  "Done signal",
                                               "value":  "n8n api key ready",
-                                              "kind":  "prompt"
+                                              "kind":  "prompt",
+                                              "run_where":  "Telegram reply to CoS â€” paste as message text"
                                           }
                                       ],
                       "unblocks":  2
@@ -152,12 +161,14 @@
                                           {
                                               "label":  "IAM binding needed",
                                               "value":  "roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON metabase-reader (project forged-data)",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "Browser (GCP IAM) or gcloud in PowerShell on aios-host"
                                           },
                                           {
                                               "label":  "Done signal",
                                               "value":  "metabase-reader impersonation granted",
-                                              "kind":  "prompt"
+                                              "kind":  "prompt",
+                                              "run_where":  "Telegram reply to CoS â€” paste as message text"
                                           }
                                       ],
                       "unblocks":  1
@@ -182,12 +193,14 @@
                                           {
                                               "label":  "Install + login (aios-host)",
                                               "value":  "plaud login",
-                                              "kind":  "command"
+                                              "kind":  "command",
+                                              "run_where":  "PowerShell on aios-host (normal user)"
                                           },
                                           {
                                               "label":  "Done signal",
                                               "value":  "plaud login done",
-                                              "kind":  "prompt"
+                                              "kind":  "prompt",
+                                              "run_where":  "Telegram reply to CoS â€” paste as message text"
                                           }
                                       ],
                       "unblocks":  1
@@ -212,12 +225,14 @@
                                           {
                                               "label":  "Account",
                                               "value":  "tbarrett@forgeddumpsters.com",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "Browser (Google OAuth consent screen)"
                                           },
                                           {
                                               "label":  "Done signal",
                                               "value":  "gmail oauth ready forgeddumpsters",
-                                              "kind":  "prompt"
+                                              "kind":  "prompt",
+                                              "run_where":  "Telegram reply to CoS â€” paste as message text"
                                           }
                                       ],
                       "unblocks":  1
@@ -246,17 +261,20 @@
                                           {
                                               "label":  "Target mailbox",
                                               "value":  "data@",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "Browser (bank portal alert enrolment UI)"
                                           },
                                           {
                                               "label":  "Mirror pattern",
                                               "value":  "same as #7262 checking Account Alert Notification (daily balance)",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "Browser (bank portal) â€” match existing alert pattern"
                                           },
                                           {
                                               "label":  "Done signal",
                                               "value":  "enterprise cc alert enrolled",
-                                              "kind":  "prompt"
+                                              "kind":  "prompt",
+                                              "run_where":  "Telegram reply to CoS â€” paste as message text"
                                           }
                                       ],
                       "unblocks":  1
@@ -289,22 +307,26 @@
                                           {
                                               "label":  "Apply-secret path",
                                               "value":  "C:\\AIOS\\secrets\\commerce-stripe.env",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "aios-host apply-secret path (env file â€” never chat paste keys)"
                                           },
                                           {
                                               "label":  "Env keys (names only)",
                                               "value":  "STRIPE_SECRET_KEY + STRIPE_PUBLISHABLE_KEY",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "aios-host apply-secret â€” names only; values go in env file"
                                           },
                                           {
                                               "label":  "Payout destination",
                                               "value":  "SBT Group Chase ...6759",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "Browser (Stripe KYC / payout settings)"
                                           },
                                           {
                                               "label":  "Done signal (required)",
                                               "value":  "stripe cap ready",
-                                              "kind":  "prompt"
+                                              "kind":  "prompt",
+                                              "run_where":  "Telegram reply to CoS â€” paste as message text"
                                           }
                                       ]
                   },
@@ -328,12 +350,14 @@
                                           {
                                               "label":  "Workspace",
                                               "value":  "Camelback Society (CBS)",
-                                              "kind":  "text"
+                                              "kind":  "text",
+                                              "run_where":  "Browser (Slack app install)"
                                           },
                                           {
                                               "label":  "Done signal",
                                               "value":  "cbs slack app installed",
-                                              "kind":  "prompt"
+                                              "kind":  "prompt",
+                                              "run_where":  "Telegram reply to CoS â€” paste as message text"
                                           }
                                       ],
                       "unblocks":  1
