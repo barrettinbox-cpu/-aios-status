@@ -1,6 +1,6 @@
 {
     "schema":  "aios.tim-waiting.v1",
-    "generated_at_utc":  "2026-09-13T22:55:59.8288858Z",
+    "generated_at_utc":  "2026-09-13T22:57:57.2902507Z",
     "doctrine":  "Tim-execute = human-irreducible NOW only. Waiting = Cap-proved waits with finite SLA + urgency_class. Cap owns follow-up drafts at next_action_at; Tim-execute only if Tim chooses Harbor-pay NOW after Northwest resolve/kill.",
     "urgency_classifier":  {
                                "P0":  "critical unlock (blocks revenue/live pay/KYC path): 1 business day",
