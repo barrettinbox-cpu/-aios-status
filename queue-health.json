@@ -1,17 +1,16 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-13T07:05:29Z",
-    "published_at_utc":  "2026-09-13T07:05:35Z",
-    "sequence":  2190,
-    "age_seconds_at_publish":  6,
+    "generated_at_utc":  "2026-09-13T07:07:29Z",
+    "published_at_utc":  "2026-09-13T07:07:34Z",
+    "sequence":  2191,
+    "age_seconds_at_publish":  5,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
                      "provider openai is exhausted",
                      "provider xai is exhausted",
-                     "truth sources disagree: Notion says 1 row(s) Running; 0 registered worker process(es) are alive (0 of them settled past the claim/finalize window)",
-                     "truth sources disagree: worker registry holds 1 pid(s) that no longer exist: 26288 -- stale lease",
+                     "1 failed row(s) unresolved by the reconciler",
                      "admission is PAUSED by the RAM envelope while 1 row(s) are claimable -- host pressure, not a stall"
                  ],
     "verdict_independent":  true,
@@ -30,7 +29,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0.1,
-                  "minutes_since_last_claim":  14.2
+                  "minutes_since_last_claim":  16.2
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -95,21 +94,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1390,
+                    "last_run_age_seconds":  1509,
                     "next_run_utc":  "2026-09-13T07:11:26Z",
                     "gaps":  7,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  115,
-                          "sources_agree":  false,
-                          "disagreement_count":  8
+                          "reconciliation_age_seconds":  116,
+                          "sources_agree":  true,
+                          "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-13T07:03:36Z",
+                        "last_change_utc":  "2026-09-13T07:05:35Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
