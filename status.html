@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="refresh" content="90"/>
-<title>AIOS status</title>
+<title>AIOS status</title><!-- build:c24-hero-20260913 -->
 <style>
   :root { color-scheme: light dark; --ok:#1a7f37; --deg:#9a6700; --bad:#cf222e; --muted:#656d76; --card:#f6f8fa; --border:#d0d7de; --tab:#0969da; }
   @media (prefers-color-scheme: dark) {
@@ -28,6 +28,9 @@
   .primary { outline: 2px solid var(--tab); }
   .step { white-space: pre-wrap; margin: .45rem 0 .2rem; }
   code { font-size: .78rem; word-break: break-all; }
+  .hero { text-align:center; padding:1rem .75rem 1.1rem; margin:0 0 .85rem; background:var(--card); border:1px solid var(--border); border-radius:12px; }
+  .hero-num { font-size:2.75rem; font-weight:800; line-height:1; letter-spacing:-0.02em; }
+  .hero-label { font-weight:700; margin-top:.35rem; }
 </style>
 </head>
 <body>
@@ -87,6 +90,7 @@
   function renderQueue(j) {
     var q = j.queue || {};
     var p = j.providers || {};
+    var c24 = (j.throughput || {}).completed_24h;
     var problems = (j.problems || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') || '<li class="muted">none</li>';
     var prov = Object.keys(p).map(function (k) {
       var s = p[k] || {};
@@ -98,21 +102,28 @@
       if (j.stale_after_seconds && a > j.stale_after_seconds) stale = ' · STALE';
     } catch (e) {}
     document.getElementById('queue-root').innerHTML =
+      '<div class="hero">' +
+        '<div class="hero-num">' + esc(c24 == null ? '—' : c24) + '</div>' +
+        '<div class="hero-label">completed in last 24h</div>' +
+        '<div class="muted">rolling Done finishes · live from CPI-08</div>' +
+      '</div>' +
       '<div><span class="verdict ' + cls(j.verdict) + '">' + esc(j.verdict || '?') + '</span>' +
       '<span class="muted"> · seq ' + esc(j.sequence) + ' · age ' + esc(age(j.generated_at_utc)) + stale + '</span></div>' +
       '<p style="margin:.75rem 0 .25rem"><strong>Problems</strong></p><ul>' + problems + '</ul>' +
+      '<p class="muted" style="margin:.25rem 0 .75rem">Cap owns routing around exhausted optional lanes; Tim only if you choose to buy/top-up.</p>' +
       '<p style="margin:.9rem 0 .35rem"><strong>Queue</strong></p>' +
       '<div class="grid">' +
         '<div><div class="k">Ready</div><div class="v">' + esc(q.ready) + '</div></div>' +
         '<div><div class="k">Running</div><div class="v">' + esc(q.running) + '</div></div>' +
-        '<div><div class="k">Completed / 24h</div><div class="v">' + esc((j.throughput||{}).completed_24h) + '</div></div>' +
-        '<div><div class="k">Done</div><div class="v">' + esc(q.done) + '</div></div>' +
+        '<div><div class="k">Done (all-time)</div><div class="v">' + esc(q.done) + '</div></div>' +
         '<div><div class="k">Draft / Failed</div><div class="v">' + esc(q.draft) + ' / ' + esc(q.failed) + '</div></div>' +
         '<div><div class="k">Dependency wait</div><div class="v">' + esc(q.dependency_wait) + '</div></div>' +
+        '<div><div class="k">Claimable now</div><div class="v">' + esc(q.claimable_now) + '</div></div>' +
       '</div>' +
       '<p style="margin:.9rem 0 .35rem"><strong>Providers</strong></p><div class="grid">' + prov + '</div>' +
       '<p class="muted" style="margin-top:.9rem">generated ' + esc(j.generated_at_utc) + '</p>';
   }
+
 
   function card(item, isPrimary) {
     return '<div class="card' + (isPrimary ? ' primary' : '') + '">' +
