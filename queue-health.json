@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-13T17:35:30Z",
-    "published_at_utc":  "2026-09-13T17:35:37Z",
-    "sequence":  2463,
+    "generated_at_utc":  "2026-09-13T17:37:31Z",
+    "published_at_utc":  "2026-09-13T17:37:38Z",
+    "sequence":  2464,
     "age_seconds_at_publish":  7,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -28,7 +28,7 @@
                                            "conflict-blocked":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  7.3
+                  "minutes_since_last_claim":  9.3
               },
     "throughput":  {
                        "completed_24h":  30,
@@ -78,36 +78,36 @@
                                         "recovery":  "",
                                         "no_failure_record":  false
                                     },
-                      "grok":  {
-                                   "state":  "healthy",
-                                   "admissible":  true,
-                                   "remaining_pct":  null,
-                                   "drain_threshold_pct":  null,
-                                   "capacity_measured_at":  "",
-                                   "until_utc":  "",
-                                   "recovery":  "",
-                                   "no_failure_record":  false
-                               }
+                      "cursor_ultra":  {
+                                           "state":  "healthy",
+                                           "admissible":  true,
+                                           "remaining_pct":  null,
+                                           "drain_threshold_pct":  null,
+                                           "capacity_measured_at":  "",
+                                           "until_utc":  "",
+                                           "recovery":  "",
+                                           "no_failure_record":  false
+                                       }
                   },
     "recent_reroutes":  [
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1359,
+                    "last_run_age_seconds":  1480,
                     "next_run_utc":  "2026-09-13T17:41:26Z",
                     "gaps":  7,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  115,
+                          "reconciliation_age_seconds":  116,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-13T17:33:37Z",
+                        "last_change_utc":  "2026-09-13T17:35:37Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
