@@ -1,6 +1,6 @@
 {
     "schema":  "aios.tim-execute.v3",
-    "generated_at_utc":  "2026-09-13T21:34:45.3599545Z",
+    "generated_at_utc":  "2026-09-13T21:35:24.4778013Z",
     "doctrine":  "Cap-proved Tim-irreducible only. Summary+Steps: Cap prep to the click; Tim opens link/runs command; final step = Mark complete (writeback clears Cap/HRQ; card drops off #tim). No Telegram done-signal paste required. No failed_parked census. No Notion URLs.",
     "primary":  [
 
@@ -53,12 +53,12 @@
                       "unblocks":  2
                   },
                   {
-                      "id":  "human:iam-authority",
-                      "kind":  "uac",
-                      "title":  "Claude Code: restore metabase-reader impersonation so BigQuery reads stop running as the writer identity",
-                      "summary":  "Unlocks metabase-reader impersonation by granting roles/iam.serviceAccountTokenCreator to dbt-prod-runner on metabase-reader (forged-data).",
-                      "step":  "GATE: external IAM authority. Needs roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON the metabase-reader service account in project forged-data. The machine identity cannot grant itself token-creator on another principal, and it cannot list IAM to verify one, so this is a genuine authorization boundary and not a scheduling question. Everything machine-side is already done: the capability is configured for impersonation (impersonate_reads=true) and falls back correctly today, so the change is a single IAM binding plus a preflight re-run. NOT urgent -- the current path works, this is defence in depth.",
-                      "why_machine_cannot":  "granting an IAM role on a service account in another project requires an account with that project admin authority; no credential on this host carries it",
+                      "id":  "human:bank-portal-enrolment",
+                      "kind":  "pay",
+                      "title":  "Forged: get a daily bank alert feed for the Enterprise CC (the last 13WCF hole)",
+                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert to data@ in the Enterprise Bank portal.",
+                      "step":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert. Confirm the first alert email lands before this row is set Ready.",
+                      "why_machine_cannot":  "enrolling a financial account in an alert feed requires authenticating to the issuer portal as the account holder; this host holds no such credential and must not",
                       "est_minutes":  10,
                       "source":  "hrq-filtered",
                       "primary":  false,
@@ -66,22 +66,22 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "WHO: Tim (GCP project admin on forged-data). Cap cannot grant this binding. Account: your Tim Google identity with IAM Admin on project forged-data. Open Service Accounts for forged-data:",
-                                        "href":  "https://console.cloud.google.com/iam-admin/serviceaccounts?project=forged-data"
+                                        "text":  "WHO: Tim (account holder). BANK: Enterprise Bank. CARD: Forged Enterprise CC (issuer portal; mirror the existing #7262 checking Account Alert). Alert destination: data@ (Forged data mailbox). Cap does not hold bank credentials. Open Enterprise Bank online banking:",
+                                        "href":  "https://www.enterprisebank.com/personal/online-banking"
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "POST-CLICK: find/open service account metabase-reader@forged-data.iam.gserviceaccount.com -\u003e Permissions (or Principals with access) -\u003e Grant Access. Principal to ADD: dbt-prod-runner@forged-data.iam.gserviceaccount.com. Role: Service Account Token Creator (roles/iam.serviceAccountTokenCreator). Save."
+                                        "text":  "POST-CLICK: sign in as the account holder -\u003e Account Alerts / Notifications -\u003e enrol a daily balance Account Alert Notification for the Enterprise CC to data@ (same pattern as checking #7262). Save/confirm enrolment."
                                     },
                                     {
                                         "n":  3,
-                                        "text":  "SUCCESS CUE: the Permissions list on metabase-reader shows dbt-prod-runner with roles/iam.serviceAccountTokenCreator. Then Mark complete - Cap re-runs BQ impersonation preflight; card drops off #tim."
+                                        "text":  "SUCCESS CUE: first alert email lands in data@ (from Notifications@enterprisebank.com or issuer alert address). Then Mark complete - Cap/HRQ clear this unlock; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
                                           {
                                               "label":  "Open link",
-                                              "value":  "https://console.cloud.google.com/iam-admin/serviceaccounts?project=forged-data",
+                                              "value":  "https://www.enterprisebank.com/personal/online-banking",
                                               "kind":  "url",
                                               "run_where":  "Browser"
                                           }
@@ -123,42 +123,6 @@
                                               "value":  "plaud login",
                                               "kind":  "text",
                                               "run_where":  "see step text"
-                                          }
-                                      ],
-                      "unblocks":  1
-                  },
-                  {
-                      "id":  "human:bank-portal-enrolment",
-                      "kind":  "pay",
-                      "title":  "Forged: get a daily bank alert feed for the Enterprise CC (the last 13WCF hole)",
-                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert to data@ in the Enterprise Bank portal.",
-                      "step":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert. Confirm the first alert email lands before this row is set Ready.",
-                      "why_machine_cannot":  "enrolling a financial account in an alert feed requires authenticating to the issuer portal as the account holder; this host holds no such credential and must not",
-                      "est_minutes":  10,
-                      "source":  "hrq-filtered",
-                      "primary":  false,
-                      "state":  "WAITING_FOR_PROBE",
-                      "steps":  [
-                                    {
-                                        "n":  1,
-                                        "text":  "WHO: Tim (account holder). BANK: Enterprise Bank. CARD: Forged Enterprise CC (issuer portal; mirror the existing #7262 checking Account Alert). Alert destination: data@ (Forged data mailbox). Cap does not hold bank credentials. Open Enterprise Bank online banking:",
-                                        "href":  "https://www.enterprisebank.com/personal/online-banking"
-                                    },
-                                    {
-                                        "n":  2,
-                                        "text":  "POST-CLICK: sign in as the account holder -\u003e Account Alerts / Notifications -\u003e enrol a daily balance Account Alert Notification for the Enterprise CC to data@ (same pattern as checking #7262). Save/confirm enrolment."
-                                    },
-                                    {
-                                        "n":  3,
-                                        "text":  "SUCCESS CUE: first alert email lands in data@ (from Notifications@enterprisebank.com or issuer alert address). Then Mark complete - Cap/HRQ clear this unlock; card drops off #tim."
-                                    }
-                                ],
-                      "copy_fields":  [
-                                          {
-                                              "label":  "Open link",
-                                              "value":  "https://www.enterprisebank.com/personal/online-banking",
-                                              "kind":  "url",
-                                              "run_where":  "Browser"
                                           }
                                       ],
                       "unblocks":  1
@@ -355,10 +319,10 @@
                   }
               ],
     "counts":  {
-                   "total":  7,
+                   "total":  6,
                    "primary":  0,
                    "from_cap":  2,
-                   "from_hrq":  5,
-                   "acks_filtered":  7
+                   "from_hrq":  4,
+                   "acks_filtered":  8
                }
 }
