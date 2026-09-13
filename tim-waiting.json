@@ -1,7 +1,43 @@
 {
-    "schema":  "aios.redacted.v1",
-    "redacted":  true,
-    "path":  "tim-waiting.json",
-    "reason":  "Operator Surface lockdown 2026-09-13 — public raw retired; packets served from private CF KV via token-gated worker",
-    "updated_at_utc":  "2026-09-13T22:59:49.6293141Z"
+    "schema":  "aios.tim-waiting.v1",
+    "generated_at_utc":  "2026-09-13T22:59:58.0768824Z",
+    "doctrine":  "Tim-execute = human-irreducible NOW only. Waiting = Cap-proved waits with finite SLA + urgency_class. Cap owns follow-up drafts at next_action_at; Tim-execute only if Tim chooses Harbor-pay NOW after Northwest resolve/kill.",
+    "urgency_classifier":  {
+                               "P0":  "critical unlock (blocks revenue/live pay/KYC path): 1 business day",
+                               "P1":  "time-bound filing/deadline: min(deadline-buffer, 2-3 bd)",
+                               "P2":  "normal vendor reply (Northwest-class): 5-7 bd (default next_action uses 5)",
+                               "P3":  "low: 10 bd then kill/park judgment"
+                           },
+    "counts":  {
+                   "items":  1,
+                   "by_urgency":  {
+                                      "P0":  0,
+                                      "P1":  0,
+                                      "P2":  1,
+                                      "P3":  0
+                                  }
+               },
+    "items":  [
+                  {
+                      "id":  "cos-harbor-982391",
+                      "title":  "Harbor #982391 / Crosstown RA vs Northwest organizer path",
+                      "waiting_on":  "Northwest reply (Michael) on thread 1a063cb30fe974ab",
+                      "since":  "2026-09-11",
+                      "urgency_class":  "P2",
+                      "sla_business_days":  5,
+                      "sla_band":  "5-7",
+                      "next_action_at":  "2026-09-18T16:00:00Z",
+                      "follow_up_or_kill":  "Cap drafts Northwest follow-up at SLA (Mon-Fri clock from since); Tim-execute only if Tim chooses Harbor-pay NOW after Northwest resolve/kill. Do NOT invent Done/paid on Harbor invoice.",
+                      "owner":  "Cap",
+                      "evidence_refs":  [
+                                            "C:\\AIOS\\_ops\\WAIT-GATED-CLOCKS-20260913\\CAP-PROVE.md",
+                                            "thread:1a063cb30fe974ab",
+                                            "thread:1a04a61303b20ee8",
+                                            "invoice:Harbor#982391"
+                                        ],
+                      "state":  "Waiting",
+                      "related_tim_execute_id":  "cos-harbor-982391",
+                      "notes":  "Harbor RA pay is technically independent BUT Crosstown anonymous formation is wait-gated on Northwest reply. Demoted off #tim primary 2026-09-13."
+                  }
+              ]
 }
