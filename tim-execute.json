@@ -1,12 +1,12 @@
 {
     "schema":  "aios.tim-execute.v2",
-    "generated_at_utc":  "2026-09-13T20:05:37.3864267Z",
+    "generated_at_utc":  "2026-09-13T20:08:04.4590005Z",
     "doctrine":  "Cap-proved Tim-irreducible only: pay / login / send-yes / apply-secret / KYC / UAC. No failed_parked census. No Notion URLs. Mark-complete writeback clears Cap/HRQ.",
     "primary":  [
                     {
                         "id":  "cos-harbor-982391",
                         "kind":  "pay",
-                        "title":  "Harbor invoice #982391 — Crosstown Media AZ registered agent",
+                        "title":  "Harbor invoice #982391 - Crosstown Media AZ registered agent",
                         "step":  "Pay Harbor invoice #982391 for Crosstown Media AZ registered agent (thread 1a04a61303b20ee8). Unlocks agent name/address/acceptance.",
                         "why_machine_cannot":  "Payment requires Tim bank/card authority.",
                         "est_minutes":  5,
@@ -49,7 +49,7 @@
                   {
                       "id":  "cos-harbor-982391",
                       "kind":  "pay",
-                      "title":  "Harbor invoice #982391 — Crosstown Media AZ registered agent",
+                      "title":  "Harbor invoice #982391 - Crosstown Media AZ registered agent",
                       "step":  "Pay Harbor invoice #982391 for Crosstown Media AZ registered agent (thread 1a04a61303b20ee8). Unlocks agent name/address/acceptance.",
                       "why_machine_cannot":  "Payment requires Tim bank/card authority.",
                       "est_minutes":  5,
@@ -126,6 +126,70 @@
                       "unblocks":  2
                   },
                   {
+                      "id":  "human:google-oauth-consent",
+                      "kind":  "login",
+                      "title":  "13WCF v3 #4: render PDF, create partner draft, notify via Telegram",
+                      "step":  "Give this queue-runner\u0027s Claude Code session a working Gmail connection for tbarrett@forgeddumpsters.com (via the workspace-mcp server, which already has a cached credential for that address) and grant its Google Drive tool permission, so the partner draft lands in the correct mailbox and the values-only snapshot can reach Drive. (~15 min)",
+                      "why_machine_cannot":  "Google OAuth consent requires an interactive browser sign-in as the account owner; a refresh token cannot be minted headlessly",
+                      "est_minutes":  10,
+                      "source":  "hrq-filtered",
+                      "primary":  false,
+                      "state":  "WAITING_FOR_PROBE",
+                      "steps":  [
+                                    {
+                                        "n":  1,
+                                        "text":  "Give this queue-runner\u0027s Claude Code session a working Gmail connection for tbarrett@forgeddumpsters.com (via the workspace-mcp server, which already has a cached credential for that address) and grant its Google Drive tool permission, so the partner draft lands in the correct mailbox and the values-only snapshot can reach Drive. (~15 min)"
+                                    }
+                                ],
+                      "copy_fields":  [
+                                          {
+                                              "label":  "Account",
+                                              "value":  "tbarrett@forgeddumpsters.com",
+                                              "kind":  "text",
+                                              "run_where":  "Browser - Google OAuth consent"
+                                          },
+                                          {
+                                              "label":  "Done signal",
+                                              "value":  "gmail oauth ready forgeddumpsters",
+                                              "kind":  "prompt",
+                                              "run_where":  "Telegram reply to CoS - paste as message text"
+                                          }
+                                      ],
+                      "unblocks":  1
+                  },
+                  {
+                      "id":  "human:third-party-cli-login",
+                      "kind":  "login",
+                      "title":  "n8n: migrate Plaud captures sync off cloud Cowork (poll + Note ID dedupe + Captures write)",
+                      "step":  "Install the official Plaud CLI on aios-host and run `plaud login` once to authorize it in Tim\u0027s browser (10 minutes)",
+                      "why_machine_cannot":  "the vendor CLI opens a browser consent flow bound to the account owner; there is no unattended credential path",
+                      "est_minutes":  10,
+                      "source":  "hrq-filtered",
+                      "primary":  false,
+                      "state":  "WAITING_FOR_PROBE",
+                      "steps":  [
+                                    {
+                                        "n":  1,
+                                        "text":  "Install the official Plaud CLI on aios-host and run `plaud login` once to authorize it in Tim\u0027s browser (10 minutes)"
+                                    }
+                                ],
+                      "copy_fields":  [
+                                          {
+                                              "label":  "Install + login (aios-host)",
+                                              "value":  "plaud login",
+                                              "kind":  "command",
+                                              "run_where":  "PowerShell on aios-host - normal user"
+                                          },
+                                          {
+                                              "label":  "Done signal",
+                                              "value":  "plaud login done",
+                                              "kind":  "prompt",
+                                              "run_where":  "Telegram reply to CoS - paste as message text"
+                                          }
+                                      ],
+                      "unblocks":  1
+                  },
+                  {
                       "id":  "human:iam-authority",
                       "kind":  "uac",
                       "title":  "Claude Code: restore metabase-reader impersonation so BigQuery reads stop running as the writer identity",
@@ -174,68 +238,37 @@
                       "unblocks":  1
                   },
                   {
-                      "id":  "human:third-party-cli-login",
-                      "kind":  "login",
-                      "title":  "n8n: migrate Plaud captures sync off cloud Cowork (poll + Note ID dedupe + Captures write)",
-                      "step":  "Install the official Plaud CLI on aios-host and run `plaud login` once to authorize it in Tim\u0027s browser (10 minutes)",
-                      "why_machine_cannot":  "the vendor CLI opens a browser consent flow bound to the account owner; there is no unattended credential path",
+                      "id":  "gemini-pplx-keys",
+                      "kind":  "kyc_secret",
+                      "title":  "Deposit Gemini + Perplexity API keys (apply-secret)",
+                      "step":  "Deposit GEMINI_API_KEY or GOOGLE_API_KEY and PERPLEXITY_API_KEY or PPLX_API_KEY via apply-secret (never chat paste). Then signal: gemini pplx keys ready. Cap clears google/perplexity exhausted + certifies lanes.",
+                      "why_machine_cannot":  "API keys are Tim-only entitlement; Cap scaffolds refuse-closed without them.",
                       "est_minutes":  10,
-                      "source":  "hrq-filtered",
+                      "source":  "cap",
                       "primary":  false,
-                      "state":  "WAITING_FOR_PROBE",
+                      "state":  "OPEN",
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Install the official Plaud CLI on aios-host and run `plaud login` once to authorize it in Tim\u0027s browser (10 minutes)"
+                                        "text":  "Deposit GEMINI_API_KEY or GOOGLE_API_KEY and PERPLEXITY_API_KEY or PPLX_API_KEY via apply-secret (never chat paste)."
+                                    },
+                                    {
+                                        "n":  2,
+                                        "text":  "Then signal: gemini pplx keys ready."
+                                    },
+                                    {
+                                        "n":  3,
+                                        "text":  "Cap clears google/perplexity exhausted + certifies lanes."
                                     }
                                 ],
                       "copy_fields":  [
                                           {
-                                              "label":  "Install + login (aios-host)",
-                                              "value":  "plaud login",
-                                              "kind":  "command",
-                                              "run_where":  "PowerShell on aios-host - normal user"
-                                          },
-                                          {
                                               "label":  "Done signal",
-                                              "value":  "plaud login done",
+                                              "value":  "gemini pplx keys ready",
                                               "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS - paste as message text"
+                                              "run_where":  "Telegram reply to CoS after apply-secret"
                                           }
-                                      ],
-                      "unblocks":  1
-                  },
-                  {
-                      "id":  "human:google-oauth-consent",
-                      "kind":  "login",
-                      "title":  "13WCF v3 #4: render PDF, create partner draft, notify via Telegram",
-                      "step":  "Give this queue-runner\u0027s Claude Code session a working Gmail connection for tbarrett@forgeddumpsters.com (via the workspace-mcp server, which already has a cached credential for that address) and grant its Google Drive tool permission, so the partner draft lands in the correct mailbox and the values-only snapshot can reach Drive. (~15 min)",
-                      "why_machine_cannot":  "Google OAuth consent requires an interactive browser sign-in as the account owner; a refresh token cannot be minted headlessly",
-                      "est_minutes":  10,
-                      "source":  "hrq-filtered",
-                      "primary":  false,
-                      "state":  "WAITING_FOR_PROBE",
-                      "steps":  [
-                                    {
-                                        "n":  1,
-                                        "text":  "Give this queue-runner\u0027s Claude Code session a working Gmail connection for tbarrett@forgeddumpsters.com (via the workspace-mcp server, which already has a cached credential for that address) and grant its Google Drive tool permission, so the partner draft lands in the correct mailbox and the values-only snapshot can reach Drive. (~15 min)"
-                                    }
-                                ],
-                      "copy_fields":  [
-                                          {
-                                              "label":  "Account",
-                                              "value":  "tbarrett@forgeddumpsters.com",
-                                              "kind":  "text",
-                                              "run_where":  "Browser - Google OAuth consent"
-                                          },
-                                          {
-                                              "label":  "Done signal",
-                                              "value":  "gmail oauth ready forgeddumpsters",
-                                              "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS - paste as message text"
-                                          }
-                                      ],
-                      "unblocks":  1
+                                      ]
                   },
                   {
                       "id":  "human:bank-portal-enrolment",
@@ -283,8 +316,8 @@
                       "id":  "commerce-stripe-cap-ready",
                       "kind":  "kyc_secret",
                       "title":  "Stripe KYC + apply-secret for Commerce #001",
-                      "step":  "Finish SBT Group Stripe KYC (no personal cell). Enable Payment Links; payouts to SBT Group Chase …6759. Then run apply-secret into C:\\AIOS\\secrets\\commerce-stripe.env (STRIPE_SECRET_KEY + STRIPE_PUBLISHABLE_KEY) and reply/signal `stripe cap ready` (not chat paste of keys).",
-                      "why_machine_cannot":  "KYC + live keys are Tim-only; Cap Verifies fingerprint after deposit.",
+                      "step":  "Finish SBT Group Stripe KYC (no personal cell). Enable Payment Links; payouts to SBT Group Chase .6759. Then run apply-secret into C:\\AIOS\\secrets\\commerce-stripe.env (STRIPE_SECRET_KEY + STRIPE_PUBLISHABLE_KEY) and reply/signal `stripe cap ready` (not chat paste of keys).",
+                      "why_machine_cannot":  "KYC + live keys are Tim-only; Cap verifies fingerprint after deposit.",
                       "est_minutes":  20,
                       "source":  "cap",
                       "primary":  false,
@@ -296,7 +329,7 @@
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Enable Payment Links; payouts to SBT Group Chase …6759."
+                                        "text":  "Enable Payment Links; payouts to SBT Group Chase .6759."
                                     },
                                     {
                                         "n":  3,
@@ -364,9 +397,9 @@
                   }
               ],
     "counts":  {
-                   "total":  8,
+                   "total":  9,
                    "primary":  1,
-                   "from_cap":  2,
+                   "from_cap":  3,
                    "from_hrq":  6,
                    "acks_filtered":  2
                }
