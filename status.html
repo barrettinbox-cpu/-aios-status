@@ -3,36 +3,57 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta http-equiv="refresh" content="60"/>
-<title>AIOS queue status</title>
+<meta http-equiv="refresh" content="90"/>
+<title>AIOS status</title>
 <style>
-  :root { color-scheme: light dark; --ok:#1a7f37; --deg:#9a6700; --bad:#cf222e; --muted:#656d76; --card:#f6f8fa; --border:#d0d7de; }
+  :root { color-scheme: light dark; --ok:#1a7f37; --deg:#9a6700; --bad:#cf222e; --muted:#656d76; --card:#f6f8fa; --border:#d0d7de; --tab:#0969da; }
   @media (prefers-color-scheme: dark) {
     :root { --card:#161b22; --border:#30363d; --muted:#8b949e; }
   }
   body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-         margin: 0; padding: 1.25rem; line-height: 1.45; max-width: 42rem; }
-  h1 { font-size: 1.25rem; margin: 0 0 .5rem; }
+         margin: 0; padding: 1rem 1.1rem 2rem; line-height: 1.45; max-width: 44rem; }
+  h1 { font-size: 1.2rem; margin: 0 0 .35rem; }
+  .tabs { display:flex; gap:.35rem; margin: .85rem 0 1rem; border-bottom: 1px solid var(--border); }
+  .tab { appearance:none; background:transparent; border:0; border-bottom:2px solid transparent; padding:.45rem .7rem; font:inherit; font-weight:600; color:var(--muted); cursor:pointer; margin-bottom:-1px; }
+  .tab[aria-selected="true"] { color:inherit; border-bottom-color: var(--tab); }
+  .panel { display:none; } .panel.active { display:block; }
   .verdict { display:inline-block; font-weight:700; padding:.2rem .55rem; border-radius:999px; border:1px solid var(--border); }
   .ok { color: var(--ok); } .deg { color: var(--deg); } .bad { color: var(--bad); }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: .9rem 1rem; margin: .75rem 0; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: .85rem 1rem; margin: .65rem 0; }
   .muted { color: var(--muted); font-size: .85rem; }
   .grid { display:grid; grid-template-columns: 1fr 1fr; gap: .5rem .75rem; }
   .k { color: var(--muted); font-size: .8rem; } .v { font-weight: 600; }
   ul { margin: .4rem 0 0 1.1rem; padding: 0; }
-  code { font-size: .8rem; word-break: break-all; }
-  a { color: inherit; }
+  .badge { display:inline-block; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; padding:.15rem .45rem; border-radius:999px; border:1px solid var(--border); margin-right:.35rem; }
+  .primary { outline: 2px solid var(--tab); }
+  .step { white-space: pre-wrap; margin: .45rem 0 .2rem; }
+  code { font-size: .78rem; word-break: break-all; }
 </style>
 </head>
 <body>
-  <h1>AIOS queue status</h1>
-  <p class="muted">Live public read of CPI-08 published health. Auto-refreshes every 60s. No secrets.</p>
-  <div id="root" class="card">Loading…</div>
-  <p class="muted">Source: <code id="src"></code></p>
+  <h1>AIOS status</h1>
+  <p class="muted">Queue health + Cap-proved Tim-execute asks only (pay / login / send / secret / KYC). No Notion links. Auto-refresh ~90s.</p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-queue" aria-selected="true" aria-controls="panel-queue">Queue</button>
+    <button class="tab" role="tab" id="tab-tim" aria-selected="false" aria-controls="panel-tim">Tim execute <span id="tim-count" class="muted"></span></button>
+  </div>
+  <div id="panel-queue" class="panel active" role="tabpanel">
+    <div id="queue-root" class="card">Loading queue…</div>
+    <p class="muted">Source: <code id="src-q"></code></p>
+  </div>
+  <div id="panel-tim" class="panel" role="tabpanel">
+    <p class="muted" id="tim-doctrine"></p>
+    <div id="tim-primary"></div>
+    <div id="tim-list"></div>
+    <p class="muted">Source: <code id="src-t"></code></p>
+  </div>
 <script>
 (function () {
-  var SRC = 'https://raw.githubusercontent.com/barrettinbox-cpu/-aios-status/main/queue-health.json';
-  document.getElementById('src').textContent = SRC;
+  var Q = 'https://raw.githubusercontent.com/barrettinbox-cpu/-aios-status/main/queue-health.json';
+  var T = 'https://raw.githubusercontent.com/barrettinbox-cpu/-aios-status/main/tim-execute.json';
+  document.getElementById('src-q').textContent = Q;
+  document.getElementById('src-t').textContent = T;
+
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]);
@@ -51,7 +72,19 @@
     if (v === 'DEGRADED' || v === 'WARN') return 'deg';
     return 'bad';
   }
-  function render(j) {
+  function showTab(name) {
+    var q = name === 'queue';
+    document.getElementById('tab-queue').setAttribute('aria-selected', q ? 'true' : 'false');
+    document.getElementById('tab-tim').setAttribute('aria-selected', q ? 'false' : 'true');
+    document.getElementById('panel-queue').className = 'panel' + (q ? ' active' : '');
+    document.getElementById('panel-tim').className = 'panel' + (q ? '' : ' active');
+    try { history.replaceState(null, '', q ? '#queue' : '#tim'); } catch (e) {}
+  }
+  document.getElementById('tab-queue').onclick = function () { showTab('queue'); };
+  document.getElementById('tab-tim').onclick = function () { showTab('tim'); };
+  if (location.hash === '#tim') showTab('tim');
+
+  function renderQueue(j) {
     var q = j.queue || {};
     var p = j.providers || {};
     var problems = (j.problems || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') || '<li class="muted">none</li>';
@@ -64,7 +97,7 @@
       var a = Math.round((Date.now() - Date.parse(j.generated_at_utc)) / 1000);
       if (j.stale_after_seconds && a > j.stale_after_seconds) stale = ' · STALE';
     } catch (e) {}
-    document.getElementById('root').innerHTML =
+    document.getElementById('queue-root').innerHTML =
       '<div><span class="verdict ' + cls(j.verdict) + '">' + esc(j.verdict || '?') + '</span>' +
       '<span class="muted"> · seq ' + esc(j.sequence) + ' · age ' + esc(age(j.generated_at_utc)) + stale + '</span></div>' +
       '<p style="margin:.75rem 0 .25rem"><strong>Problems</strong></p><ul>' + problems + '</ul>' +
@@ -72,22 +105,51 @@
       '<div class="grid">' +
         '<div><div class="k">Ready</div><div class="v">' + esc(q.ready) + '</div></div>' +
         '<div><div class="k">Running</div><div class="v">' + esc(q.running) + '</div></div>' +
-        '<div><div class="k">Claimable now</div><div class="v">' + esc(q.claimable_now) + '</div></div>' +
-        '<div><div class="k">Dependency wait</div><div class="v">' + esc(q.dependency_wait) + '</div></div>' +
+        '<div><div class="k">Completed / 24h</div><div class="v">' + esc((j.throughput||{}).completed_24h) + '</div></div>' +
         '<div><div class="k">Done</div><div class="v">' + esc(q.done) + '</div></div>' +
         '<div><div class="k">Draft / Failed</div><div class="v">' + esc(q.draft) + ' / ' + esc(q.failed) + '</div></div>' +
+        '<div><div class="k">Dependency wait</div><div class="v">' + esc(q.dependency_wait) + '</div></div>' +
       '</div>' +
       '<p style="margin:.9rem 0 .35rem"><strong>Providers</strong></p><div class="grid">' + prov + '</div>' +
-      '<p class="muted" style="margin-top:.9rem">generated ' + esc(j.generated_at_utc) +
-      ' · published ' + esc(j.published_at_utc) + '</p>';
+      '<p class="muted" style="margin-top:.9rem">generated ' + esc(j.generated_at_utc) + '</p>';
   }
-  function fail(msg) {
-    document.getElementById('root').innerHTML = '<p class="bad"><strong>Could not load status</strong></p><p class="muted">' + esc(msg) + '</p>';
+
+  function card(item, isPrimary) {
+    return '<div class="card' + (isPrimary ? ' primary' : '') + '">' +
+      (isPrimary ? '<div class="muted" style="margin-bottom:.35rem"><strong>Do this first</strong></div>' : '') +
+      '<div><span class="badge">' + esc(item.kind || 'ask') + '</span>' +
+      '<span class="muted">' + esc(item.est_minutes != null ? (item.est_minutes + ' min') : '') +
+      (item.unblocks ? (' · unblocks ' + item.unblocks) : '') + '</span></div>' +
+      '<div style="font-weight:700;margin-top:.35rem">' + esc(item.title) + '</div>' +
+      '<div class="step">' + esc(item.step) + '</div>' +
+      '<div class="muted">' + esc(item.why_machine_cannot || '') + '</div>' +
+      '</div>';
   }
-  fetch(SRC + '?t=' + Date.now(), { cache: 'no-store' })
+
+  function renderTim(j) {
+    document.getElementById('tim-doctrine').textContent = j.doctrine || '';
+    var items = j.items || [];
+    document.getElementById('tim-count').textContent = items.length ? ('(' + items.length + ')') : '';
+    var primary = j.primary && j.primary.id ? j.primary : (items.filter(function (x) { return x.primary; })[0] || null);
+    var htmlP = primary ? card(primary, true) : '<div class="card muted">No Cap-proved primary Tim ask right now.</div>';
+    document.getElementById('tim-primary').innerHTML = htmlP;
+    var rest = items.filter(function (x) { return !primary || x.id !== primary.id; });
+    document.getElementById('tim-list').innerHTML = rest.length
+      ? ('<p class="muted" style="margin:.85rem 0 .35rem">Also Cap-proved (anytime)</p>' + rest.map(function (x) { return card(x, false); }).join(''))
+      : '';
+  }
+
+  function fail(el, msg) { document.getElementById(el).innerHTML = '<p class="bad"><strong>Could not load</strong></p><p class="muted">' + esc(msg) + '</p>'; }
+
+  fetch(Q + '?t=' + Date.now(), { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-    .then(render)
-    .catch(function (e) { fail(e && e.message ? e.message : String(e)); });
+    .then(renderQueue)
+    .catch(function (e) { fail('queue-root', e && e.message ? e.message : String(e)); });
+
+  fetch(T + '?t=' + Date.now(), { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(renderTim)
+    .catch(function (e) { fail('tim-primary', e && e.message ? e.message : String(e)); });
 })();
 </script>
 </body>
