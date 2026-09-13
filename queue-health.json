@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
     "generated_at_utc":  "2026-09-13T19:19:31Z",
-    "published_at_utc":  "2026-09-13T19:19:37Z",
-    "sequence":  2510,
-    "age_seconds_at_publish":  6,
+    "published_at_utc":  "2026-09-13T19:20:36Z",
+    "sequence":  2511,
+    "age_seconds_at_publish":  66,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
