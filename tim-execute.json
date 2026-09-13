@@ -1,6 +1,6 @@
 {
     "schema":  "aios.tim-execute.v3",
-    "generated_at_utc":  "2026-09-13T21:27:39.5953034Z",
+    "generated_at_utc":  "2026-09-13T21:28:32.6140890Z",
     "doctrine":  "Cap-proved Tim-irreducible only. Summary+Steps: Cap prep to the click; Tim opens link/runs command; final step = Mark complete (writeback clears Cap/HRQ; card drops off #tim). No Telegram done-signal paste required. No failed_parked census. No Notion URLs.",
     "primary":  [
 
@@ -78,38 +78,6 @@
                                           {
                                               "label":  "Open link",
                                               "value":  "https://console.cloud.google.com/iam-admin/iam?project=forged-data",
-                                              "kind":  "url",
-                                              "run_where":  "Browser"
-                                          }
-                                      ],
-                      "unblocks":  1
-                  },
-                  {
-                      "id":  "human:google-oauth-consent",
-                      "kind":  "login",
-                      "title":  "13WCF v3 #4: render PDF, create partner draft, notify via Telegram",
-                      "summary":  "Unlocks Gmail/Drive for forgeddumpsters by Tim-irreducible Google OAuth login in browser.",
-                      "step":  "Give this queue-runner\u0027s Claude Code session a working Gmail connection for tbarrett@forgeddumpsters.com (via the workspace-mcp server, which already has a cached credential for that address) and grant its Google Drive tool permission, so the partner draft lands in the correct mailbox and the values-only snapshot can reach Drive. (~15 min)",
-                      "why_machine_cannot":  "Google OAuth consent requires an interactive browser sign-in as the account owner; a refresh token cannot be minted headlessly",
-                      "est_minutes":  10,
-                      "source":  "hrq-filtered",
-                      "primary":  false,
-                      "state":  "WAITING_FOR_PROBE",
-                      "steps":  [
-                                    {
-                                        "n":  1,
-                                        "text":  "Open this Google sign-in link and complete OAuth consent as tbarrett@forgeddumpsters.com (Tim-irreducible browser login only):",
-                                        "href":  "https://accounts.google.com/"
-                                    },
-                                    {
-                                        "n":  2,
-                                        "text":  "Mark complete when done - Cap/HRQ treat Gmail OAuth as ready; card drops off #tim."
-                                    }
-                                ],
-                      "copy_fields":  [
-                                          {
-                                              "label":  "Open link",
-                                              "value":  "https://accounts.google.com/",
                                               "kind":  "url",
                                               "run_where":  "Browser"
                                           }
@@ -357,10 +325,10 @@
                   }
               ],
     "counts":  {
-                   "total":  8,
+                   "total":  7,
                    "primary":  0,
                    "from_cap":  2,
-                   "from_hrq":  6,
+                   "from_hrq":  5,
                    "acks_filtered":  6
                }
 }
