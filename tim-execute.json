@@ -1,0 +1,108 @@
+{
+    "schema":  "aios.tim-execute.v1",
+    "generated_at_utc":  "2026-09-13T17:21:44.1170893Z",
+    "doctrine":  "Cap-proved Tim-irreducible only: pay / login / send-yes / apply-secret / KYC / UAC. No failed_parked census. No Notion URLs.",
+    "primary":  [
+                    {
+                        "id":  "cos-harbor-982391",
+                        "kind":  "pay",
+                        "title":  "Harbor invoice #982391 — Crosstown Media AZ registered agent",
+                        "step":  "Pay Harbor invoice #982391 for Crosstown Media AZ registered agent (thread 1a04a61303b20ee8). Unlocks agent name/address/acceptance.",
+                        "why_machine_cannot":  "Payment requires Tim bank/card authority.",
+                        "est_minutes":  5,
+                        "source":  "cap",
+                        "primary":  true,
+                        "state":  "OPEN"
+                    }
+                ],
+    "items":  [
+                  {
+                      "id":  "cos-harbor-982391",
+                      "kind":  "pay",
+                      "title":  "Harbor invoice #982391 — Crosstown Media AZ registered agent",
+                      "step":  "Pay Harbor invoice #982391 for Crosstown Media AZ registered agent (thread 1a04a61303b20ee8). Unlocks agent name/address/acceptance.",
+                      "why_machine_cannot":  "Payment requires Tim bank/card authority.",
+                      "est_minutes":  5,
+                      "source":  "cap",
+                      "primary":  true,
+                      "state":  "OPEN"
+                  },
+                  {
+                      "id":  "human:n8n-api-key",
+                      "kind":  "apply-secret",
+                      "title":  "Claude Code: convert Quo comms ledger from daily batch to inbound webhook",
+                      "step":  "Share 📇 Operational Comms Ledger with Notion connection n8n-cos, point public HTTPS at http://127.0.0.1:5678/webhook/quo-comms-ledger, then register that HTTPS URL in Quo Settings → Webhooks per WEBHOOK-REGISTRATION.md (~20 minutes).",
+                      "why_machine_cannot":  "every one of these asks is reachable through the n8n REST API; the queue has no N8N_API_KEY, so the work is blocked on supplying that one credential rather than on browser interaction",
+                      "est_minutes":  5,
+                      "source":  "hrq-filtered",
+                      "primary":  false,
+                      "state":  "WAITING_FOR_PROBE",
+                      "unblocks":  2
+                  },
+                  {
+                      "id":  "human:iam-authority",
+                      "kind":  "uac",
+                      "title":  "Claude Code: restore metabase-reader impersonation so BigQuery reads stop running as the writer identity",
+                      "step":  "GATE: external IAM authority. Needs roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON the metabase-reader service account in project forged-data. The machine identity cannot grant itself token-creator on another principal, and it cannot list IAM to verify one, so this is a genuine authorization boundary and not a scheduling question. Everything machine-side is already done: the capability is configured for impersonation (impersonate_reads=true) and falls back correctly today, so the change is a single IAM binding plus a preflight re-run. NOT urgent -- the current path works, this is defence in depth.",
+                      "why_machine_cannot":  "granting an IAM role on a service account in another project requires an account with that project admin authority; no credential on this host carries it",
+                      "est_minutes":  10,
+                      "source":  "hrq-filtered",
+                      "primary":  false,
+                      "state":  "WAITING_FOR_PROBE",
+                      "unblocks":  1
+                  },
+                  {
+                      "id":  "human:google-oauth-consent",
+                      "kind":  "login",
+                      "title":  "13WCF v3 #4: render PDF, create partner draft, notify via Telegram",
+                      "step":  "Give this queue-runner\u0027s Claude Code session a working Gmail connection for tbarrett@forgeddumpsters.com (via the workspace-mcp server, which already has a cached credential for that address) and grant its Google Drive tool permission, so the partner draft lands in the correct mailbox and the values-only snapshot can reach Drive. (~15 min)",
+                      "why_machine_cannot":  "Google OAuth consent requires an interactive browser sign-in as the account owner; a refresh token cannot be minted headlessly",
+                      "est_minutes":  10,
+                      "source":  "hrq-filtered",
+                      "primary":  false,
+                      "state":  "WAITING_FOR_PROBE",
+                      "unblocks":  1
+                  },
+                  {
+                      "id":  "human:bank-portal-enrolment",
+                      "kind":  "pay",
+                      "title":  "Forged: get a daily bank alert feed for the Enterprise CC (the last 13WCF hole)",
+                      "step":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert. Confirm the first alert email lands before this row is set Ready.",
+                      "why_machine_cannot":  "enrolling a financial account in an alert feed requires authenticating to the issuer portal as the account holder; this host holds no such credential and must not",
+                      "est_minutes":  10,
+                      "source":  "hrq-filtered",
+                      "primary":  false,
+                      "state":  "WAITING_FOR_PROBE",
+                      "unblocks":  1
+                  },
+                  {
+                      "id":  "commerce-stripe-cap-ready",
+                      "kind":  "kyc_secret",
+                      "title":  "Stripe KYC + apply-secret for Commerce #001",
+                      "step":  "Finish SBT Group Stripe KYC (no personal cell). Enable Payment Links; payouts to SBT Group Chase …6759. Then run apply-secret into C:\\AIOS\\secrets\\commerce-stripe.env (STRIPE_SECRET_KEY + STRIPE_PUBLISHABLE_KEY) and reply/signal `stripe cap ready` (not chat paste of keys).",
+                      "why_machine_cannot":  "KYC + live keys are Tim-only; Cap Verifies fingerprint after deposit.",
+                      "est_minutes":  20,
+                      "source":  "cap",
+                      "primary":  false,
+                      "state":  "OPEN"
+                  },
+                  {
+                      "id":  "human:slack-app-install",
+                      "kind":  "uac",
+                      "title":  "Claude Code: CBS Slack local-only rail, Phase 1 read and notify",
+                      "step":  "Create the CBS Slack app from the manifest below, install it to the Camelback Society workspace, generate an app-level token, and invite the bot to exactly the 12 named channels (15-25 minutes; longer if CBS workspace admin approval is required for install).",
+                      "why_machine_cannot":  "creating and installing a Slack app, and minting an app-level token, requires a workspace admin acting in Slack own UI",
+                      "est_minutes":  25,
+                      "source":  "hrq-filtered",
+                      "primary":  false,
+                      "state":  "WAITING_FOR_PROBE",
+                      "unblocks":  1
+                  }
+              ],
+    "counts":  {
+                   "total":  7,
+                   "primary":  1,
+                   "from_cap":  2,
+                   "from_hrq":  5
+               }
+}
