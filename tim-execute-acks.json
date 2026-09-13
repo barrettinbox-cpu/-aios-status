@@ -1,11 +1,7 @@
 {
-  "schema": "aios.tim-execute-acks.v1",
-  "updated_at_utc": "2026-09-13T18:17:07.244Z",
-  "acks": [
-    {
-      "id": "dry-prove-fake-id-20260913",
-      "at": "2026-09-13T18:17:06.6275855Z",
-      "source": "tim-ui"
-    }
-  ]
+    "updated_at_utc":  "2026-09-13T18:17:24.8249470Z",
+    "schema":  "aios.tim-execute-acks.v1",
+    "acks":  [
+
+             ]
 }
