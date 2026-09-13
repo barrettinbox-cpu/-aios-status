@@ -1,6 +1,6 @@
 {
     "schema":  "aios.tim-execute.v1",
-    "generated_at_utc":  "2026-09-13T17:22:23.8914378Z",
+    "generated_at_utc":  "2026-09-13T17:23:40.0940057Z",
     "doctrine":  "Cap-proved Tim-irreducible only: pay / login / send-yes / apply-secret / KYC / UAC. No failed_parked census. No Notion URLs.",
     "primary":  [
                     {
@@ -45,6 +45,18 @@
                       "title":  "Claude Code: restore metabase-reader impersonation so BigQuery reads stop running as the writer identity",
                       "step":  "GATE: external IAM authority. Needs roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON the metabase-reader service account in project forged-data. The machine identity cannot grant itself token-creator on another principal, and it cannot list IAM to verify one, so this is a genuine authorization boundary and not a scheduling question. Everything machine-side is already done: the capability is configured for impersonation (impersonate_reads=true) and falls back correctly today, so the change is a single IAM binding plus a preflight re-run. NOT urgent -- the current path works, this is defence in depth.",
                       "why_machine_cannot":  "granting an IAM role on a service account in another project requires an account with that project admin authority; no credential on this host carries it",
+                      "est_minutes":  10,
+                      "source":  "hrq-filtered",
+                      "primary":  false,
+                      "state":  "WAITING_FOR_PROBE",
+                      "unblocks":  1
+                  },
+                  {
+                      "id":  "human:third-party-cli-login",
+                      "kind":  "login",
+                      "title":  "n8n: migrate Plaud captures sync off cloud Cowork (poll + Note ID dedupe + Captures write)",
+                      "step":  "Install the official Plaud CLI on aios-host and run `plaud login` once to authorize it in Tim\u0027s browser (10 minutes)",
+                      "why_machine_cannot":  "the vendor CLI opens a browser consent flow bound to the account owner; there is no unattended credential path",
                       "est_minutes":  10,
                       "source":  "hrq-filtered",
                       "primary":  false,
@@ -100,9 +112,9 @@
                   }
               ],
     "counts":  {
-                   "total":  7,
+                   "total":  8,
                    "primary":  1,
                    "from_cap":  2,
-                   "from_hrq":  5
+                   "from_hrq":  6
                }
 }
