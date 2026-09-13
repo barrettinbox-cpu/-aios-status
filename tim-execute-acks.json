@@ -1,6 +1,6 @@
 {
   "schema": "aios.tim-execute-acks.v1",
-  "updated_at_utc": "2026-09-13T22:52:37.505Z",
+  "updated_at_utc": "2026-09-13T22:56:42.500Z",
   "acks": [
     {
       "id": "cap-prove-v2-3bc04699",
@@ -49,6 +49,12 @@
       "at": "2026-09-13T22:52:37.214Z",
       "source": "tim-ui",
       "bucket": "task"
+    },
+    {
+      "id": "cap-auth-prove-noop",
+      "at": "2026-09-13T22:56:42.337Z",
+      "source": "tim-ui",
+      "bucket": "false-park"
     }
   ]
 }
