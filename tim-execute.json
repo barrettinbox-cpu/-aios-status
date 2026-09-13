@@ -1,12 +1,13 @@
 {
-    "schema":  "aios.tim-execute.v2",
-    "generated_at_utc":  "2026-09-13T21:01:41.5094892Z",
-    "doctrine":  "Cap-proved Tim-irreducible only: pay / login / send-yes / apply-secret / KYC / UAC. No failed_parked census. No Notion URLs. Mark-complete writeback clears Cap/HRQ.",
+    "schema":  "aios.tim-execute.v3",
+    "generated_at_utc":  "2026-09-13T21:03:23.2877234Z",
+    "doctrine":  "Cap-proved Tim-irreducible only. Summary+Steps: Cap prep to the click; Tim opens link/runs command; final step = Mark complete (writeback clears Cap/HRQ; card drops off #tim). No Telegram done-signal paste required. No failed_parked census. No Notion URLs.",
     "primary":  [
                     {
                         "id":  "cos-harbor-982391",
                         "kind":  "pay",
                         "title":  "Harbor invoice #982391 - Crosstown Media AZ registered agent",
+                        "summary":  "Unlocks Crosstown Media AZ agent name/address/acceptance by paying Harbor invoice #982391 (Tim pays in Harbor portal).",
                         "step":  "Pay Harbor invoice #982391 for Crosstown Media AZ registered agent (thread 1a04a61303b20ee8). Unlocks agent name/address/acceptance.",
                         "why_machine_cannot":  "Payment requires Tim bank/card authority.",
                         "est_minutes":  5,
@@ -16,31 +17,20 @@
                         "steps":  [
                                       {
                                           "n":  1,
-                                          "text":  "Pay Harbor invoice #982391 for Crosstown Media AZ registered agent (thread 1a04a61303b20ee8)."
+                                          "text":  "Here is the link to pay Harbor invoice #982391 (Crosstown Media AZ RA). No per-invoice pay URL in the email - Harbor portal login is the live-proved path; open invoice #982391 and pay:",
+                                          "href":  "https://www.harborcompliance.com/users/login"
                                       },
                                       {
                                           "n":  2,
-                                          "text":  "Unlocks agent name/address/acceptance."
+                                          "text":  "Mark complete when paid - that writeback signals Cap/HRQ and drops this card off #tim."
                                       }
                                   ],
                         "copy_fields":  [
                                             {
-                                                "label":  "Invoice",
-                                                "value":  "#982391 (Harbor / Crosstown Media AZ registered agent)",
-                                                "kind":  "text",
-                                                "run_where":  "Browser - Harbor pay portal or invoice email"
-                                            },
-                                            {
-                                                "label":  "Thread ref",
-                                                "value":  "1a04a61303b20ee8",
-                                                "kind":  "text",
-                                                "run_where":  "Gmail search box - Tim mailbox"
-                                            },
-                                            {
-                                                "label":  "Done signal (TG/reply)",
-                                                "value":  "harbor 982391 paid",
-                                                "kind":  "prompt",
-                                                "run_where":  "Telegram reply to CoS - paste as message text"
+                                                "label":  "Open link",
+                                                "value":  "https://www.harborcompliance.com/users/login",
+                                                "kind":  "url",
+                                                "run_where":  "Browser"
                                             }
                                         ]
                     }
@@ -50,6 +40,7 @@
                       "id":  "cos-harbor-982391",
                       "kind":  "pay",
                       "title":  "Harbor invoice #982391 - Crosstown Media AZ registered agent",
+                      "summary":  "Unlocks Crosstown Media AZ agent name/address/acceptance by paying Harbor invoice #982391 (Tim pays in Harbor portal).",
                       "step":  "Pay Harbor invoice #982391 for Crosstown Media AZ registered agent (thread 1a04a61303b20ee8). Unlocks agent name/address/acceptance.",
                       "why_machine_cannot":  "Payment requires Tim bank/card authority.",
                       "est_minutes":  5,
@@ -59,31 +50,20 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Pay Harbor invoice #982391 for Crosstown Media AZ registered agent (thread 1a04a61303b20ee8)."
+                                        "text":  "Here is the link to pay Harbor invoice #982391 (Crosstown Media AZ RA). No per-invoice pay URL in the email - Harbor portal login is the live-proved path; open invoice #982391 and pay:",
+                                        "href":  "https://www.harborcompliance.com/users/login"
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Unlocks agent name/address/acceptance."
+                                        "text":  "Mark complete when paid - that writeback signals Cap/HRQ and drops this card off #tim."
                                     }
                                 ],
                       "copy_fields":  [
                                           {
-                                              "label":  "Invoice",
-                                              "value":  "#982391 (Harbor / Crosstown Media AZ registered agent)",
-                                              "kind":  "text",
-                                              "run_where":  "Browser - Harbor pay portal or invoice email"
-                                          },
-                                          {
-                                              "label":  "Thread ref",
-                                              "value":  "1a04a61303b20ee8",
-                                              "kind":  "text",
-                                              "run_where":  "Gmail search box - Tim mailbox"
-                                          },
-                                          {
-                                              "label":  "Done signal (TG/reply)",
-                                              "value":  "harbor 982391 paid",
-                                              "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS - paste as message text"
+                                              "label":  "Open link",
+                                              "value":  "https://www.harborcompliance.com/users/login",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
                                           }
                                       ]
                   },
@@ -91,6 +71,7 @@
                       "id":  "human:n8n-api-key",
                       "kind":  "apply-secret",
                       "title":  "Claude Code: convert Quo comms ledger from daily batch to inbound webhook",
+                      "summary":  "Unlocks Quo to n8n webhook automation by depositing N8N_API_KEY via apply-secret on aios-host.",
                       "step":  "Share 📇 Operational Comms Ledger with Notion connection n8n-cos, point public HTTPS at http://127.0.0.1:5678/webhook/quo-comms-ledger, then register that HTTPS URL in Quo Settings → Webhooks per WEBHOOK-REGISTRATION.md (~20 minutes).",
                       "why_machine_cannot":  "every one of these asks is reachable through the n8n REST API; the queue has no N8N_API_KEY, so the work is blocked on supplying that one credential rather than on browser interaction",
                       "est_minutes":  5,
@@ -100,28 +81,15 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Share 📇 Operational Comms Ledger with Notion connection n8n-cos, point public HTTPS at http://127.0.0.1:5678/webhook/quo-comms-ledger, then register that HTTPS URL in Quo Settings → Webhooks per WEBHOOK-REGISTRATION.md (~20 minutes)."
+                                        "text":  "On aios-host, deposit N8N_API_KEY via apply-secret under C:\\AIOS\\secrets\\ (never paste the key in chat)."
+                                    },
+                                    {
+                                        "n":  2,
+                                        "text":  "Mark complete when done - Cap/HRQ clear the unlock; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
-                                          {
-                                              "label":  "Secret path (name only)",
-                                              "value":  "C:\\AIOS\\secrets\\  (N8N_API_KEY - do not paste key in chat)",
-                                              "kind":  "text",
-                                              "run_where":  "aios-host apply-secret path - never chat paste"
-                                          },
-                                          {
-                                              "label":  "Webhook path (local)",
-                                              "value":  "http://127.0.0.1:5678/webhook/quo-comms-ledger",
-                                              "kind":  "url",
-                                              "run_where":  "Browser or PowerShell on aios-host - local n8n"
-                                          },
-                                          {
-                                              "label":  "Done signal",
-                                              "value":  "n8n api key ready",
-                                              "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS - paste as message text"
-                                          }
+
                                       ],
                       "unblocks":  2
                   },
@@ -129,6 +97,7 @@
                       "id":  "human:google-oauth-consent",
                       "kind":  "login",
                       "title":  "13WCF v3 #4: render PDF, create partner draft, notify via Telegram",
+                      "summary":  "Unlocks Gmail/Drive for forgeddumpsters by Tim-irreducible Google OAuth login in browser.",
                       "step":  "Give this queue-runner\u0027s Claude Code session a working Gmail connection for tbarrett@forgeddumpsters.com (via the workspace-mcp server, which already has a cached credential for that address) and grant its Google Drive tool permission, so the partner draft lands in the correct mailbox and the values-only snapshot can reach Drive. (~15 min)",
                       "why_machine_cannot":  "Google OAuth consent requires an interactive browser sign-in as the account owner; a refresh token cannot be minted headlessly",
                       "est_minutes":  10,
@@ -138,21 +107,20 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Give this queue-runner\u0027s Claude Code session a working Gmail connection for tbarrett@forgeddumpsters.com (via the workspace-mcp server, which already has a cached credential for that address) and grant its Google Drive tool permission, so the partner draft lands in the correct mailbox and the values-only snapshot can reach Drive. (~15 min)"
+                                        "text":  "Here is the link to complete Google account consent as tbarrett@forgeddumpsters.com (Tim-irreducible login only):",
+                                        "href":  "https://accounts.google.com/"
+                                    },
+                                    {
+                                        "n":  2,
+                                        "text":  "Mark complete when done - Cap/HRQ treat Gmail OAuth as ready; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
                                           {
-                                              "label":  "Account",
-                                              "value":  "tbarrett@forgeddumpsters.com",
-                                              "kind":  "text",
-                                              "run_where":  "Browser - Google OAuth consent"
-                                          },
-                                          {
-                                              "label":  "Done signal",
-                                              "value":  "gmail oauth ready forgeddumpsters",
-                                              "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS - paste as message text"
+                                              "label":  "Open link",
+                                              "value":  "https://accounts.google.com/",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
                                           }
                                       ],
                       "unblocks":  1
@@ -161,6 +129,7 @@
                       "id":  "human:third-party-cli-login",
                       "kind":  "login",
                       "title":  "n8n: migrate Plaud captures sync off cloud Cowork (poll + Note ID dedupe + Captures write)",
+                      "summary":  "Unlocks Plaud CLI sync on aios-host by Tim browser login once (vendor consent is owner-bound).",
                       "step":  "Install the official Plaud CLI on aios-host and run `plaud login` once to authorize it in Tim\u0027s browser (10 minutes)",
                       "why_machine_cannot":  "the vendor CLI opens a browser consent flow bound to the account owner; there is no unattended credential path",
                       "est_minutes":  10,
@@ -170,21 +139,23 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Install the official Plaud CLI on aios-host and run `plaud login` once to authorize it in Tim\u0027s browser (10 minutes)"
+                                        "text":  "Open PowerShell on aios-host and run this one command, then finish the browser consent that opens:",
+                                        "copy":  {
+                                                     "label":  "Command",
+                                                     "value":  "plaud login"
+                                                 }
+                                    },
+                                    {
+                                        "n":  2,
+                                        "text":  "Mark complete when done - Cap/HRQ clear the Plaud login ask; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
                                           {
-                                              "label":  "Install + login (aios-host)",
+                                              "label":  "Command",
                                               "value":  "plaud login",
-                                              "kind":  "command",
-                                              "run_where":  "PowerShell on aios-host - normal user"
-                                          },
-                                          {
-                                              "label":  "Done signal",
-                                              "value":  "plaud login done",
-                                              "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS - paste as message text"
+                                              "kind":  "text",
+                                              "run_where":  "see step text"
                                           }
                                       ],
                       "unblocks":  1
@@ -193,6 +164,7 @@
                       "id":  "human:iam-authority",
                       "kind":  "uac",
                       "title":  "Claude Code: restore metabase-reader impersonation so BigQuery reads stop running as the writer identity",
+                      "summary":  "Unlocks metabase-reader impersonation by granting one IAM binding Tim alone can authorize in GCP.",
                       "step":  "GATE: external IAM authority. Needs roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON the metabase-reader service account in project forged-data. The machine identity cannot grant itself token-creator on another principal, and it cannot list IAM to verify one, so this is a genuine authorization boundary and not a scheduling question. Everything machine-side is already done: the capability is configured for impersonation (impersonate_reads=true) and falls back correctly today, so the change is a single IAM binding plus a preflight re-run. NOT urgent -- the current path works, this is defence in depth.",
                       "why_machine_cannot":  "granting an IAM role on a service account in another project requires an account with that project admin authority; no credential on this host carries it",
                       "est_minutes":  10,
@@ -202,37 +174,20 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "GATE: external IAM authority."
+                                        "text":  "Here is the link to grant roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON metabase-reader (project forged-data):",
+                                        "href":  "https://console.cloud.google.com/iam-admin/iam"
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Needs roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON the metabase-reader service account in project forged-data."
-                                    },
-                                    {
-                                        "n":  3,
-                                        "text":  "The machine identity cannot grant itself token-creator on another principal, and it cannot list IAM to verify one, so this is a genuine authorization boundary and not a scheduling question."
-                                    },
-                                    {
-                                        "n":  4,
-                                        "text":  "Everything machine-side is already done: the capability is configured for impersonation (impersonate_reads=true) and falls back correctly today, so the change is a single IAM binding plus a preflight re-run."
-                                    },
-                                    {
-                                        "n":  5,
-                                        "text":  "NOT urgent -- the current path works, this is defence in depth."
+                                        "text":  "Mark complete when done - Cap/HRQ clear the IAM unlock; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
                                           {
-                                              "label":  "IAM binding needed",
-                                              "value":  "roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON metabase-reader (project forged-data)",
-                                              "kind":  "text",
-                                              "run_where":  "Browser GCP IAM or gcloud in PowerShell on aios-host"
-                                          },
-                                          {
-                                              "label":  "Done signal",
-                                              "value":  "metabase-reader impersonation granted",
-                                              "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS - paste as message text"
+                                              "label":  "Open link",
+                                              "value":  "https://console.cloud.google.com/iam-admin/iam",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
                                           }
                                       ],
                       "unblocks":  1
@@ -241,6 +196,7 @@
                       "id":  "gemini-pplx-keys",
                       "kind":  "kyc_secret",
                       "title":  "Deposit Gemini + Perplexity API keys (apply-secret)",
+                      "summary":  "Unlocks Google/Perplexity Cap lanes by depositing Gemini + Perplexity API keys via apply-secret on aios-host (never chat-paste).",
                       "step":  "Deposit GEMINI_API_KEY or GOOGLE_API_KEY and PERPLEXITY_API_KEY or PPLX_API_KEY via apply-secret (never chat paste). Then signal: gemini pplx keys ready. Cap clears google/perplexity exhausted + certifies lanes.",
                       "why_machine_cannot":  "API keys are Tim-only entitlement; Cap scaffolds refuse-closed without them.",
                       "est_minutes":  10,
@@ -250,30 +206,22 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Deposit GEMINI_API_KEY or GOOGLE_API_KEY and PERPLEXITY_API_KEY or PPLX_API_KEY via apply-secret (never chat paste)."
+                                        "text":  "On aios-host, deposit GEMINI_API_KEY (or GOOGLE_API_KEY) and PERPLEXITY_API_KEY (or PPLX_API_KEY) via apply-secret - never paste keys in chat."
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Then signal: gemini pplx keys ready."
-                                    },
-                                    {
-                                        "n":  3,
-                                        "text":  "Cap clears google/perplexity exhausted + certifies lanes."
+                                        "text":  "Mark complete when done - Cap clears exhausted lanes; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
-                                          {
-                                              "label":  "Done signal",
-                                              "value":  "gemini pplx keys ready",
-                                              "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS after apply-secret"
-                                          }
+
                                       ]
                   },
                   {
                       "id":  "human:bank-portal-enrolment",
                       "kind":  "pay",
                       "title":  "Forged: get a daily bank alert feed for the Enterprise CC (the last 13WCF hole)",
+                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert in the issuer portal.",
                       "step":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert. Confirm the first alert email lands before this row is set Ready.",
                       "why_machine_cannot":  "enrolling a financial account in an alert feed requires authenticating to the issuer portal as the account holder; this host holds no such credential and must not",
                       "est_minutes":  10,
@@ -283,32 +231,15 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert."
+                                        "text":  "Log into the Enterprise CC issuer portal and enrol a daily balance Account Alert Notification to data@ (mirror #7262 checking alert). Confirm the first alert email lands."
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Confirm the first alert email lands before this row is set Ready."
+                                        "text":  "Mark complete when done - Cap/HRQ clear this unlock; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
-                                          {
-                                              "label":  "Target mailbox",
-                                              "value":  "data@",
-                                              "kind":  "text",
-                                              "run_where":  "Browser - bank portal alert enrolment"
-                                          },
-                                          {
-                                              "label":  "Mirror pattern",
-                                              "value":  "same as #7262 checking Account Alert Notification (daily balance)",
-                                              "kind":  "text",
-                                              "run_where":  "Browser - bank portal"
-                                          },
-                                          {
-                                              "label":  "Done signal",
-                                              "value":  "enterprise cc alert enrolled",
-                                              "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS - paste as message text"
-                                          }
+
                                       ],
                       "unblocks":  1
                   },
@@ -316,6 +247,7 @@
                       "id":  "commerce-stripe-cap-ready",
                       "kind":  "kyc_secret",
                       "title":  "Stripe KYC + apply-secret for Commerce #001",
+                      "summary":  "Unlocks Commerce #001 by finishing SBT Group Stripe KYC + depositing live keys via apply-secret on aios-host.",
                       "step":  "Finish SBT Group Stripe KYC (no personal cell). Enable Payment Links; payouts to SBT Group Chase .6759. Then run apply-secret into C:\\AIOS\\secrets\\commerce-stripe.env (STRIPE_SECRET_KEY + STRIPE_PUBLISHABLE_KEY) and reply/signal `stripe cap ready` (not chat paste of keys).",
                       "why_machine_cannot":  "KYC + live keys are Tim-only; Cap verifies fingerprint after deposit.",
                       "est_minutes":  20,
@@ -325,41 +257,20 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Finish SBT Group Stripe KYC (no personal cell)."
+                                        "text":  "Here is the link to finish SBT Group Stripe KYC (no personal cell), enable Payment Links, payouts to Chase ...6759, then deposit keys via apply-secret into C:\\AIOS\\secrets\\commerce-stripe.env (never chat-paste keys):",
+                                        "href":  "https://dashboard.stripe.com/"
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Enable Payment Links; payouts to SBT Group Chase .6759."
-                                    },
-                                    {
-                                        "n":  3,
-                                        "text":  "Then run apply-secret into C:\\AIOS\\secrets\\commerce-stripe.env (STRIPE_SECRET_KEY + STRIPE_PUBLISHABLE_KEY) and reply/signal `stripe cap ready` (not chat paste of keys)."
+                                        "text":  "Mark complete when done - Cap verifies fingerprint after deposit; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
                                           {
-                                              "label":  "Apply-secret path",
-                                              "value":  "C:\\AIOS\\secrets\\commerce-stripe.env",
-                                              "kind":  "text",
-                                              "run_where":  "aios-host apply-secret path - never chat paste keys"
-                                          },
-                                          {
-                                              "label":  "Env keys (names only)",
-                                              "value":  "STRIPE_SECRET_KEY + STRIPE_PUBLISHABLE_KEY",
-                                              "kind":  "text",
-                                              "run_where":  "aios-host apply-secret - names only"
-                                          },
-                                          {
-                                              "label":  "Payout destination",
-                                              "value":  "SBT Group Chase ...6759",
-                                              "kind":  "text",
-                                              "run_where":  "Browser - Stripe KYC / payout settings"
-                                          },
-                                          {
-                                              "label":  "Done signal (required)",
-                                              "value":  "stripe cap ready",
-                                              "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS - paste as message text"
+                                              "label":  "Open link",
+                                              "value":  "https://dashboard.stripe.com/",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
                                           }
                                       ]
                   },
@@ -367,6 +278,7 @@
                       "id":  "human:slack-app-install",
                       "kind":  "uac",
                       "title":  "Claude Code: CBS Slack local-only rail, Phase 1 read and notify",
+                      "summary":  "Unlocks CBS Slack local-only rail by Tim installing the Slack app in Camelback Society workspace.",
                       "step":  "Create the CBS Slack app from the manifest below, install it to the Camelback Society workspace, generate an app-level token, and invite the bot to exactly the 12 named channels (15-25 minutes; longer if CBS workspace admin approval is required for install).",
                       "why_machine_cannot":  "creating and installing a Slack app, and minting an app-level token, requires a workspace admin acting in Slack own UI",
                       "est_minutes":  25,
@@ -376,21 +288,20 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Create the CBS Slack app from the manifest below, install it to the Camelback Society workspace, generate an app-level token, and invite the bot to exactly the 12 named channels (15-25 minutes; longer if CBS workspace admin approval is required for install)."
+                                        "text":  "Here is the link to create/install the CBS Slack app to Camelback Society, mint the app-level token, and invite the bot to the 12 named channels:",
+                                        "href":  "https://api.slack.com/apps"
+                                    },
+                                    {
+                                        "n":  2,
+                                        "text":  "Mark complete when done - Cap/HRQ clear the Slack install unlock; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
                                           {
-                                              "label":  "Workspace",
-                                              "value":  "Camelback Society (CBS)",
-                                              "kind":  "text",
-                                              "run_where":  "Browser - Slack app install"
-                                          },
-                                          {
-                                              "label":  "Done signal",
-                                              "value":  "cbs slack app installed",
-                                              "kind":  "prompt",
-                                              "run_where":  "Telegram reply to CoS - paste as message text"
+                                              "label":  "Open link",
+                                              "value":  "https://api.slack.com/apps",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
                                           }
                                       ],
                       "unblocks":  1
