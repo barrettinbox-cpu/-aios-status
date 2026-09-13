@@ -1,19 +1,19 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-13T09:45:30Z",
-    "published_at_utc":  "2026-09-13T09:45:38Z",
-    "sequence":  2261,
-    "age_seconds_at_publish":  8,
+    "generated_at_utc":  "2026-09-13T09:47:30Z",
+    "published_at_utc":  "2026-09-13T09:47:37Z",
+    "sequence":  2262,
+    "age_seconds_at_publish":  7,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
-                     "scheduler telemetry is stale (360s old)",
+                     "scheduler telemetry is stale (479s old)",
                      "provider openai is exhausted",
                      "provider xai is exhausted",
-                     "truth sources disagree: watcher telemetry is 244.9s old; the watcher may not be ticking",
+                     "truth sources disagree: watcher telemetry is 374.2s old; the watcher may not be ticking",
                      "truth sources disagree: Notion holds 12 non-terminal row(s); watcher telemetry reports ready=9",
-                     "possible silent block: 3 claimable row(s) in the source of truth, scheduler reports 0 eligible (dependency-blocked), and nothing has been claimed for 156.8 min"
+                     "possible silent block: 3 claimable row(s) in the source of truth, scheduler reports 0 eligible (dependency-blocked), and nothing has been claimed for 158.8 min"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -31,7 +31,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  547.7,
-                  "minutes_since_last_claim":  156.8
+                  "minutes_since_last_claim":  158.8
               },
     "throughput":  {
                        "completed_24h":  20,
@@ -39,7 +39,7 @@
                        "reroutes_24h":  0
                    },
     "starvation":  {
-                       "current_seconds":  0,
+                       "current_seconds":  126,
                        "p50_seconds":  0,
                        "p95_seconds":  6600,
                        "max_seconds":  6720,
@@ -96,21 +96,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  2006,
+                    "last_run_age_seconds":  2125,
                     "next_run_utc":  "2026-09-13T10:11:26Z",
                     "gaps":  4,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  120,
+                          "reconciliation_age_seconds":  113,
                           "sources_agree":  false,
                           "disagreement_count":  8
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-13T09:43:35Z",
+                        "last_change_utc":  "2026-09-13T09:45:38Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
