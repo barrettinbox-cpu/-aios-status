@@ -1,0 +1,12 @@
+{
+  "schema": "aios.tim-answers.v1",
+  "updated_at_utc": "2026-09-13T19:24:18.223Z",
+  "answers": [
+    {
+      "id": "dry-v3-answer-82eea588",
+      "answer": "dry-run answer v3 - discard",
+      "at": "2026-09-13T19:24:17.4713687Z",
+      "source": "tim-ui"
+    }
+  ]
+}
