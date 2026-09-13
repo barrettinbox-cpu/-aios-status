@@ -1,11 +1,86 @@
 {
     "schema":  "aios.tim-execute.v3",
-    "generated_at_utc":  "2026-09-13T22:57:39.7262106Z",
+    "generated_at_utc":  "2026-09-13T22:59:02.0742052Z",
     "doctrine":  "Cap-proved Tim-irreducible only. Summary+Steps: Cap prep to the click; Tim opens link/runs command; final step = Mark complete (writeback clears Cap/HRQ; card drops off #tim). No Telegram done-signal paste required. No failed_parked census. No Notion URLs.",
     "primary":  [
-
+                    {
+                        "id":  "operator-surface-open",
+                        "kind":  "login",
+                        "title":  "Open Operator Surface (token session)",
+                        "summary":  "Unlocks Operator Surface by setting your browser session cookie from the Cap-set aios-host token file (no chat paste).",
+                        "step":  "On aios-host run Open-OperatorSurface.ps1 once to set session cookie. Do not paste token into chat. Then use https://aios-queue-status.barrettinbox.workers.dev/ normally.",
+                        "why_machine_cannot":  "Browser session cookie must be set on Tim device/browser; Cap must not put STATUS_UI_TOKEN into chat transcripts.",
+                        "est_minutes":  2,
+                        "source":  "cap",
+                        "primary":  true,
+                        "state":  "OPEN",
+                        "steps":  [
+                                      {
+                                          "n":  1,
+                                          "text":  "Open interactive PowerShell on aios-host and run this command once (opens browser; sets HttpOnly cookie):",
+                                          "copy":  {
+                                                       "label":  "Command",
+                                                       "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\Open-OperatorSurface.ps1"
+                                                   }
+                                      },
+                                      {
+                                          "n":  2,
+                                          "text":  "After the page loads, bookmark https://aios-queue-status.barrettinbox.workers.dev/ â€” later visits use the cookie. Do not paste the token into chat/Telegram."
+                                      },
+                                      {
+                                          "n":  3,
+                                          "text":  "Mark complete when the Operator Surface page loads for you."
+                                      }
+                                  ],
+                        "copy_fields":  [
+                                            {
+                                                "label":  "Command",
+                                                "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\Open-OperatorSurface.ps1",
+                                                "kind":  "text",
+                                                "run_where":  "see step text"
+                                            }
+                                        ]
+                    }
                 ],
     "items":  [
+                  {
+                      "id":  "operator-surface-open",
+                      "kind":  "login",
+                      "title":  "Open Operator Surface (token session)",
+                      "summary":  "Unlocks Operator Surface by setting your browser session cookie from the Cap-set aios-host token file (no chat paste).",
+                      "step":  "On aios-host run Open-OperatorSurface.ps1 once to set session cookie. Do not paste token into chat. Then use https://aios-queue-status.barrettinbox.workers.dev/ normally.",
+                      "why_machine_cannot":  "Browser session cookie must be set on Tim device/browser; Cap must not put STATUS_UI_TOKEN into chat transcripts.",
+                      "est_minutes":  2,
+                      "source":  "cap",
+                      "primary":  true,
+                      "state":  "OPEN",
+                      "steps":  [
+                                    {
+                                        "n":  1,
+                                        "text":  "Open interactive PowerShell on aios-host and run this command once (opens browser; sets HttpOnly cookie):",
+                                        "copy":  {
+                                                     "label":  "Command",
+                                                     "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\Open-OperatorSurface.ps1"
+                                                 }
+                                    },
+                                    {
+                                        "n":  2,
+                                        "text":  "After the page loads, bookmark https://aios-queue-status.barrettinbox.workers.dev/ â€” later visits use the cookie. Do not paste the token into chat/Telegram."
+                                    },
+                                    {
+                                        "n":  3,
+                                        "text":  "Mark complete when the Operator Surface page loads for you."
+                                    }
+                                ],
+                      "copy_fields":  [
+                                          {
+                                              "label":  "Command",
+                                              "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\Open-OperatorSurface.ps1",
+                                              "kind":  "text",
+                                              "run_where":  "see step text"
+                                          }
+                                      ]
+                  },
                   {
                       "id":  "human:n8n-api-key",
                       "kind":  "apply-secret",
@@ -53,42 +128,6 @@
                       "unblocks":  2
                   },
                   {
-                      "id":  "human:bank-portal-enrolment",
-                      "kind":  "pay",
-                      "title":  "Forged: get a daily bank alert feed for the Enterprise CC (the last 13WCF hole)",
-                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert to data@ in the Enterprise Bank portal.",
-                      "step":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert. Confirm the first alert email lands before this row is set Ready.",
-                      "why_machine_cannot":  "enrolling a financial account in an alert feed requires authenticating to the issuer portal as the account holder; this host holds no such credential and must not",
-                      "est_minutes":  10,
-                      "source":  "hrq-filtered",
-                      "primary":  false,
-                      "state":  "WAITING_FOR_PROBE",
-                      "steps":  [
-                                    {
-                                        "n":  1,
-                                        "text":  "WHO: Tim (account holder). BANK: Enterprise Bank. CARD: Forged Enterprise CC (issuer portal; mirror the existing #7262 checking Account Alert). Alert destination: data@ (Forged data mailbox). Cap does not hold bank credentials. Open Enterprise Bank online banking:",
-                                        "href":  "https://www.enterprisebank.com/personal/online-banking"
-                                    },
-                                    {
-                                        "n":  2,
-                                        "text":  "POST-CLICK: sign in as the account holder -\u003e Account Alerts / Notifications -\u003e enrol a daily balance Account Alert Notification for the Enterprise CC to data@ (same pattern as checking #7262). Save/confirm enrolment."
-                                    },
-                                    {
-                                        "n":  3,
-                                        "text":  "SUCCESS CUE: first alert email lands in data@ (from Notifications@enterprisebank.com or issuer alert address). Then Mark complete - Cap/HRQ clear this unlock; card drops off #tim."
-                                    }
-                                ],
-                      "copy_fields":  [
-                                          {
-                                              "label":  "Open link",
-                                              "value":  "https://www.enterprisebank.com/personal/online-banking",
-                                              "kind":  "url",
-                                              "run_where":  "Browser"
-                                          }
-                                      ],
-                      "unblocks":  1
-                  },
-                  {
                       "id":  "human:third-party-cli-login",
                       "kind":  "login",
                       "title":  "n8n: migrate Plaud captures sync off cloud Cowork (poll + Note ID dedupe + Captures write)",
@@ -128,144 +167,40 @@
                       "unblocks":  1
                   },
                   {
-                      "id":  "gemini-pplx-keys",
-                      "kind":  "kyc_secret",
-                      "title":  "Deposit Gemini + Perplexity API keys (apply-secret)",
-                      "summary":  "Unlocks Google/Perplexity Cap lanes by depositing Gemini + Perplexity API keys via apply-secret on aios-host (never chat-paste).",
-                      "step":  "Get GEMINI_API_KEY at https://aistudio.google.com/apikey and PERPLEXITY_API_KEY at https://www.perplexity.ai/settings/api. On aios-host interactive PowerShell deposit via apply-secret into C:\\AIOS\\secrets\\gemini-api.env (GEMINI_API_KEY) and C:\\AIOS\\secrets\\perplexity-api.env (PERPLEXITY_API_KEY). Never chat paste. Mark complete on #tim.",
-                      "why_machine_cannot":  "API keys are Tim-only entitlement; Cap scaffolds refuse-closed without them.",
+                      "id":  "human:bank-portal-enrolment",
+                      "kind":  "pay",
+                      "title":  "Forged: get a daily bank alert feed for the Enterprise CC (the last 13WCF hole)",
+                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert to data@ in the Enterprise Bank portal.",
+                      "step":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert. Confirm the first alert email lands before this row is set Ready.",
+                      "why_machine_cannot":  "enrolling a financial account in an alert feed requires authenticating to the issuer portal as the account holder; this host holds no such credential and must not",
                       "est_minutes":  10,
-                      "source":  "cap",
+                      "source":  "hrq-filtered",
                       "primary":  false,
-                      "state":  "OPEN",
+                      "state":  "WAITING_FOR_PROBE",
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Where to get Gemini - open Google AI Studio API keys and create a key (GEMINI_API_KEY):",
-                                        "href":  "https://aistudio.google.com/apikey"
+                                        "text":  "WHO: Tim (account holder). BANK: Enterprise Bank. CARD: Forged Enterprise CC (issuer portal; mirror the existing #7262 checking Account Alert). Alert destination: data@ (Forged data mailbox). Cap does not hold bank credentials. Open Enterprise Bank online banking:",
+                                        "href":  "https://www.enterprisebank.com/personal/online-banking"
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Where to get Perplexity - open Perplexity API settings and create a key (PERPLEXITY_API_KEY):",
-                                        "href":  "https://www.perplexity.ai/settings/api"
+                                        "text":  "POST-CLICK: sign in as the account holder -\u003e Account Alerts / Notifications -\u003e enrol a daily balance Account Alert Notification for the Enterprise CC to data@ (same pattern as checking #7262). Save/confirm enrolment."
                                     },
                                     {
                                         "n":  3,
-                                        "text":  "Open PowerShell on aios-host (interactive console, not chat) and run this command; script prompts masked; never paste the key in chat/Telegram:",
-                                        "copy":  {
-                                                     "label":  "Command",
-                                                     "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\gemini-api.env -Key GEMINI_API_KEY"
-                                                 }
-                                    },
-                                    {
-                                        "n":  4,
-                                        "text":  "Still in that interactive PowerShell, run this second command for Perplexity:",
-                                        "copy":  {
-                                                     "label":  "Command",
-                                                     "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\perplexity-api.env -Key PERPLEXITY_API_KEY"
-                                                 }
-                                    },
-                                    {
-                                        "n":  5,
-                                        "text":  "Mark complete when done - Cap clears exhausted lanes after deposit; card drops off #tim."
+                                        "text":  "SUCCESS CUE: first alert email lands in data@ (from Notifications@enterprisebank.com or issuer alert address). Then Mark complete - Cap/HRQ clear this unlock; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
                                           {
                                               "label":  "Open link",
-                                              "value":  "https://aistudio.google.com/apikey",
+                                              "value":  "https://www.enterprisebank.com/personal/online-banking",
                                               "kind":  "url",
                                               "run_where":  "Browser"
-                                          },
-                                          {
-                                              "label":  "Open link",
-                                              "value":  "https://www.perplexity.ai/settings/api",
-                                              "kind":  "url",
-                                              "run_where":  "Browser"
-                                          },
-                                          {
-                                              "label":  "Command",
-                                              "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\gemini-api.env -Key GEMINI_API_KEY",
-                                              "kind":  "text",
-                                              "run_where":  "see step text"
-                                          },
-                                          {
-                                              "label":  "Command",
-                                              "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\perplexity-api.env -Key PERPLEXITY_API_KEY",
-                                              "kind":  "text",
-                                              "run_where":  "see step text"
                                           }
-                                      ]
-                  },
-                  {
-                      "id":  "commerce-stripe-cap-ready",
-                      "kind":  "kyc_secret",
-                      "title":  "Stripe KYC + apply-secret for Commerce #001",
-                      "summary":  "Unlocks Commerce #001 by finishing SBT Group Stripe KYC + depositing STRIPE_SECRET_KEY and STRIPE_PUBLISHABLE_KEY via apply-secret on aios-host.",
-                      "step":  "Finish SBT Group Stripe KYC at https://dashboard.stripe.com/ (no personal cell; Payment Links; payouts Chase .6759). Get keys at https://dashboard.stripe.com/apikeys. On aios-host interactive PowerShell run apply-secret Env into C:\\AIOS\\secrets\\commerce-stripe.env for STRIPE_SECRET_KEY then STRIPE_PUBLISHABLE_KEY (masked Read-Host; never chat paste). Mark complete on #tim.",
-                      "why_machine_cannot":  "KYC + live keys are Tim-only; Cap verifies fingerprint after deposit.",
-                      "est_minutes":  20,
-                      "source":  "cap",
-                      "primary":  false,
-                      "state":  "OPEN",
-                      "steps":  [
-                                    {
-                                        "n":  1,
-                                        "text":  "Finish SBT Group Stripe KYC (no personal cell), enable Payment Links, confirm payouts to Chase ...6759:",
-                                        "href":  "https://dashboard.stripe.com/"
-                                    },
-                                    {
-                                        "n":  2,
-                                        "text":  "Where to get keys - open Stripe Dashboard API keys (reveal Secret key + Publishable key for SBT Group):",
-                                        "href":  "https://dashboard.stripe.com/apikeys"
-                                    },
-                                    {
-                                        "n":  3,
-                                        "text":  "Open PowerShell on aios-host (interactive console, not chat) and run this command; script prompts masked; never paste the key in chat/Telegram:",
-                                        "copy":  {
-                                                     "label":  "Command",
-                                                     "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\commerce-stripe.env -Key STRIPE_SECRET_KEY"
-                                                 }
-                                    },
-                                    {
-                                        "n":  4,
-                                        "text":  "Still in that interactive PowerShell, run this second command for the publishable key:",
-                                        "copy":  {
-                                                     "label":  "Command",
-                                                     "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\commerce-stripe.env -Key STRIPE_PUBLISHABLE_KEY"
-                                                 }
-                                    },
-                                    {
-                                        "n":  5,
-                                        "text":  "Mark complete when done - Cap verifies fingerprint after deposit; card drops off #tim."
-                                    }
-                                ],
-                      "copy_fields":  [
-                                          {
-                                              "label":  "Open link",
-                                              "value":  "https://dashboard.stripe.com/",
-                                              "kind":  "url",
-                                              "run_where":  "Browser"
-                                          },
-                                          {
-                                              "label":  "Open link",
-                                              "value":  "https://dashboard.stripe.com/apikeys",
-                                              "kind":  "url",
-                                              "run_where":  "Browser"
-                                          },
-                                          {
-                                              "label":  "Command",
-                                              "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\commerce-stripe.env -Key STRIPE_SECRET_KEY",
-                                              "kind":  "text",
-                                              "run_where":  "see step text"
-                                          },
-                                          {
-                                              "label":  "Command",
-                                              "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\commerce-stripe.env -Key STRIPE_PUBLISHABLE_KEY",
-                                              "kind":  "text",
-                                              "run_where":  "see step text"
-                                          }
-                                      ]
+                                      ],
+                      "unblocks":  1
                   },
                   {
                       "id":  "human:slack-app-install",
@@ -319,9 +254,9 @@
                   }
               ],
     "counts":  {
-                   "total":  6,
-                   "primary":  0,
-                   "from_cap":  2,
+                   "total":  5,
+                   "primary":  1,
+                   "from_cap":  1,
                    "from_hrq":  4,
                    "acks_filtered":  11
                }
