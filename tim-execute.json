@@ -1,6 +1,6 @@
 {
     "schema":  "aios.tim-execute.v3",
-    "generated_at_utc":  "2026-09-13T21:21:39.4034676Z",
+    "generated_at_utc":  "2026-09-13T21:22:49.7270476Z",
     "doctrine":  "Cap-proved Tim-irreducible only. Summary+Steps: Cap prep to the click; Tim opens link/runs command; final step = Mark complete (writeback clears Cap/HRQ; card drops off #tim). No Telegram done-signal paste required. No failed_parked census. No Notion URLs.",
     "primary":  [
 
@@ -10,7 +10,7 @@
                       "id":  "human:n8n-api-key",
                       "kind":  "apply-secret",
                       "title":  "Claude Code: convert Quo comms ledger from daily batch to inbound webhook",
-                      "summary":  "Unlocks Quo to n8n webhook automation by depositing N8N_API_KEY via apply-secret on aios-host.",
+                      "summary":  "Unlocks Quo/n8n REST automation (capability probe / webhook cutover).",
                       "step":  "Share 📇 Operational Comms Ledger with Notion connection n8n-cos, point public HTTPS at http://127.0.0.1:5678/webhook/quo-comms-ledger, then register that HTTPS URL in Quo Settings → Webhooks per WEBHOOK-REGISTRATION.md (~20 minutes).",
                       "why_machine_cannot":  "every one of these asks is reachable through the n8n REST API; the queue has no N8N_API_KEY, so the work is blocked on supplying that one credential rather than on browser interaction",
                       "est_minutes":  5,
@@ -20,15 +20,35 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "On aios-host, deposit N8N_API_KEY via apply-secret under C:\\AIOS\\secrets\\ (never paste the key in chat)."
+                                        "text":  "Where to get - Open n8n on aios-host (RDP/loopback only) -\u003e Settings -\u003e API -\u003e Create API key:",
+                                        "href":  "http://127.0.0.1:5678/settings/api"
                                     },
                                     {
                                         "n":  2,
+                                        "text":  "Exact execute - Open PowerShell on aios-host (interactive console, not chat) and run this command; script prompts masked; never paste the key in chat/Telegram:",
+                                        "copy":  {
+                                                     "label":  "Command",
+                                                     "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\n8n-api.env -Key N8N_API_KEY"
+                                                 }
+                                    },
+                                    {
+                                        "n":  3,
                                         "text":  "Mark complete when done - Cap/HRQ clear the unlock; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
-
+                                          {
+                                              "label":  "Open link",
+                                              "value":  "http://127.0.0.1:5678/settings/api",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
+                                          },
+                                          {
+                                              "label":  "Command",
+                                              "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\n8n-api.env -Key N8N_API_KEY",
+                                              "kind":  "text",
+                                              "run_where":  "see step text"
+                                          }
                                       ],
                       "unblocks":  2
                   },
@@ -46,8 +66,8 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Here is the link to grant roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON metabase-reader (project forged-data):",
-                                        "href":  "https://console.cloud.google.com/iam-admin/iam"
+                                        "text":  "Open GCP IAM for project forged-data and grant roles/iam.serviceAccountTokenCreator for dbt-prod-runner ON the metabase-reader service account:",
+                                        "href":  "https://console.cloud.google.com/iam-admin/iam?project=forged-data"
                                     },
                                     {
                                         "n":  2,
@@ -57,7 +77,7 @@
                       "copy_fields":  [
                                           {
                                               "label":  "Open link",
-                                              "value":  "https://console.cloud.google.com/iam-admin/iam",
+                                              "value":  "https://console.cloud.google.com/iam-admin/iam?project=forged-data",
                                               "kind":  "url",
                                               "run_where":  "Browser"
                                           }
@@ -78,7 +98,7 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Here is the link to complete Google account consent as tbarrett@forgeddumpsters.com (Tim-irreducible login only):",
+                                        "text":  "Open this Google sign-in link and complete OAuth consent as tbarrett@forgeddumpsters.com (Tim-irreducible browser login only):",
                                         "href":  "https://accounts.google.com/"
                                     },
                                     {
@@ -135,7 +155,7 @@
                       "id":  "human:bank-portal-enrolment",
                       "kind":  "pay",
                       "title":  "Forged: get a daily bank alert feed for the Enterprise CC (the last 13WCF hole)",
-                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert in the issuer portal.",
+                      "summary":  "Unlocks the last 13WCF Enterprise CC alert hole by Tim enrolling a daily balance alert in the Enterprise Bank portal.",
                       "step":  "Tim: log into the Enterprise CC issuer\u0027s portal and enrol the card in a daily balance Account Alert Notification to data@, mirroring the #7262 checking alert. Confirm the first alert email lands before this row is set Ready.",
                       "why_machine_cannot":  "enrolling a financial account in an alert feed requires authenticating to the issuer portal as the account holder; this host holds no such credential and must not",
                       "est_minutes":  10,
@@ -145,7 +165,8 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Log into the Enterprise CC issuer portal and enrol a daily balance Account Alert Notification to data@ (mirror #7262 checking alert). Confirm the first alert email lands."
+                                        "text":  "Open Enterprise Bank online banking, sign in as the account holder, and enrol a daily balance Account Alert Notification for the Enterprise CC to data@ (mirror #7262 checking alert). Confirm the first alert from Notifications@enterprisebank.com lands:",
+                                        "href":  "https://www.enterprisebank.com/personal/online-banking"
                                     },
                                     {
                                         "n":  2,
@@ -153,7 +174,12 @@
                                     }
                                 ],
                       "copy_fields":  [
-
+                                          {
+                                              "label":  "Open link",
+                                              "value":  "https://www.enterprisebank.com/personal/online-banking",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
+                                          }
                                       ],
                       "unblocks":  1
                   },
@@ -162,7 +188,7 @@
                       "kind":  "kyc_secret",
                       "title":  "Deposit Gemini + Perplexity API keys (apply-secret)",
                       "summary":  "Unlocks Google/Perplexity Cap lanes by depositing Gemini + Perplexity API keys via apply-secret on aios-host (never chat-paste).",
-                      "step":  "Deposit GEMINI_API_KEY or GOOGLE_API_KEY and PERPLEXITY_API_KEY or PPLX_API_KEY via apply-secret (never chat paste). Then signal: gemini pplx keys ready. Cap clears google/perplexity exhausted + certifies lanes.",
+                      "step":  "Get GEMINI_API_KEY at https://aistudio.google.com/apikey and PERPLEXITY_API_KEY at https://www.perplexity.ai/settings/api. On aios-host interactive PowerShell deposit via apply-secret into C:\\AIOS\\secrets\\gemini-api.env (GEMINI_API_KEY) and C:\\AIOS\\secrets\\perplexity-api.env (PERPLEXITY_API_KEY). Never chat paste. Mark complete on #tim.",
                       "why_machine_cannot":  "API keys are Tim-only entitlement; Cap scaffolds refuse-closed without them.",
                       "est_minutes":  10,
                       "source":  "cap",
@@ -171,23 +197,68 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "On aios-host, deposit GEMINI_API_KEY (or GOOGLE_API_KEY) and PERPLEXITY_API_KEY (or PPLX_API_KEY) via apply-secret - never paste keys in chat."
+                                        "text":  "Where to get Gemini - open Google AI Studio API keys and create a key (GEMINI_API_KEY):",
+                                        "href":  "https://aistudio.google.com/apikey"
                                     },
                                     {
                                         "n":  2,
-                                        "text":  "Mark complete when done - Cap clears exhausted lanes; card drops off #tim."
+                                        "text":  "Where to get Perplexity - open Perplexity API settings and create a key (PERPLEXITY_API_KEY):",
+                                        "href":  "https://www.perplexity.ai/settings/api"
+                                    },
+                                    {
+                                        "n":  3,
+                                        "text":  "Open PowerShell on aios-host (interactive console, not chat) and run this command; script prompts masked; never paste the key in chat/Telegram:",
+                                        "copy":  {
+                                                     "label":  "Command",
+                                                     "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\gemini-api.env -Key GEMINI_API_KEY"
+                                                 }
+                                    },
+                                    {
+                                        "n":  4,
+                                        "text":  "Still in that interactive PowerShell, run this second command for Perplexity:",
+                                        "copy":  {
+                                                     "label":  "Command",
+                                                     "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\perplexity-api.env -Key PERPLEXITY_API_KEY"
+                                                 }
+                                    },
+                                    {
+                                        "n":  5,
+                                        "text":  "Mark complete when done - Cap clears exhausted lanes after deposit; card drops off #tim."
                                     }
                                 ],
                       "copy_fields":  [
-
+                                          {
+                                              "label":  "Open link",
+                                              "value":  "https://aistudio.google.com/apikey",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
+                                          },
+                                          {
+                                              "label":  "Open link",
+                                              "value":  "https://www.perplexity.ai/settings/api",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
+                                          },
+                                          {
+                                              "label":  "Command",
+                                              "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\gemini-api.env -Key GEMINI_API_KEY",
+                                              "kind":  "text",
+                                              "run_where":  "see step text"
+                                          },
+                                          {
+                                              "label":  "Command",
+                                              "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\perplexity-api.env -Key PERPLEXITY_API_KEY",
+                                              "kind":  "text",
+                                              "run_where":  "see step text"
+                                          }
                                       ]
                   },
                   {
                       "id":  "commerce-stripe-cap-ready",
                       "kind":  "kyc_secret",
                       "title":  "Stripe KYC + apply-secret for Commerce #001",
-                      "summary":  "Unlocks Commerce #001 by finishing SBT Group Stripe KYC + depositing live keys via apply-secret on aios-host.",
-                      "step":  "Finish SBT Group Stripe KYC (no personal cell). Enable Payment Links; payouts to SBT Group Chase .6759. Then run apply-secret into C:\\AIOS\\secrets\\commerce-stripe.env (STRIPE_SECRET_KEY + STRIPE_PUBLISHABLE_KEY) and reply/signal `stripe cap ready` (not chat paste of keys).",
+                      "summary":  "Unlocks Commerce #001 by finishing SBT Group Stripe KYC + depositing STRIPE_SECRET_KEY and STRIPE_PUBLISHABLE_KEY via apply-secret on aios-host.",
+                      "step":  "Finish SBT Group Stripe KYC at https://dashboard.stripe.com/ (no personal cell; Payment Links; payouts Chase .6759). Get keys at https://dashboard.stripe.com/apikeys. On aios-host interactive PowerShell run apply-secret Env into C:\\AIOS\\secrets\\commerce-stripe.env for STRIPE_SECRET_KEY then STRIPE_PUBLISHABLE_KEY (masked Read-Host; never chat paste). Mark complete on #tim.",
                       "why_machine_cannot":  "KYC + live keys are Tim-only; Cap verifies fingerprint after deposit.",
                       "est_minutes":  20,
                       "source":  "cap",
@@ -196,11 +267,32 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Here is the link to finish SBT Group Stripe KYC (no personal cell), enable Payment Links, payouts to Chase ...6759, then deposit keys via apply-secret into C:\\AIOS\\secrets\\commerce-stripe.env (never chat-paste keys):",
+                                        "text":  "Finish SBT Group Stripe KYC (no personal cell), enable Payment Links, confirm payouts to Chase ...6759:",
                                         "href":  "https://dashboard.stripe.com/"
                                     },
                                     {
                                         "n":  2,
+                                        "text":  "Where to get keys - open Stripe Dashboard API keys (reveal Secret key + Publishable key for SBT Group):",
+                                        "href":  "https://dashboard.stripe.com/apikeys"
+                                    },
+                                    {
+                                        "n":  3,
+                                        "text":  "Open PowerShell on aios-host (interactive console, not chat) and run this command; script prompts masked; never paste the key in chat/Telegram:",
+                                        "copy":  {
+                                                     "label":  "Command",
+                                                     "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\commerce-stripe.env -Key STRIPE_SECRET_KEY"
+                                                 }
+                                    },
+                                    {
+                                        "n":  4,
+                                        "text":  "Still in that interactive PowerShell, run this second command for the publishable key:",
+                                        "copy":  {
+                                                     "label":  "Command",
+                                                     "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\commerce-stripe.env -Key STRIPE_PUBLISHABLE_KEY"
+                                                 }
+                                    },
+                                    {
+                                        "n":  5,
                                         "text":  "Mark complete when done - Cap verifies fingerprint after deposit; card drops off #tim."
                                     }
                                 ],
@@ -210,6 +302,24 @@
                                               "value":  "https://dashboard.stripe.com/",
                                               "kind":  "url",
                                               "run_where":  "Browser"
+                                          },
+                                          {
+                                              "label":  "Open link",
+                                              "value":  "https://dashboard.stripe.com/apikeys",
+                                              "kind":  "url",
+                                              "run_where":  "Browser"
+                                          },
+                                          {
+                                              "label":  "Command",
+                                              "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\commerce-stripe.env -Key STRIPE_SECRET_KEY",
+                                              "kind":  "text",
+                                              "run_where":  "see step text"
+                                          },
+                                          {
+                                              "label":  "Command",
+                                              "value":  "powershell -ExecutionPolicy Bypass -File C:\\AIOS\\scripts\\apply-secret.ps1 -Store Env -Target C:\\AIOS\\secrets\\commerce-stripe.env -Key STRIPE_PUBLISHABLE_KEY",
+                                              "kind":  "text",
+                                              "run_where":  "see step text"
                                           }
                                       ]
                   },
@@ -227,7 +337,7 @@
                       "steps":  [
                                     {
                                         "n":  1,
-                                        "text":  "Here is the link to create/install the CBS Slack app to Camelback Society, mint the app-level token, and invite the bot to the 12 named channels:",
+                                        "text":  "Open Slack API Apps, create/install the CBS Slack app to Camelback Society, mint the app-level token, and invite the bot to the 12 named channels:",
                                         "href":  "https://api.slack.com/apps"
                                     },
                                     {
