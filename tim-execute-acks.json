@@ -1,6 +1,6 @@
 {
   "schema": "aios.tim-execute-acks.v1",
-  "updated_at_utc": "2026-09-14T04:05:27.887Z",
+  "updated_at_utc": "2026-09-14T04:11:11.597Z",
   "acks": [
     {
       "id": "cap-auth-prove-noop",
@@ -17,6 +17,12 @@
     {
       "id": "human:n8n-api-key",
       "at": "2026-09-14T04:05:27.161Z",
+      "source": "tim-ui",
+      "bucket": "execute"
+    },
+    {
+      "id": "human:third-party-cli-login",
+      "at": "2026-09-14T04:11:11.014Z",
       "source": "tim-ui",
       "bucket": "execute"
     }
