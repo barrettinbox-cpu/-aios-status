@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-14T18:21:28Z",
-    "published_at_utc":  "2026-09-14T18:21:42Z",
-    "sequence":  3005,
-    "age_seconds_at_publish":  13,
+    "generated_at_utc":  "2026-09-14T18:23:30Z",
+    "published_at_utc":  "2026-09-14T18:23:38Z",
+    "sequence":  3006,
+    "age_seconds_at_publish":  8,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -11,7 +11,8 @@
                      "provider xai is exhausted",
                      "provider google is exhausted",
                      "provider perplexity is exhausted",
-                     "provider openai is exhausted"
+                     "provider openai is exhausted",
+                     "truth sources disagree: Notion holds 9 non-terminal row(s); watcher telemetry reports ready=3"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -29,7 +30,7 @@
                                            "dependency-retired":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  4.4
+                  "minutes_since_last_claim":  6.3
               },
     "throughput":  {
                        "completed_24h":  65,
@@ -114,16 +115,16 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  566,
+                    "last_run_age_seconds":  685,
                     "next_run_utc":  "2026-09-14T18:41:26Z",
                     "gaps":  8,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  62,
-                          "sources_agree":  true,
-                          "disagreement_count":  0
+                          "reconciliation_age_seconds":  46,
+                          "sources_agree":  false,
+                          "disagreement_count":  1
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
