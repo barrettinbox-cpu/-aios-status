@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-14T00:53:30Z",
-    "published_at_utc":  "2026-09-14T00:53:37Z",
-    "sequence":  2676,
+    "generated_at_utc":  "2026-09-14T00:57:30Z",
+    "published_at_utc":  "2026-09-14T00:57:37Z",
+    "sequence":  2677,
     "age_seconds_at_publish":  7,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -29,7 +29,7 @@
 
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  55.3
+                  "minutes_since_last_claim":  59.2
               },
     "throughput":  {
                        "completed_24h":  38,
@@ -46,7 +46,7 @@
                    },
     "lanes":  {
                   "active_workers":  0,
-                  "usable_capacity":  5
+                  "usable_capacity":  4
               },
     "providers":  {
                       "claude":  {
@@ -114,14 +114,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  678,
+                    "last_run_age_seconds":  917,
                     "next_run_utc":  "2026-09-14T01:11:26Z",
                     "gaps":  7,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  68,
+                          "reconciliation_age_seconds":  75,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
