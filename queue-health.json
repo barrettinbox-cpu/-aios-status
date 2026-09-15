@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-15T05:09:30Z",
-    "published_at_utc":  "2026-09-15T05:09:39Z",
-    "sequence":  3302,
-    "age_seconds_at_publish":  9,
+    "generated_at_utc":  "2026-09-15T05:11:30Z",
+    "published_at_utc":  "2026-09-15T05:11:38Z",
+    "sequence":  3303,
+    "age_seconds_at_publish":  7,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -29,7 +29,7 @@
                                            "dependency-retired":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  29.3
+                  "minutes_since_last_claim":  31.3
               },
     "throughput":  {
                        "completed_24h":  53,
@@ -42,7 +42,7 @@
                        "p95_seconds":  126,
                        "max_seconds":  243,
                        "samples_24h":  546,
-                       "incidents_24h":  98
+                       "incidents_24h":  97
                    },
     "lanes":  {
                   "active_workers":  0,
@@ -119,14 +119,14 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1616,
-                    "next_run_utc":  "2026-09-15T05:11:26Z",
+                    "last_run_age_seconds":  1734,
+                    "next_run_utc":  "2026-09-15T05:41:26Z",
                     "gaps":  2,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  74,
+                          "reconciliation_age_seconds":  67,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
