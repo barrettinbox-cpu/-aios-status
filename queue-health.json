@@ -1,15 +1,15 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-15T08:33:29Z",
-    "published_at_utc":  "2026-09-15T08:33:31Z",
-    "sequence":  3393,
+    "generated_at_utc":  "2026-09-15T08:35:27Z",
+    "published_at_utc":  "2026-09-15T08:35:29Z",
+    "sequence":  3394,
     "age_seconds_at_publish":  2,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
                      "cannot read the queue source of truth: The remote server returned an error: (429) Too Many Requests.",
-                     "scheduler telemetry is stale (333s old)",
+                     "scheduler telemetry is stale (451s old)",
                      "provider xai is exhausted",
                      "provider google is exhausted",
                      "provider perplexity is exhausted",
@@ -31,7 +31,7 @@
 
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  90.2
+                  "minutes_since_last_claim":  92.1
               },
     "throughput":  {
                        "completed_24h":  31,
@@ -121,21 +121,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1244,
+                    "last_run_age_seconds":  1362,
                     "next_run_utc":  "2026-09-15T08:41:26Z",
                     "gaps":  2,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  45,
+                          "reconciliation_age_seconds":  75,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-15T08:31:50Z",
+                        "last_change_utc":  "2026-09-15T08:33:31Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
