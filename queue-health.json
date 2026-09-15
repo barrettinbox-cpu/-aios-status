@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-15T00:37:30Z",
-    "published_at_utc":  "2026-09-15T00:37:39Z",
-    "sequence":  3183,
-    "age_seconds_at_publish":  9,
+    "generated_at_utc":  "2026-09-15T00:39:30Z",
+    "published_at_utc":  "2026-09-15T00:39:36Z",
+    "sequence":  3184,
+    "age_seconds_at_publish":  7,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -18,8 +18,8 @@
                   "source_of_truth":  "notion",
                   "source_ok":  true,
                   "ready":  1,
-                  "running":  1,
-                  "done":  532,
+                  "running":  0,
+                  "done":  533,
                   "draft":  94,
                   "failed":  0,
                   "dependency_wait":  2,
@@ -29,7 +29,7 @@
                                            "dependency-retired":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  23.3
+                  "minutes_since_last_claim":  25.2
               },
     "throughput":  {
                        "completed_24h":  54,
@@ -42,10 +42,10 @@
                        "p95_seconds":  126,
                        "max_seconds":  952,
                        "samples_24h":  541,
-                       "incidents_24h":  83
+                       "incidents_24h":  84
                    },
     "lanes":  {
-                  "active_workers":  1,
+                  "active_workers":  0,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -119,14 +119,14 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1494,
+                    "last_run_age_seconds":  1611,
                     "next_run_utc":  "2026-09-15T00:41:26Z",
                     "gaps":  2,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  73,
+                          "reconciliation_age_seconds":  63,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
