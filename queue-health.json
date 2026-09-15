@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
     "generated_at_utc":  "2026-09-15T14:59:28Z",
-    "published_at_utc":  "2026-09-15T14:59:39Z",
-    "sequence":  3559,
-    "age_seconds_at_publish":  11,
+    "published_at_utc":  "2026-09-15T15:00:56Z",
+    "sequence":  3560,
+    "age_seconds_at_publish":  88,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -133,7 +133,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-15T14:57:38Z",
+                        "last_change_utc":  "2026-09-15T14:59:39Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
