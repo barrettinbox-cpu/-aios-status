@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-16T01:15:30Z",
-    "published_at_utc":  "2026-09-16T01:15:39Z",
-    "sequence":  3715,
+    "generated_at_utc":  "2026-09-16T01:17:27Z",
+    "published_at_utc":  "2026-09-16T01:17:36Z",
+    "sequence":  3716,
     "age_seconds_at_publish":  9,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -11,26 +11,27 @@
                      "provider xai is exhausted",
                      "provider google is exhausted",
                      "provider perplexity is exhausted",
-                     "provider openai is exhausted"
+                     "provider openai is exhausted",
+                     "possible silent block: 3 claimable row(s) in the source of truth, scheduler reports 0 eligible (dependency-blocked), and nothing has been claimed for 249.2 min"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  2,
+                  "ready":  5,
                   "running":  0,
-                  "done":  545,
+                  "done":  542,
                   "draft":  94,
                   "failed":  0,
                   "dependency_wait":  1,
                   "capability_wait":  0,
-                  "claimable_now":  0,
+                  "claimable_now":  3,
                   "ready_blocked_by":  {
                                            "dependency-open":  1,
                                            "dependency-retired":  1
                                        },
-                  "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  247.3
+                  "oldest_runnable_age_hours":  611.2,
+                  "minutes_since_last_claim":  249.2
               },
     "throughput":  {
                        "completed_24h":  10,
@@ -43,7 +44,7 @@
                        "p95_seconds":  122,
                        "max_seconds":  259,
                        "samples_24h":  587,
-                       "incidents_24h":  115
+                       "incidents_24h":  116
                    },
     "lanes":  {
                   "active_workers":  0,
@@ -115,14 +116,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  164,
+                    "last_run_age_seconds":  282,
                     "next_run_utc":  "2026-09-16T01:41:26Z",
                     "gaps":  5,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  64,
+                          "reconciliation_age_seconds":  57,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
