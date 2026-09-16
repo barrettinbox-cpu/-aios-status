@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-16T07:55:28Z",
-    "published_at_utc":  "2026-09-16T07:55:38Z",
-    "sequence":  3899,
-    "age_seconds_at_publish":  10,
+    "generated_at_utc":  "2026-09-16T07:57:28Z",
+    "published_at_utc":  "2026-09-16T07:57:36Z",
+    "sequence":  3900,
+    "age_seconds_at_publish":  8,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -17,24 +17,24 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  5,
-                  "running":  0,
-                  "done":  564,
+                  "ready":  6,
+                  "running":  2,
+                  "done":  561,
                   "draft":  100,
                   "failed":  0,
                   "dependency_wait":  1,
                   "capability_wait":  0,
                   "claimable_now":  3,
                   "ready_blocked_by":  {
-                                           "dependency-open":  1,
-                                           "dependency-retired":  1
+                                           "dependency-retired":  1,
+                                           "dependency-open":  2
                                        },
-                  "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  54.1
+                  "oldest_runnable_age_hours":  617.9,
+                  "minutes_since_last_claim":  1.1
               },
     "throughput":  {
                        "completed_24h":  36,
-                       "admissions_24h":  8,
+                       "admissions_24h":  9,
                        "reroutes_24h":  0
                    },
     "starvation":  {
@@ -46,7 +46,7 @@
                        "incidents_24h":  103
                    },
     "lanes":  {
-                  "active_workers":  0,
+                  "active_workers":  2,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -115,7 +115,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  798,
+                    "last_run_age_seconds":  916,
                     "next_run_utc":  "2026-09-16T08:11:26Z",
                     "gaps":  5,
                     "admitted":  4,
@@ -129,7 +129,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-16T07:53:34Z",
+                        "last_change_utc":  "2026-09-16T07:55:38Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
