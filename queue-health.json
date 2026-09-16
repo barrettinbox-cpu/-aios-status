@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-16T05:39:30Z",
-    "published_at_utc":  "2026-09-16T05:39:39Z",
-    "sequence":  3836,
+    "generated_at_utc":  "2026-09-16T05:41:30Z",
+    "published_at_utc":  "2026-09-16T05:41:38Z",
+    "sequence":  3837,
     "age_seconds_at_publish":  9,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -30,10 +30,10 @@
                                            "dependency-retired":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  2.3
+                  "minutes_since_last_claim":  4.3
               },
     "throughput":  {
-                       "completed_24h":  35,
+                       "completed_24h":  34,
                        "admissions_24h":  8,
                        "reroutes_24h":  0
                    },
@@ -115,21 +115,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1645,
-                    "next_run_utc":  "2026-09-16T05:41:26Z",
+                    "last_run_age_seconds":  1764,
+                    "next_run_utc":  "2026-09-16T06:11:26Z",
                     "gaps":  5,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  58,
+                          "reconciliation_age_seconds":  66,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-16T05:37:38Z",
+                        "last_change_utc":  "2026-09-16T05:39:39Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
