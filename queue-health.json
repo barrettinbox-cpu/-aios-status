@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-16T13:15:28Z",
-    "published_at_utc":  "2026-09-16T13:15:35Z",
-    "sequence":  4048,
+    "generated_at_utc":  "2026-09-16T13:17:30Z",
+    "published_at_utc":  "2026-09-16T13:17:37Z",
+    "sequence":  4049,
     "age_seconds_at_publish":  7,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -11,27 +11,26 @@
                      "provider xai is exhausted",
                      "provider google is exhausted",
                      "provider perplexity is exhausted",
-                     "provider openai is exhausted",
-                     "possible silent block: 3 claimable row(s) in the source of truth, scheduler reports 0 eligible (dependency-blocked), and nothing has been claimed for 319.1 min"
+                     "provider openai is exhausted"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  6,
+                  "ready":  3,
                   "running":  0,
-                  "done":  562,
+                  "done":  565,
                   "draft":  101,
                   "failed":  0,
                   "dependency_wait":  1,
                   "capability_wait":  0,
-                  "claimable_now":  3,
+                  "claimable_now":  0,
                   "ready_blocked_by":  {
                                            "dependency-retired":  1,
                                            "dependency-open":  2
                                        },
-                  "oldest_runnable_age_hours":  623.2,
-                  "minutes_since_last_claim":  319.1
+                  "oldest_runnable_age_hours":  0,
+                  "minutes_since_last_claim":  321.1
               },
     "throughput":  {
                        "completed_24h":  38,
@@ -39,12 +38,12 @@
                        "reroutes_24h":  0
                    },
     "starvation":  {
-                       "current_seconds":  113,
+                       "current_seconds":  0,
                        "p50_seconds":  0,
                        "p95_seconds":  118,
                        "max_seconds":  243,
                        "samples_24h":  589,
-                       "incidents_24h":  105
+                       "incidents_24h":  104
                    },
     "lanes":  {
                   "active_workers":  0,
@@ -116,21 +115,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  198,
+                    "last_run_age_seconds":  319,
                     "next_run_utc":  "2026-09-16T13:41:26Z",
                     "gaps":  4,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  69,
+                          "reconciliation_age_seconds":  72,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-16T13:13:37Z",
+                        "last_change_utc":  "2026-09-16T13:15:35Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
