@@ -1,18 +1,18 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-17T20:37:28Z",
-    "published_at_utc":  "2026-09-17T20:37:35Z",
+    "generated_at_utc":  "2026-09-17T20:47:28Z",
+    "published_at_utc":  "2026-09-17T20:47:37Z",
     "sequence":  4713,
-    "age_seconds_at_publish":  8,
+    "age_seconds_at_publish":  10,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
-                     "scheduler telemetry is stale (17227s old)",
+                     "scheduler telemetry is stale (17829s old)",
                      "provider xai is exhausted",
                      "provider google is exhausted",
                      "provider perplexity is exhausted",
-                     "truth-monitor reconciliation is stale (17948s old)"
+                     "truth-monitor reconciliation is stale (18551s old)"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -31,7 +31,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  288.2
+                  "minutes_since_last_claim":  298.2
               },
     "throughput":  {
                        "completed_24h":  43,
@@ -121,14 +121,14 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1482,
-                    "next_run_utc":  "2026-09-17T20:41:26Z",
+                    "last_run_age_seconds":  290,
+                    "next_run_utc":  "2026-09-17T21:11:26Z",
                     "gaps":  3,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  17948,
+                          "reconciliation_age_seconds":  18551,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
