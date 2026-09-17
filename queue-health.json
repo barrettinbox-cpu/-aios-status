@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-17T15:29:27Z",
-    "published_at_utc":  "2026-09-17T15:29:34Z",
-    "sequence":  4708,
-    "age_seconds_at_publish":  7,
+    "generated_at_utc":  "2026-09-17T15:31:27Z",
+    "published_at_utc":  "2026-09-17T15:31:35Z",
+    "sequence":  4709,
+    "age_seconds_at_publish":  8,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -29,7 +29,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  12.1
+                  "minutes_since_last_claim":  14.1
               },
     "throughput":  {
                        "completed_24h":  41,
@@ -39,10 +39,10 @@
     "starvation":  {
                        "current_seconds":  0,
                        "p50_seconds":  0,
-                       "p95_seconds":  236,
+                       "p95_seconds":  126,
                        "max_seconds":  481,
                        "samples_24h":  694,
-                       "incidents_24h":  115
+                       "incidents_24h":  114
                    },
     "lanes":  {
                   "active_workers":  1,
@@ -119,14 +119,14 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1001,
+                    "last_run_age_seconds":  1122,
                     "next_run_utc":  "2026-09-17T15:41:26Z",
                     "gaps":  2,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  66,
+                          "reconciliation_age_seconds":  69,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
