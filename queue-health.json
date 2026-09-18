@@ -1,24 +1,25 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-18T03:57:30Z",
-    "published_at_utc":  "2026-09-18T03:57:37Z",
-    "sequence":  4755,
-    "age_seconds_at_publish":  7,
+    "generated_at_utc":  "2026-09-18T03:59:29Z",
+    "published_at_utc":  "2026-09-18T03:59:42Z",
+    "sequence":  4756,
+    "age_seconds_at_publish":  13,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
+                     "stuck lease: 1 registered worker pid(s) no longer exist",
                      "provider xai is exhausted",
                      "provider google is exhausted",
                      "provider perplexity is exhausted",
-                     "THE HISTORICAL FAILURE MODE: 1 claimable row(s), scheduler reports 8 eligible, 8 lane(s) free, a provider admissible, and NOTHING running"
+                     "THE HISTORICAL FAILURE MODE: 1 claimable row(s), scheduler reports 10 eligible, 8 lane(s) free, a provider admissible, and NOTHING running"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  16,
-                  "running":  0,
+                  "ready":  15,
+                  "running":  1,
                   "done":  607,
                   "draft":  67,
                   "failed":  2,
@@ -27,14 +28,14 @@
                   "claimable_now":  1,
                   "ready_blocked_by":  {
                                            "run-after-future":  4,
-                                           "conflict-blocked":  10,
+                                           "conflict-blocked":  9,
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  601.3,
-                  "minutes_since_last_claim":  0
+                  "minutes_since_last_claim":  2.1
               },
     "throughput":  {
-                       "completed_24h":  51,
+                       "completed_24h":  54,
                        "admissions_24h":  8,
                        "reroutes_24h":  2
                    },
@@ -137,7 +138,7 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  867,
+                    "last_run_age_seconds":  992,
                     "next_run_utc":  "2026-09-18T04:11:26Z",
                     "gaps":  4,
                     "admitted":  4,
@@ -151,7 +152,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-18T03:55:36Z",
+                        "last_change_utc":  "2026-09-18T03:57:37Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
