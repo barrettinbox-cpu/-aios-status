@@ -1,42 +1,40 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-18T03:59:29Z",
-    "published_at_utc":  "2026-09-18T03:59:42Z",
-    "sequence":  4756,
-    "age_seconds_at_publish":  13,
+    "generated_at_utc":  "2026-09-18T04:01:28Z",
+    "published_at_utc":  "2026-09-18T04:01:36Z",
+    "sequence":  4757,
+    "age_seconds_at_publish":  9,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "UNHEALTHY",
+    "verdict":  "DEGRADED",
     "problems":  [
-                     "stuck lease: 1 registered worker pid(s) no longer exist",
                      "provider xai is exhausted",
                      "provider google is exhausted",
-                     "provider perplexity is exhausted",
-                     "THE HISTORICAL FAILURE MODE: 1 claimable row(s), scheduler reports 10 eligible, 8 lane(s) free, a provider admissible, and NOTHING running"
+                     "provider perplexity is exhausted"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  15,
-                  "running":  1,
-                  "done":  607,
+                  "ready":  16,
+                  "running":  2,
+                  "done":  608,
                   "draft":  67,
-                  "failed":  2,
+                  "failed":  1,
                   "dependency_wait":  1,
                   "capability_wait":  0,
                   "claimable_now":  1,
                   "ready_blocked_by":  {
                                            "run-after-future":  4,
-                                           "conflict-blocked":  9,
+                                           "conflict-blocked":  10,
                                            "dependency-open":  1
                                        },
-                  "oldest_runnable_age_hours":  601.3,
-                  "minutes_since_last_claim":  2.1
+                  "oldest_runnable_age_hours":  47.9,
+                  "minutes_since_last_claim":  0.8
               },
     "throughput":  {
                        "completed_24h":  54,
-                       "admissions_24h":  8,
+                       "admissions_24h":  9,
                        "reroutes_24h":  2
                    },
     "starvation":  {
@@ -45,10 +43,10 @@
                        "p95_seconds":  121,
                        "max_seconds":  481,
                        "samples_24h":  393,
-                       "incidents_24h":  58
+                       "incidents_24h":  57
                    },
     "lanes":  {
-                  "active_workers":  0,
+                  "active_workers":  2,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -138,21 +136,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  992,
+                    "last_run_age_seconds":  1106,
                     "next_run_utc":  "2026-09-18T04:11:26Z",
                     "gaps":  4,
                     "admitted":  4,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  57,
+                          "reconciliation_age_seconds":  48,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-18T03:57:37Z",
+                        "last_change_utc":  "2026-09-18T03:59:42Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
