@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-18T18:39:30Z",
-    "published_at_utc":  "2026-09-18T18:39:38Z",
-    "sequence":  5075,
+    "generated_at_utc":  "2026-09-18T18:41:31Z",
+    "published_at_utc":  "2026-09-18T18:41:39Z",
+    "sequence":  5076,
     "age_seconds_at_publish":  8,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -17,22 +17,22 @@
                   "ready":  4,
                   "running":  1,
                   "done":  640,
-                  "draft":  39,
-                  "failed":  0,
+                  "draft":  38,
+                  "failed":  1,
                   "dependency_wait":  2,
                   "capability_wait":  0,
-                  "claimable_now":  1,
+                  "claimable_now":  0,
                   "ready_blocked_by":  {
                                            "run-after-future":  1,
-                                           "conflict-blocked":  1,
+                                           "conflict-blocked":  2,
                                            "human-step":  2,
                                            "dependency-open":  1
                                        },
-                  "oldest_runnable_age_hours":  3.7,
-                  "minutes_since_last_claim":  1.2
+                  "oldest_runnable_age_hours":  0,
+                  "minutes_since_last_claim":  0.3
               },
     "throughput":  {
-                       "completed_24h":  115,
+                       "completed_24h":  116,
                        "admissions_24h":  8,
                        "reroutes_24h":  3
                    },
@@ -41,7 +41,7 @@
                        "p50_seconds":  0,
                        "p95_seconds":  246,
                        "max_seconds":  246,
-                       "samples_24h":  412,
+                       "samples_24h":  413,
                        "incidents_24h":  15
                    },
     "lanes":  {
@@ -141,21 +141,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  431,
-                    "next_run_utc":  "2026-09-18T18:41:26Z",
+                    "last_run_age_seconds":  552,
+                    "next_run_utc":  "2026-09-18T19:11:26Z",
                     "gaps":  3,
                     "admitted":  4,
                     "verified_completions":  1
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  57,
+                          "reconciliation_age_seconds":  64,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-18T18:37:39Z",
+                        "last_change_utc":  "2026-09-18T18:39:38Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
