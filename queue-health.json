@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-18T19:47:31Z",
-    "published_at_utc":  "2026-09-18T19:47:46Z",
-    "sequence":  5108,
-    "age_seconds_at_publish":  15,
+    "generated_at_utc":  "2026-09-18T19:49:32Z",
+    "published_at_utc":  "2026-09-18T19:49:41Z",
+    "sequence":  5109,
+    "age_seconds_at_publish":  9,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "HEALTHY",
@@ -14,25 +14,25 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  9,
-                  "running":  1,
+                  "ready":  7,
+                  "running":  2,
                   "done":  640,
                   "draft":  38,
-                  "failed":  0,
+                  "failed":  1,
                   "dependency_wait":  2,
                   "capability_wait":  0,
-                  "claimable_now":  1,
+                  "claimable_now":  0,
                   "ready_blocked_by":  {
                                            "run-after-future":  1,
-                                           "conflict-blocked":  5,
+                                           "conflict-blocked":  4,
                                            "human-step":  3,
                                            "dependency-open":  1
                                        },
-                  "oldest_runnable_age_hours":  3.4,
-                  "minutes_since_last_claim":  6.4
+                  "oldest_runnable_age_hours":  0,
+                  "minutes_since_last_claim":  0.3
               },
     "throughput":  {
-                       "completed_24h":  142,
+                       "completed_24h":  143,
                        "admissions_24h":  8,
                        "reroutes_24h":  3
                    },
@@ -41,11 +41,11 @@
                        "p50_seconds":  0,
                        "p95_seconds":  245,
                        "max_seconds":  246,
-                       "samples_24h":  446,
-                       "incidents_24h":  20
+                       "samples_24h":  447,
+                       "incidents_24h":  21
                    },
     "lanes":  {
-                  "active_workers":  1,
+                  "active_workers":  2,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -141,21 +141,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  80,
+                    "last_run_age_seconds":  194,
                     "next_run_utc":  "2026-09-18T20:11:26Z",
                     "gaps":  2,
                     "admitted":  8,
                     "verified_completions":  1
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  57,
+                          "reconciliation_age_seconds":  47,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-18T19:45:42Z",
+                        "last_change_utc":  "2026-09-18T19:47:46Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
