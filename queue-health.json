@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-19T02:07:31Z",
-    "published_at_utc":  "2026-09-19T02:07:39Z",
-    "sequence":  5291,
-    "age_seconds_at_publish":  8,
+    "generated_at_utc":  "2026-09-19T02:09:31Z",
+    "published_at_utc":  "2026-09-19T02:09:43Z",
+    "sequence":  5292,
+    "age_seconds_at_publish":  11,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "HEALTHY",
@@ -14,11 +14,11 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  11,
+                  "ready":  10,
                   "running":  1,
                   "done":  650,
-                  "draft":  52,
-                  "failed":  0,
+                  "draft":  51,
+                  "failed":  1,
                   "dependency_wait":  4,
                   "capability_wait":  0,
                   "claimable_now":  0,
@@ -30,11 +30,11 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  1.2
+                  "minutes_since_last_claim":  0.3
               },
     "throughput":  {
                        "completed_24h":  223,
-                       "admissions_24h":  13,
+                       "admissions_24h":  14,
                        "reroutes_24h":  3
                    },
     "starvation":  {
@@ -42,7 +42,7 @@
                        "p50_seconds":  0,
                        "p95_seconds":  245,
                        "max_seconds":  246,
-                       "samples_24h":  633,
+                       "samples_24h":  634,
                        "incidents_24h":  30
                    },
     "lanes":  {
@@ -142,21 +142,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1314,
+                    "last_run_age_seconds":  1437,
                     "next_run_utc":  "2026-09-19T02:11:26Z",
                     "gaps":  3,
                     "admitted":  8,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  59,
+                          "reconciliation_age_seconds":  62,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-19T02:03:38Z",
+                        "last_change_utc":  "2026-09-19T02:07:39Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
