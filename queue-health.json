@@ -1,33 +1,32 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-20T08:19:30Z",
-    "published_at_utc":  "2026-09-20T08:19:38Z",
-    "sequence":  5976,
+    "generated_at_utc":  "2026-09-20T08:21:31Z",
+    "published_at_utc":  "2026-09-20T08:21:39Z",
+    "sequence":  5977,
     "age_seconds_at_publish":  8,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "HEALTHY",
+    "verdict":  "UNHEALTHY",
     "problems":  [
-
+                     "cannot read the queue source of truth: The remote server returned an error: (429) Too Many Requests."
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
-                  "source_ok":  true,
-                  "ready":  5,
+                  "source_ok":  false,
+                  "ready":  3,
                   "running":  0,
-                  "done":  661,
-                  "draft":  56,
+                  "done":  192,
+                  "draft":  49,
                   "failed":  0,
-                  "dependency_wait":  2,
+                  "dependency_wait":  0,
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
-                                           "run-after-future":  4,
-                                           "dependency-open":  1
+                                           "run-after-future":  3
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  79.2
+                  "minutes_since_last_claim":  81.2
               },
     "throughput":  {
                        "completed_24h":  4,
@@ -79,14 +78,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  445,
+                    "last_run_age_seconds":  566,
                     "next_run_utc":  "2026-09-20T08:41:26Z",
                     "gaps":  7,
                     "admitted":  8,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  84,
+                          "reconciliation_age_seconds":  89,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
