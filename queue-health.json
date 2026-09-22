@@ -1,16 +1,16 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-22T08:27:30Z",
-    "published_at_utc":  "2026-09-22T08:27:53Z",
-    "sequence":  7047,
-    "age_seconds_at_publish":  24,
+    "generated_at_utc":  "2026-09-22T08:29:30Z",
+    "published_at_utc":  "2026-09-22T08:29:40Z",
+    "sequence":  7048,
+    "age_seconds_at_publish":  10,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
-                     "scheduler telemetry is stale (746s old)",
+                     "scheduler telemetry is stale (853s old)",
                      "core execution provider openai is exhausted",
-                     "truth sources disagree: watcher telemetry is 660.4s old; the watcher may not be ticking"
+                     "truth sources disagree: watcher telemetry is 783.9s old; the watcher may not be ticking"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -29,7 +29,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  87.5
+                  "minutes_since_last_claim":  89.3
               },
     "throughput":  {
                        "completed_24h":  116,
@@ -91,21 +91,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  371,
+                    "last_run_age_seconds":  478,
                     "next_run_utc":  "2026-09-22T08:41:26Z",
                     "gaps":  5,
                     "admitted":  8,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  93,
+                          "reconciliation_age_seconds":  77,
                           "sources_agree":  false,
                           "disagreement_count":  1
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-22T08:25:38Z",
+                        "last_change_utc":  "2026-09-22T08:27:53Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
