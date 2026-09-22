@@ -1,14 +1,14 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-22T23:27:31Z",
-    "published_at_utc":  "2026-09-22T23:27:47Z",
-    "sequence":  7371,
-    "age_seconds_at_publish":  16,
+    "generated_at_utc":  "2026-09-22T23:29:31Z",
+    "published_at_utc":  "2026-09-22T23:29:40Z",
+    "sequence":  7372,
+    "age_seconds_at_publish":  9,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "HEALTHY",
+    "verdict":  "DEGRADED",
     "problems":  [
-
+                     "stuck lease: 1 registered worker pid(s) no longer exist"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -29,7 +29,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  5.4
+                  "minutes_since_last_claim":  7.2
               },
     "throughput":  {
                        "completed_24h":  81,
@@ -45,7 +45,7 @@
                        "incidents_24h":  9
                    },
     "lanes":  {
-                  "active_workers":  2,
+                  "active_workers":  1,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -91,21 +91,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  895,
+                    "last_run_age_seconds":  1008,
                     "next_run_utc":  "2026-09-22T23:41:26Z",
                     "gaps":  4,
                     "admitted":  8,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  62,
+                          "reconciliation_age_seconds":  47,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-22T23:25:42Z",
+                        "last_change_utc":  "2026-09-22T23:27:47Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
