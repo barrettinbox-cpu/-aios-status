@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-22T00:59:30Z",
-    "published_at_utc":  "2026-09-22T00:59:41Z",
-    "sequence":  6867,
-    "age_seconds_at_publish":  11,
+    "generated_at_utc":  "2026-09-22T01:03:31Z",
+    "published_at_utc":  "2026-09-22T01:03:41Z",
+    "sequence":  6868,
+    "age_seconds_at_publish":  10,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -15,10 +15,10 @@
                   "source_of_truth":  "notion",
                   "source_ok":  true,
                   "ready":  5,
-                  "running":  2,
+                  "running":  1,
                   "done":  680,
                   "draft":  68,
-                  "failed":  0,
+                  "failed":  1,
                   "dependency_wait":  2,
                   "capability_wait":  0,
                   "claimable_now":  0,
@@ -27,10 +27,10 @@
                                            "dependency-open":  2
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  2.3
+                  "minutes_since_last_claim":  6.3
               },
     "throughput":  {
-                       "completed_24h":  64,
+                       "completed_24h":  65,
                        "admissions_24h":  14,
                        "reroutes_24h":  0
                    },
@@ -43,18 +43,18 @@
                        "incidents_24h":  52
                    },
     "lanes":  {
-                  "active_workers":  2,
+                  "active_workers":  1,
                   "usable_capacity":  8
               },
     "providers":  {
                       "claude":  {
-                                     "state":  "certifying",
+                                     "state":  "throttled",
                                      "admissible":  false,
                                      "remaining_pct":  null,
                                      "drain_threshold_pct":  null,
                                      "capacity_measured_at":  "",
-                                     "until_utc":  "",
-                                     "recovery":  "probed",
+                                     "until_utc":  "2026-09-22T01:23:11Z",
+                                     "recovery":  "",
                                      "no_failure_record":  false
                                  },
                       "codex":  {
@@ -89,14 +89,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1046,
+                    "last_run_age_seconds":  1286,
                     "next_run_utc":  "2026-09-22T01:11:26Z",
                     "gaps":  5,
                     "admitted":  8,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  54,
+                          "reconciliation_age_seconds":  58,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
