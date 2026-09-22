@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-22T22:45:30Z",
-    "published_at_utc":  "2026-09-22T22:45:42Z",
-    "sequence":  7351,
+    "generated_at_utc":  "2026-09-22T22:49:31Z",
+    "published_at_utc":  "2026-09-22T22:49:43Z",
+    "sequence":  7352,
     "age_seconds_at_publish":  12,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -14,24 +14,23 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  4,
+                  "ready":  3,
                   "running":  1,
                   "done":  693,
                   "draft":  76,
-                  "failed":  0,
+                  "failed":  1,
                   "dependency_wait":  1,
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
                                            "run-after-future":  2,
-                                           "conflict-blocked":  1,
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  29.3
+                  "minutes_since_last_claim":  0.3
               },
     "throughput":  {
-                       "completed_24h":  91,
+                       "completed_24h":  92,
                        "admissions_24h":  8,
                        "reroutes_24h":  0
                    },
@@ -49,12 +48,12 @@
               },
     "providers":  {
                       "claude":  {
-                                     "state":  "healthy",
-                                     "admissible":  true,
+                                     "state":  "throttled",
+                                     "admissible":  false,
                                      "remaining_pct":  null,
                                      "drain_threshold_pct":  null,
                                      "capacity_measured_at":  "",
-                                     "until_utc":  "",
+                                     "until_utc":  "2026-09-22T22:59:13Z",
                                      "recovery":  "",
                                      "no_failure_record":  false
                                  },
@@ -90,14 +89,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  159,
+                    "last_run_age_seconds":  62,
                     "next_run_utc":  "2026-09-22T23:11:26Z",
                     "gaps":  4,
                     "admitted":  8,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  65,
+                          "reconciliation_age_seconds":  63,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
