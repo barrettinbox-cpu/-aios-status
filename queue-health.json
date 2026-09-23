@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-23T07:13:30Z",
-    "published_at_utc":  "2026-09-23T07:13:42Z",
-    "sequence":  7551,
+    "generated_at_utc":  "2026-09-23T07:15:31Z",
+    "published_at_utc":  "2026-09-23T07:15:42Z",
+    "sequence":  7552,
     "age_seconds_at_publish":  11,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -27,7 +27,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  13.2
+                  "minutes_since_last_claim":  15.2
               },
     "throughput":  {
                        "completed_24h":  34,
@@ -89,21 +89,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  26,
+                    "last_run_age_seconds":  146,
                     "next_run_utc":  "2026-09-23T07:41:26Z",
                     "gaps":  4,
                     "admitted":  8,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  39,
+                          "reconciliation_age_seconds":  36,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-23T07:05:43Z",
+                        "last_change_utc":  "2026-09-23T07:13:42Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
