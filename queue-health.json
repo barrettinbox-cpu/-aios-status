@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-23T22:35:30Z",
-    "published_at_utc":  "2026-09-23T22:35:43Z",
-    "sequence":  7874,
+    "generated_at_utc":  "2026-09-23T22:37:30Z",
+    "published_at_utc":  "2026-09-23T22:37:43Z",
+    "sequence":  7875,
     "age_seconds_at_publish":  13,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -28,7 +28,7 @@
                                            "dependency-open":  2
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  9.3
+                  "minutes_since_last_claim":  11.3
               },
     "throughput":  {
                        "completed_24h":  35,
@@ -90,14 +90,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1352,
+                    "last_run_age_seconds":  80,
                     "next_run_utc":  "2026-09-23T22:41:26Z",
                     "gaps":  4,
                     "admitted":  8,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  70,
+                          "reconciliation_age_seconds":  52,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
