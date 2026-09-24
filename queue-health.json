@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-24T15:23:31Z",
-    "published_at_utc":  "2026-09-24T15:23:41Z",
-    "sequence":  8225,
-    "age_seconds_at_publish":  11,
+    "generated_at_utc":  "2026-09-24T15:27:29Z",
+    "published_at_utc":  "2026-09-24T15:27:40Z",
+    "sequence":  8226,
+    "age_seconds_at_publish":  10,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "HEALTHY",
@@ -14,21 +14,21 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  8,
+                  "ready":  9,
                   "running":  0,
                   "done":  706,
                   "draft":  16,
                   "failed":  0,
                   "dependency_wait":  4,
                   "capability_wait":  0,
-                  "claimable_now":  0,
+                  "claimable_now":  1,
                   "ready_blocked_by":  {
                                            "run-after-future":  1,
                                            "human-step":  5,
                                            "dependency-open":  2
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  23.2
+                  "minutes_since_last_claim":  27.1
               },
     "throughput":  {
                        "completed_24h":  12,
@@ -90,14 +90,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  640,
+                    "last_run_age_seconds":  878,
                     "next_run_utc":  "2026-09-24T15:41:26Z",
                     "gaps":  6,
                     "admitted":  8,
                     "verified_completions":  2
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  65,
+                          "reconciliation_age_seconds":  62,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
