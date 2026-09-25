@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-25T03:03:29Z",
-    "published_at_utc":  "2026-09-25T03:03:42Z",
-    "sequence":  8461,
-    "age_seconds_at_publish":  13,
+    "generated_at_utc":  "2026-09-25T03:05:30Z",
+    "published_at_utc":  "2026-09-25T03:05:42Z",
+    "sequence":  8462,
+    "age_seconds_at_publish":  12,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "HEALTHY",
@@ -15,8 +15,8 @@
                   "source_of_truth":  "notion",
                   "source_ok":  true,
                   "ready":  31,
-                  "running":  2,
-                  "done":  722,
+                  "running":  1,
+                  "done":  723,
                   "draft":  18,
                   "failed":  0,
                   "dependency_wait":  2,
@@ -30,10 +30,10 @@
                                            "declaration-wait":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  3
+                  "minutes_since_last_claim":  5
               },
     "throughput":  {
-                       "completed_24h":  28,
+                       "completed_24h":  29,
                        "admissions_24h":  7,
                        "reroutes_24h":  0
                    },
@@ -46,18 +46,18 @@
                        "incidents_24h":  0
                    },
     "lanes":  {
-                  "active_workers":  2,
+                  "active_workers":  1,
                   "usable_capacity":  8
               },
     "providers":  {
                       "claude":  {
-                                     "state":  "certifying",
-                                     "admissible":  false,
+                                     "state":  "healthy",
+                                     "admissible":  true,
                                      "remaining_pct":  null,
                                      "drain_threshold_pct":  null,
                                      "capacity_measured_at":  "",
                                      "until_utc":  "",
-                                     "recovery":  "probed",
+                                     "recovery":  "",
                                      "no_failure_record":  false
                                  },
                       "codex":  {
@@ -92,21 +92,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1227,
+                    "last_run_age_seconds":  1348,
                     "next_run_utc":  "2026-09-25T03:11:26Z",
                     "gaps":  4,
                     "admitted":  8,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  141,
+                          "reconciliation_age_seconds":  43,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-25T03:01:02Z",
+                        "last_change_utc":  "2026-09-25T03:03:42Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
