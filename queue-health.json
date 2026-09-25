@@ -1,14 +1,14 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-25T02:17:33Z",
-    "published_at_utc":  "2026-09-25T02:17:55Z",
-    "sequence":  8446,
-    "age_seconds_at_publish":  22,
+    "generated_at_utc":  "2026-09-25T02:21:31Z",
+    "published_at_utc":  "2026-09-25T02:21:43Z",
+    "sequence":  8447,
+    "age_seconds_at_publish":  11,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "HEALTHY",
+    "verdict":  "DEGRADED",
     "problems":  [
-
+                     "stuck lease: 1 registered worker pid(s) no longer exist"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -23,14 +23,14 @@
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
-                                           "conflict-blocked":  3,
+                                           "conflict-blocked":  5,
                                            "run-after-future":  3,
                                            "dependency-open":  7,
-                                           "human-step":  12,
+                                           "human-step":  10,
                                            "declaration-wait":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  11.3
+                  "minutes_since_last_claim":  15.1
               },
     "throughput":  {
                        "completed_24h":  22,
@@ -42,11 +42,11 @@
                        "p50_seconds":  0,
                        "p95_seconds":  0,
                        "max_seconds":  0,
-                       "samples_24h":  703,
+                       "samples_24h":  702,
                        "incidents_24h":  0
                    },
     "lanes":  {
-                  "active_workers":  3,
+                  "active_workers":  2,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -92,14 +92,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  285,
+                    "last_run_age_seconds":  513,
                     "next_run_utc":  "2026-09-25T02:41:26Z",
                     "gaps":  4,
                     "admitted":  8,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  45,
+                          "reconciliation_age_seconds":  144,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
