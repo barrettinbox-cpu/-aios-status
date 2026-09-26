@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-26T15:25:30Z",
-    "published_at_utc":  "2026-09-26T15:25:41Z",
-    "sequence":  9425,
-    "age_seconds_at_publish":  11,
+    "generated_at_utc":  "2026-09-26T15:27:30Z",
+    "published_at_utc":  "2026-09-26T15:27:44Z",
+    "sequence":  9426,
+    "age_seconds_at_publish":  14,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -14,26 +14,26 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  17,
+                  "ready":  16,
                   "running":  1,
                   "done":  801,
                   "draft":  28,
-                  "failed":  1,
-                  "dependency_wait":  1,
+                  "failed":  0,
+                  "dependency_wait":  2,
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
                                            "declaration-wait":  1,
                                            "run-after-future":  1,
-                                           "conflict-blocked":  4,
+                                           "conflict-blocked":  3,
                                            "human-step":  6,
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  13.1
+                  "minutes_since_last_claim":  1.2
               },
     "throughput":  {
-                       "completed_24h":  171,
+                       "completed_24h":  172,
                        "admissions_24h":  5,
                        "reroutes_24h":  0
                    },
@@ -95,14 +95,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  791,
+                    "last_run_age_seconds":  29,
                     "next_run_utc":  "2026-09-26T15:41:26Z",
                     "gaps":  5,
                     "admitted":  8,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  85,
+                          "reconciliation_age_seconds":  84,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
