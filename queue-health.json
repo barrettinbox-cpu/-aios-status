@@ -1,17 +1,15 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-26T09:53:30Z",
-    "published_at_utc":  "2026-09-26T09:53:48Z",
-    "sequence":  9276,
-    "age_seconds_at_publish":  17,
+    "generated_at_utc":  "2026-09-26T09:55:30Z",
+    "published_at_utc":  "2026-09-26T09:55:41Z",
+    "sequence":  9277,
+    "age_seconds_at_publish":  11,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "UNHEALTHY",
+    "verdict":  "DEGRADED",
     "problems":  [
-                     "stuck lease: 1 registered worker pid(s) no longer exist",
                      "core execution provider openai is exhausted",
-                     "1 HumanWait row(s) declare class=machine_repair in their own BLOCKED.md contract -- AIOS owns these and they must not sit on a person\u0027s list: 3e6942fb3eca8109a5a4fafa2965c83a",
-                     "THE 2026-09-24 FAILURE MODE: nothing running, 8 lane(s) free, a provider admissible, and 1 machine-repair row(s) parked in HumanWait where the scheduler cannot see them"
+                     "1 HumanWait row(s) declare class=machine_repair in their own BLOCKED.md contract -- AIOS owns these and they must not sit on a person\u0027s list: 3e6942fb3eca8109a5a4fafa2965c83a"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -26,18 +24,18 @@
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
-                                           "declaration-wait":  3,
+                                           "declaration-wait":  2,
                                            "run-after-future":  1,
-                                           "conflict-blocked":  5,
+                                           "conflict-blocked":  6,
                                            "human-step":  6,
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  2.1
+                  "minutes_since_last_claim":  1.1
               },
     "throughput":  {
-                       "completed_24h":  144,
-                       "admissions_24h":  2,
+                       "completed_24h":  145,
+                       "admissions_24h":  3,
                        "reroutes_24h":  0
                    },
     "starvation":  {
@@ -49,7 +47,7 @@
                        "incidents_24h":  15
                    },
     "lanes":  {
-                  "active_workers":  0,
+                  "active_workers":  1,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -98,21 +96,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  679,
+                    "last_run_age_seconds":  793,
                     "next_run_utc":  "2026-09-26T10:11:26Z",
                     "gaps":  5,
                     "admitted":  8,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  90,
+                          "reconciliation_age_seconds":  83,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-26T09:51:42Z",
+                        "last_change_utc":  "2026-09-26T09:53:48Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
