@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-27T13:27:31Z",
-    "published_at_utc":  "2026-09-27T13:27:45Z",
-    "sequence":  10014,
-    "age_seconds_at_publish":  15,
+    "generated_at_utc":  "2026-09-27T13:29:30Z",
+    "published_at_utc":  "2026-09-27T13:29:41Z",
+    "sequence":  10015,
+    "age_seconds_at_publish":  11,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "HEALTHY",
@@ -17,8 +17,8 @@
                   "ready":  7,
                   "running":  1,
                   "done":  819,
-                  "draft":  28,
-                  "failed":  2,
+                  "draft":  29,
+                  "failed":  1,
                   "dependency_wait":  2,
                   "capability_wait":  0,
                   "claimable_now":  0,
@@ -29,10 +29,10 @@
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  27.2
+                  "minutes_since_last_claim":  29.1
               },
     "throughput":  {
-                       "completed_24h":  67,
+                       "completed_24h":  66,
                        "admissions_24h":  3,
                        "reroutes_24h":  0
                    },
@@ -94,7 +94,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  919,
+                    "last_run_age_seconds":  1035,
                     "next_run_utc":  "2026-09-27T13:41:26Z",
                     "gaps":  5,
                     "admitted":  8,
@@ -108,7 +108,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-27T13:25:41Z",
+                        "last_change_utc":  "2026-09-27T13:27:45Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
