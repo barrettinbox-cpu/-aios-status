@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-28T11:09:30Z",
-    "published_at_utc":  "2026-09-28T11:09:41Z",
-    "sequence":  10592,
-    "age_seconds_at_publish":  11,
+    "generated_at_utc":  "2026-09-28T11:11:30Z",
+    "published_at_utc":  "2026-09-28T11:11:45Z",
+    "sequence":  10593,
+    "age_seconds_at_publish":  14,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "HEALTHY",
@@ -17,8 +17,8 @@
                   "ready":  7,
                   "running":  0,
                   "done":  821,
-                  "draft":  28,
-                  "failed":  2,
+                  "draft":  29,
+                  "failed":  1,
                   "dependency_wait":  2,
                   "capability_wait":  0,
                   "claimable_now":  0,
@@ -28,7 +28,7 @@
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  1177.3
+                  "minutes_since_last_claim":  1179.3
               },
     "throughput":  {
                        "completed_24h":  3,
@@ -93,21 +93,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1598,
-                    "next_run_utc":  "2026-09-28T11:11:26Z",
+                    "last_run_age_seconds":  1721,
+                    "next_run_utc":  "2026-09-28T11:41:26Z",
                     "gaps":  5,
                     "admitted":  8,
                     "verified_completions":  3
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  78,
+                          "reconciliation_age_seconds":  93,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-28T11:07:41Z",
+                        "last_change_utc":  "2026-09-28T11:09:41Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
