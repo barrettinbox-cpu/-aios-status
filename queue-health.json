@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-29T04:01:31Z",
-    "published_at_utc":  "2026-09-29T04:01:45Z",
-    "sequence":  11018,
-    "age_seconds_at_publish":  14,
+    "generated_at_utc":  "2026-09-29T04:03:30Z",
+    "published_at_utc":  "2026-09-29T04:03:46Z",
+    "sequence":  11019,
+    "age_seconds_at_publish":  16,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "HEALTHY",
@@ -17,8 +17,8 @@
                   "ready":  4,
                   "running":  1,
                   "done":  847,
-                  "draft":  13,
-                  "failed":  1,
+                  "draft":  11,
+                  "failed":  3,
                   "dependency_wait":  2,
                   "capability_wait":  0,
                   "claimable_now":  0,
@@ -28,7 +28,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  7.3
+                  "minutes_since_last_claim":  9.3
               },
     "throughput":  {
                        "completed_24h":  56,
@@ -93,7 +93,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  406,
+                    "last_run_age_seconds":  527,
                     "next_run_utc":  "2026-09-29T04:11:26Z",
                     "gaps":  5,
                     "admitted":  8,
@@ -107,7 +107,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-29T03:59:42Z",
+                        "last_change_utc":  "2026-09-29T04:01:45Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
