@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-29T14:53:31Z",
-    "published_at_utc":  "2026-09-29T14:53:44Z",
-    "sequence":  11316,
-    "age_seconds_at_publish":  13,
+    "generated_at_utc":  "2026-09-29T14:57:30Z",
+    "published_at_utc":  "2026-09-29T14:57:41Z",
+    "sequence":  11317,
+    "age_seconds_at_publish":  11,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "HEALTHY",
@@ -14,20 +14,21 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  2,
+                  "ready":  4,
                   "running":  0,
                   "done":  856,
-                  "draft":  14,
+                  "draft":  12,
                   "failed":  1,
                   "dependency_wait":  2,
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
-                                           "dependency-open":  1,
-                                           "dependency-retired":  1
+                                           "dependency-retired":  1,
+                                           "dedupe":  2,
+                                           "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  23.1
+                  "minutes_since_last_claim":  27.1
               },
     "throughput":  {
                        "completed_24h":  75,
@@ -92,7 +93,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  643,
+                    "last_run_age_seconds":  880,
                     "next_run_utc":  "2026-09-29T15:11:26Z",
                     "gaps":  4,
                     "admitted":  8,
