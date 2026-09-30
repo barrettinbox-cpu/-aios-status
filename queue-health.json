@@ -1,35 +1,34 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-30T13:43:30Z",
-    "published_at_utc":  "2026-09-30T13:43:43Z",
-    "sequence":  11896,
-    "age_seconds_at_publish":  13,
+    "generated_at_utc":  "2026-09-30T13:45:30Z",
+    "published_at_utc":  "2026-09-30T13:45:46Z",
+    "sequence":  11897,
+    "age_seconds_at_publish":  16,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
                      "core_execution_health is REDUCED: 1 core provider(s) exhausted (absorbed by another core lane for now) -- reduced capacity is reported even though nothing is currently blocked",
-                     "factory_line/scheduler telemetry reports 5 Ready but the source of truth (Notion) reports 3; publishing the source-of-truth count as canonical"
+                     "factory_line/scheduler telemetry reports 5 Ready but the source of truth (Notion) reports 2; publishing the source-of-truth count as canonical"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  3,
+                  "ready":  2,
                   "running":  0,
                   "done":  862,
-                  "draft":  10,
+                  "draft":  11,
                   "failed":  1,
                   "dependency_wait":  2,
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
-                                           "run-after-future":  1,
-                                           "dedupe":  1,
-                                           "dependency-open":  1
+                                           "dependency-open":  1,
+                                           "run-after-future":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  43.1
+                  "minutes_since_last_claim":  45.2
               },
     "throughput":  {
                        "completed_24h":  18,
@@ -94,7 +93,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  45,
+                    "last_run_age_seconds":  168,
                     "next_run_utc":  "2026-09-30T14:11:26Z",
                     "gaps":  4,
                     "admitted":  8,
@@ -108,7 +107,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-30T13:41:42Z",
+                        "last_change_utc":  "2026-09-30T13:43:43Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
