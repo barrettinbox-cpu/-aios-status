@@ -1,38 +1,38 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-30T17:51:31Z",
-    "published_at_utc":  "2026-09-30T17:51:45Z",
-    "sequence":  12010,
-    "age_seconds_at_publish":  14,
+    "generated_at_utc":  "2026-09-30T17:53:31Z",
+    "published_at_utc":  "2026-09-30T17:53:48Z",
+    "sequence":  12011,
+    "age_seconds_at_publish":  17,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
+                     "stuck lease: 1 registered worker pid(s) no longer exist",
                      "core_execution_health is REDUCED: 1 core provider(s) exhausted (absorbed by another core lane for now) -- reduced capacity is reported even though nothing is currently blocked",
-                     "factory_line/scheduler telemetry reports 8 Ready but the source of truth (Notion) reports 5; publishing the source-of-truth count as canonical"
+                     "factory_line/scheduler telemetry reports 7 Ready but the source of truth (Notion) reports 4; publishing the source-of-truth count as canonical"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  5,
+                  "ready":  4,
                   "running":  1,
                   "done":  869,
-                  "draft":  10,
-                  "failed":  2,
+                  "draft":  12,
+                  "failed":  1,
                   "dependency_wait":  2,
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
                                            "run-after-future":  3,
-                                           "dedupe":  1,
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  1.2
+                  "minutes_since_last_claim":  3.3
               },
     "throughput":  {
-                       "completed_24h":  35,
+                       "completed_24h":  34,
                        "admissions_24h":  3,
                        "reroutes_24h":  0
                    },
@@ -45,7 +45,7 @@
                        "incidents_24h":  8
                    },
     "lanes":  {
-                  "active_workers":  1,
+                  "active_workers":  0,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -94,21 +94,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  527,
+                    "last_run_age_seconds":  649,
                     "next_run_utc":  "2026-09-30T18:11:26Z",
                     "gaps":  4,
                     "admitted":  8,
                     "verified_completions":  6
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  87,
+                          "reconciliation_age_seconds":  91,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-30T17:49:44Z",
+                        "last_change_utc":  "2026-09-30T17:51:45Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
