@@ -1,14 +1,14 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-30T23:35:30Z",
-    "published_at_utc":  "2026-09-30T23:35:42Z",
-    "sequence":  12166,
-    "age_seconds_at_publish":  11,
+    "generated_at_utc":  "2026-09-30T23:37:30Z",
+    "published_at_utc":  "2026-09-30T23:37:43Z",
+    "sequence":  12167,
+    "age_seconds_at_publish":  13,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
-                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 95.3 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth",
+                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 97.3 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth",
                      "core_execution_health is REDUCED: 1 core provider(s) exhausted (absorbed by another core lane for now) -- reduced capacity is reported even though nothing is currently blocked",
                      "factory_line/scheduler telemetry reports 3 Ready but the source of truth (Notion) reports 2; publishing the source-of-truth count as canonical"
                  ],
@@ -28,7 +28,7 @@
                                            "run-after-future":  2
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  95.3
+                  "minutes_since_last_claim":  97.3
               },
     "throughput":  {
                        "completed_24h":  50,
@@ -93,7 +93,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1070,
+                    "last_run_age_seconds":  1192,
                     "next_run_utc":  "2026-09-30T23:41:26Z",
                     "gaps":  4,
                     "admitted":  8,
@@ -107,7 +107,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-09-30T23:33:42Z",
+                        "last_change_utc":  "2026-09-30T23:35:42Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
