@@ -1,21 +1,21 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-09-30T15:23:31Z",
-    "published_at_utc":  "2026-09-30T15:23:44Z",
-    "sequence":  11944,
-    "age_seconds_at_publish":  13,
+    "generated_at_utc":  "2026-09-30T15:27:31Z",
+    "published_at_utc":  "2026-09-30T15:27:42Z",
+    "sequence":  11945,
+    "age_seconds_at_publish":  12,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
                      "core_execution_health is REDUCED: 1 core provider(s) exhausted (absorbed by another core lane for now) -- reduced capacity is reported even though nothing is currently blocked",
-                     "factory_line/scheduler telemetry reports 6 Ready but the source of truth (Notion) reports 3; publishing the source-of-truth count as canonical"
+                     "factory_line/scheduler telemetry reports 7 Ready but the source of truth (Notion) reports 4; publishing the source-of-truth count as canonical"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  3,
+                  "ready":  4,
                   "running":  1,
                   "done":  863,
                   "draft":  11,
@@ -25,14 +25,14 @@
                   "claimable_now":  0,
                   "ready_blocked_by":  {
                                            "run-after-future":  1,
-                                           "conflict-blocked":  1,
+                                           "conflict-blocked":  2,
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  3.3
+                  "minutes_since_last_claim":  1.2
               },
     "throughput":  {
-                       "completed_24h":  17,
+                       "completed_24h":  18,
                        "admissions_24h":  3,
                        "reroutes_24h":  0
                    },
@@ -94,14 +94,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  637,
+                    "last_run_age_seconds":  876,
                     "next_run_utc":  "2026-09-30T15:41:26Z",
                     "gaps":  4,
                     "admitted":  8,
                     "verified_completions":  6
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  77,
+                          "reconciliation_age_seconds":  89,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
