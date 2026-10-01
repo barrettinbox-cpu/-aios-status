@@ -1,37 +1,37 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-01T05:33:31Z",
-    "published_at_utc":  "2026-10-01T05:33:44Z",
-    "sequence":  12325,
-    "age_seconds_at_publish":  13,
+    "generated_at_utc":  "2026-10-01T05:35:30Z",
+    "published_at_utc":  "2026-10-01T05:35:44Z",
+    "sequence":  12326,
+    "age_seconds_at_publish":  14,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
-                     "core execution provider anthropic is exhausted and 10 row(s) are being withheld for a provider reason",
-                     "core execution provider openai is exhausted and 10 row(s) are being withheld for a provider reason",
-                     "THE HISTORICAL FAILURE MODE: 5 claimable row(s), scheduler reports 5 eligible, 8 lane(s) free, a provider admissible, and NOTHING running",
-                     "core_execution_health is REDUCED: 2 core provider(s) exhausted (absorbed by another core lane for now) -- reduced capacity is reported even though nothing is currently blocked"
+                     "core execution provider anthropic is exhausted and 12 row(s) are being withheld for a provider reason",
+                     "core execution provider openai is exhausted and 12 row(s) are being withheld for a provider reason",
+                     "THE HISTORICAL FAILURE MODE: 7 claimable row(s), scheduler reports 7 eligible, 8 lane(s) free, a provider admissible, and NOTHING running",
+                     "core_execution_health is REDUCED: 2 core provider(s) exhausted (absorbed by another core lane for now) -- reduced capacity is reported even though nothing is currently blocked",
+                     "factory_line/scheduler telemetry reports 12 Ready but the source of truth (Notion) reports 11; publishing the source-of-truth count as canonical"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  10,
+                  "ready":  11,
                   "running":  0,
                   "done":  911,
-                  "draft":  4,
+                  "draft":  5,
                   "failed":  0,
                   "dependency_wait":  1,
                   "capability_wait":  0,
-                  "claimable_now":  5,
+                  "claimable_now":  7,
                   "ready_blocked_by":  {
                                            "run-after-future":  3,
-                                           "dedupe":  1,
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  0.2,
-                  "minutes_since_last_claim":  10.2
+                  "minutes_since_last_claim":  12.1
               },
     "throughput":  {
                        "completed_24h":  93,
@@ -39,10 +39,10 @@
                        "reroutes_24h":  0
                    },
     "starvation":  {
-                       "current_seconds":  383,
+                       "current_seconds":  481,
                        "p50_seconds":  0,
-                       "p95_seconds":  383,
-                       "max_seconds":  383,
+                       "p95_seconds":  481,
+                       "max_seconds":  481,
                        "samples_24h":  716,
                        "incidents_24h":  12
                    },
@@ -96,21 +96,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  112,
+                    "last_run_age_seconds":  232,
                     "next_run_utc":  "2026-10-01T05:41:26Z",
                     "gaps":  5,
                     "admitted":  8,
                     "verified_completions":  7
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  63,
+                          "reconciliation_age_seconds":  84,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-01T05:31:48Z",
+                        "last_change_utc":  "2026-10-01T05:33:44Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
