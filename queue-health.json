@@ -1,33 +1,36 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-01T11:29:30Z",
-    "published_at_utc":  "2026-10-01T11:29:36Z",
-    "sequence":  12472,
-    "age_seconds_at_publish":  6,
+    "generated_at_utc":  "2026-10-01T11:31:32Z",
+    "published_at_utc":  "2026-10-01T11:31:48Z",
+    "sequence":  12473,
+    "age_seconds_at_publish":  16,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "UNHEALTHY",
+    "verdict":  "HEALTHY",
     "problems":  [
-                     "cannot read the queue source of truth: The remote server returned an error: (500) Internal Server Error.",
-                     "factory_line/scheduler telemetry reports 8 Ready but the source of truth (Notion) reports 0; publishing the source-of-truth count as canonical"
+
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
-                  "source_ok":  false,
-                  "ready":  0,
-                  "running":  0,
-                  "done":  0,
-                  "draft":  0,
+                  "source_ok":  true,
+                  "ready":  8,
+                  "running":  1,
+                  "done":  937,
+                  "draft":  4,
                   "failed":  0,
-                  "dependency_wait":  0,
+                  "dependency_wait":  1,
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
-
+                                           "dedupe":  1,
+                                           "conflict-blocked":  2,
+                                           "run-after-future":  3,
+                                           "dependency-open":  1,
+                                           "declaration-wait":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  5.1
+                  "minutes_since_last_claim":  7.3
               },
     "throughput":  {
                        "completed_24h":  139,
@@ -92,21 +95,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  270,
+                    "last_run_age_seconds":  402,
                     "next_run_utc":  "2026-10-01T11:41:26Z",
                     "gaps":  5,
                     "admitted":  8,
                     "verified_completions":  7
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  76,
+                          "reconciliation_age_seconds":  105,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-01T11:27:46Z",
+                        "last_change_utc":  "2026-10-01T11:29:36Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
