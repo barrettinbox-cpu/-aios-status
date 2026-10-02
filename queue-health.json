@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-02T19:31:31Z",
-    "published_at_utc":  "2026-10-02T19:31:47Z",
-    "sequence":  13304,
-    "age_seconds_at_publish":  16,
+    "generated_at_utc":  "2026-10-02T19:35:30Z",
+    "published_at_utc":  "2026-10-02T19:35:44Z",
+    "sequence":  13305,
+    "age_seconds_at_publish":  14,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
@@ -28,8 +28,8 @@
                                            "conflict-blocked":  1,
                                            "dependency-open":  1
                                        },
-                  "oldest_runnable_age_hours":  0.6,
-                  "minutes_since_last_claim":  7.2
+                  "oldest_runnable_age_hours":  0.7,
+                  "minutes_since_last_claim":  11.1
               },
     "throughput":  {
                        "completed_24h":  162,
@@ -60,13 +60,13 @@
                                      "no_failure_record":  false
                                  },
                       "codex":  {
-                                    "state":  "throttled",
+                                    "state":  "draining",
                                     "admissible":  false,
                                     "remaining_pct":  null,
                                     "drain_threshold_pct":  null,
                                     "capacity_measured_at":  "",
-                                    "until_utc":  "2026-10-02T19:34:00Z",
-                                    "recovery":  "",
+                                    "until_utc":  "",
+                                    "recovery":  "capacity",
                                     "no_failure_record":  false
                                 },
                       "mac_local":  {
@@ -117,14 +117,14 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1036,
+                    "last_run_age_seconds":  1273,
                     "next_run_utc":  "2026-10-02T19:41:26Z",
                     "gaps":  3,
                     "admitted":  8,
                     "verified_completions":  8
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  84,
+                          "reconciliation_age_seconds":  87,
                           "sources_agree":  false,
                           "disagreement_count":  1
                       },
