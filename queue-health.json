@@ -1,21 +1,21 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-02T03:51:31Z",
-    "published_at_utc":  "2026-10-02T03:51:48Z",
-    "sequence":  12907,
-    "age_seconds_at_publish":  17,
+    "generated_at_utc":  "2026-10-02T03:53:30Z",
+    "published_at_utc":  "2026-10-02T03:53:43Z",
+    "sequence":  12908,
+    "age_seconds_at_publish":  13,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "UNHEALTHY",
+    "verdict":  "DEGRADED",
     "problems":  [
-                     "THE HISTORICAL FAILURE MODE: 1 claimable row(s), scheduler reports 2 eligible, 8 lane(s) free, a provider admissible, and NOTHING running"
+                     "factory_line/scheduler telemetry reports 6 Ready but the source of truth (Notion) reports 5; publishing the source-of-truth count as canonical"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  6,
-                  "running":  0,
+                  "ready":  5,
+                  "running":  1,
                   "done":  1010,
                   "draft":  1,
                   "failed":  0,
@@ -24,13 +24,13 @@
                   "claimable_now":  1,
                   "ready_blocked_by":  {
                                            "run-after-future":  3,
-                                           "conflict-blocked":  2
+                                           "conflict-blocked":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  4.3
+                  "minutes_since_last_claim":  1.4
               },
     "throughput":  {
-                       "completed_24h":  215,
+                       "completed_24h":  216,
                        "admissions_24h":  9,
                        "reroutes_24h":  1
                    },
@@ -43,7 +43,7 @@
                        "incidents_24h":  16
                    },
     "lanes":  {
-                  "active_workers":  0,
+                  "active_workers":  1,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -58,13 +58,13 @@
                                      "no_failure_record":  false
                                  },
                       "codex":  {
-                                    "state":  "draining",
-                                    "admissible":  false,
+                                    "state":  "healthy",
+                                    "admissible":  true,
                                     "remaining_pct":  null,
                                     "drain_threshold_pct":  null,
                                     "capacity_measured_at":  "",
                                     "until_utc":  "",
-                                    "recovery":  "capacity",
+                                    "recovery":  "",
                                     "no_failure_record":  false
                                 },
                       "mac_local":  {
@@ -97,21 +97,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1595,
+                    "last_run_age_seconds":  59,
                     "next_run_utc":  "2026-10-02T04:11:26Z",
                     "gaps":  2,
                     "admitted":  8,
                     "verified_completions":  8
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  87,
+                          "reconciliation_age_seconds":  63,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-02T03:49:45Z",
+                        "last_change_utc":  "2026-10-02T03:51:48Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
