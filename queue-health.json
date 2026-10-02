@@ -1,21 +1,21 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-02T13:29:31Z",
-    "published_at_utc":  "2026-10-02T13:29:47Z",
-    "sequence":  13138,
-    "age_seconds_at_publish":  16,
+    "generated_at_utc":  "2026-10-02T13:31:31Z",
+    "published_at_utc":  "2026-10-02T13:31:47Z",
+    "sequence":  13139,
+    "age_seconds_at_publish":  15,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
-                     "factory_line/scheduler telemetry reports 6 Ready but the source of truth (Notion) reports 4; publishing the source-of-truth count as canonical"
+                     "factory_line/scheduler telemetry reports 6 Ready but the source of truth (Notion) reports 3; publishing the source-of-truth count as canonical"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  4,
-                  "running":  1,
+                  "ready":  3,
+                  "running":  2,
                   "done":  1022,
                   "draft":  5,
                   "failed":  0,
@@ -23,11 +23,10 @@
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
-                                           "run-after-future":  3,
-                                           "conflict-blocked":  1
+                                           "run-after-future":  3
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  5.2
+                  "minutes_since_last_claim":  1.3
               },
     "throughput":  {
                        "completed_24h":  167,
@@ -43,7 +42,7 @@
                        "incidents_24h":  9
                    },
     "lanes":  {
-                  "active_workers":  1,
+                  "active_workers":  2,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -103,14 +102,14 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  967,
+                    "last_run_age_seconds":  1086,
                     "next_run_utc":  "2026-10-02T13:41:26Z",
                     "gaps":  2,
                     "admitted":  8,
                     "verified_completions":  8
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  90,
+                          "reconciliation_age_seconds":  86,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
