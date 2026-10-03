@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-03T15:43:33Z",
-    "published_at_utc":  "2026-10-03T15:43:51Z",
-    "sequence":  13836,
+    "generated_at_utc":  "2026-10-03T15:45:32Z",
+    "published_at_utc":  "2026-10-03T15:45:50Z",
+    "sequence":  13837,
     "age_seconds_at_publish":  18,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -27,10 +27,10 @@
                                            "conflict-blocked":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  1.3
+                  "minutes_since_last_claim":  3.3
               },
     "throughput":  {
-                       "completed_24h":  120,
+                       "completed_24h":  119,
                        "admissions_24h":  2,
                        "reroutes_24h":  2
                    },
@@ -103,21 +103,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  256,
+                    "last_run_age_seconds":  80,
                     "next_run_utc":  "2026-10-03T16:11:26Z",
                     "gaps":  2,
                     "admitted":  8,
                     "verified_completions":  8
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  74,
+                          "reconciliation_age_seconds":  78,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-03T15:41:51Z",
+                        "last_change_utc":  "2026-10-03T15:43:51Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
