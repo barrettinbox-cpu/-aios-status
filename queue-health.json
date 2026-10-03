@@ -1,16 +1,16 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-03T04:11:31Z",
-    "published_at_utc":  "2026-10-03T04:11:46Z",
-    "sequence":  13546,
+    "generated_at_utc":  "2026-10-03T04:13:30Z",
+    "published_at_utc":  "2026-10-03T04:13:45Z",
+    "sequence":  13547,
     "age_seconds_at_publish":  15,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
                      "truth sources disagree: Notion Ready (admission-eligible) 7 != watcher runnable_ready 0",
-                     "possible silent block: 7 claimable row(s) in the source of truth, scheduler reports 0 eligible (dependency-blocked), and nothing has been claimed for 148.4 min",
-                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 148.4 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth, and not explained away by a run-after-future schedule (ready_blocked_by: run-after-future, dependency-open)",
+                     "possible silent block: 7 claimable row(s) in the source of truth, scheduler reports 0 eligible (dependency-blocked), and nothing has been claimed for 150.4 min",
+                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 150.4 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth, and not explained away by a run-after-future schedule (ready_blocked_by: run-after-future, dependency-open)",
                      "core_execution_health is REDUCED: 1 core provider(s) exhausted (absorbed by another core lane for now) -- reduced capacity is reported even though nothing is currently blocked",
                      "factory_line/scheduler telemetry reports 12 Ready but the source of truth (Notion) reports 9; publishing the source-of-truth count as canonical"
                  ],
@@ -31,7 +31,7 @@
                                            "dependency-open":  1
                                        },
                   "oldest_runnable_age_hours":  179,
-                  "minutes_since_last_claim":  148.4
+                  "minutes_since_last_claim":  150.4
               },
     "throughput":  {
                        "completed_24h":  126,
@@ -39,10 +39,10 @@
                        "reroutes_24h":  4
                    },
     "starvation":  {
-                       "current_seconds":  8253,
+                       "current_seconds":  8372,
                        "p50_seconds":  0,
                        "p95_seconds":  4094,
-                       "max_seconds":  8253,
+                       "max_seconds":  8372,
                        "samples_24h":  714,
                        "incidents_24h":  24
                    },
@@ -119,21 +119,21 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1082,
+                    "last_run_age_seconds":  1201,
                     "next_run_utc":  "2026-10-03T04:41:26Z",
                     "gaps":  3,
                     "admitted":  8,
                     "verified_completions":  8
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  87,
+                          "reconciliation_age_seconds":  86,
                           "sources_agree":  false,
                           "disagreement_count":  1
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-03T04:09:46Z",
+                        "last_change_utc":  "2026-10-03T04:11:46Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
