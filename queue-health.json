@@ -1,34 +1,33 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-03T08:41:30Z",
-    "published_at_utc":  "2026-10-03T08:41:36Z",
-    "sequence":  13663,
-    "age_seconds_at_publish":  5,
+    "generated_at_utc":  "2026-10-03T08:43:31Z",
+    "published_at_utc":  "2026-10-03T08:43:46Z",
+    "sequence":  13664,
+    "age_seconds_at_publish":  15,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "UNHEALTHY",
+    "verdict":  "DEGRADED",
     "problems":  [
-                     "cannot read the queue source of truth: The remote server returned an error: (429) Too Many Requests.",
-                     "core_execution_health is REDUCED: 1 core provider(s) exhausted (absorbed by another core lane for now) -- reduced capacity is reported even though nothing is currently blocked",
-                     "scheduler candidate set is 6 but the source of truth (Notion) has 0 row(s) in the six selectable states (Ready/DependencyWait/CapabilityWait/ResourceWait/RetryWait/DeclarationWait); publishing the source-of-truth Ready count (0) as canonical"
+                     "core_execution_health is REDUCED: 1 core provider(s) exhausted (absorbed by another core lane for now) -- reduced capacity is reported even though nothing is currently blocked"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
-                  "source_ok":  false,
-                  "ready":  0,
-                  "running":  0,
-                  "done":  0,
-                  "draft":  0,
+                  "source_ok":  true,
+                  "ready":  3,
+                  "running":  1,
+                  "done":  1078,
+                  "draft":  1,
                   "failed":  0,
-                  "dependency_wait":  0,
+                  "dependency_wait":  2,
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
-
+                                           "run-after-future":  3,
+                                           "declared-target-outside-write-set":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  18.2
+                  "minutes_since_last_claim":  20.4
               },
     "throughput":  {
                        "completed_24h":  120,
@@ -116,14 +115,14 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1106,
+                    "last_run_age_seconds":  1237,
                     "next_run_utc":  "2026-10-03T09:11:26Z",
                     "gaps":  3,
                     "admitted":  8,
                     "verified_completions":  8
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  80,
+                          "reconciliation_age_seconds":  111,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
