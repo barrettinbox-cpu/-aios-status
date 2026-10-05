@@ -1,33 +1,32 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-05T20:47:28Z",
-    "published_at_utc":  "2026-10-05T20:47:50Z",
-    "sequence":  15056,
-    "age_seconds_at_publish":  22,
+    "generated_at_utc":  "2026-10-05T20:49:30Z",
+    "published_at_utc":  "2026-10-05T20:49:47Z",
+    "sequence":  15057,
+    "age_seconds_at_publish":  17,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "DEGRADED",
+    "verdict":  "HEALTHY",
     "problems":  [
-                     "stuck lease: 2 registered worker pid(s) no longer exist"
+
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  3,
-                  "running":  2,
-                  "done":  1178,
+                  "ready":  2,
+                  "running":  1,
+                  "done":  1179,
                   "draft":  2,
-                  "failed":  0,
+                  "failed":  1,
                   "dependency_wait":  1,
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
-                                           "run-after-future":  2,
-                                           "conflict-blocked":  1
+                                           "run-after-future":  2
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  2.4
+                  "minutes_since_last_claim":  1
               },
     "throughput":  {
                        "completed_24h":  117,
@@ -43,7 +42,7 @@
                        "incidents_24h":  2
                    },
     "lanes":  {
-                  "active_workers":  0,
+                  "active_workers":  1,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -92,7 +91,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  132,
+                    "last_run_age_seconds":  250,
                     "next_run_utc":  "2026-10-05T21:11:26Z",
                     "gaps":  4,
                     "admitted":  11,
@@ -106,7 +105,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-05T20:45:51Z",
+                        "last_change_utc":  "2026-10-05T20:47:50Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
