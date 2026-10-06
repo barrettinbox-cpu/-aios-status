@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-06T19:03:32Z",
-    "published_at_utc":  "2026-10-06T19:03:53Z",
-    "sequence":  15580,
-    "age_seconds_at_publish":  22,
+    "generated_at_utc":  "2026-10-06T19:05:31Z",
+    "published_at_utc":  "2026-10-06T19:05:54Z",
+    "sequence":  15581,
+    "age_seconds_at_publish":  23,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "HEALTHY",
@@ -26,7 +26,7 @@
                                            "run-after-future":  2
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  219.4
+                  "minutes_since_last_claim":  221.4
               },
     "throughput":  {
                        "completed_24h":  167,
@@ -91,21 +91,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1098,
+                    "last_run_age_seconds":  1218,
                     "next_run_utc":  "2026-10-06T19:11:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  78,
+                          "reconciliation_age_seconds":  70,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-06T19:01:51Z",
+                        "last_change_utc":  "2026-10-06T19:03:53Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
