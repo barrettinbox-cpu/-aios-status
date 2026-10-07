@@ -1,21 +1,21 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-07T18:59:31Z",
-    "published_at_utc":  "2026-10-07T18:59:47Z",
-    "sequence":  16108,
-    "age_seconds_at_publish":  16,
+    "generated_at_utc":  "2026-10-07T19:01:31Z",
+    "published_at_utc":  "2026-10-07T19:01:58Z",
+    "sequence":  16109,
+    "age_seconds_at_publish":  27,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "UNHEALTHY",
+    "verdict":  "HEALTHY",
     "problems":  [
-                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 65.3 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth, and not explained away by a run-after-future schedule (ready_blocked_by: run-after-future, declared-target-outside-write-set)"
+
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
                   "ready":  2,
-                  "running":  0,
+                  "running":  1,
                   "done":  1246,
                   "draft":  0,
                   "failed":  0,
@@ -23,11 +23,12 @@
                   "capability_wait":  0,
                   "claimable_now":  0,
                   "ready_blocked_by":  {
+                                           "declaration-wait":  1,
                                            "run-after-future":  1,
                                            "declared-target-outside-write-set":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  65.3
+                  "minutes_since_last_claim":  1.4
               },
     "throughput":  {
                        "completed_24h":  28,
@@ -43,7 +44,7 @@
                        "incidents_24h":  4
                    },
     "lanes":  {
-                  "active_workers":  0,
+                  "active_workers":  1,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -92,21 +93,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  852,
+                    "last_run_age_seconds":  983,
                     "next_run_utc":  "2026-10-07T19:11:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  75,
+                          "reconciliation_age_seconds":  94,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-07T18:57:55Z",
+                        "last_change_utc":  "2026-10-07T18:59:47Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
