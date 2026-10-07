@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-07T14:27:31Z",
-    "published_at_utc":  "2026-10-07T14:27:48Z",
-    "sequence":  16012,
-    "age_seconds_at_publish":  17,
+    "generated_at_utc":  "2026-10-07T14:29:30Z",
+    "published_at_utc":  "2026-10-07T14:29:53Z",
+    "sequence":  16013,
+    "age_seconds_at_publish":  22,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "HEALTHY",
@@ -15,10 +15,10 @@
                   "source_of_truth":  "notion",
                   "source_ok":  true,
                   "ready":  1,
-                  "running":  2,
+                  "running":  1,
                   "done":  1236,
                   "draft":  0,
-                  "failed":  0,
+                  "failed":  1,
                   "dependency_wait":  1,
                   "capability_wait":  0,
                   "claimable_now":  0,
@@ -26,10 +26,10 @@
                                            "run-after-future":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  0.4
+                  "minutes_since_last_claim":  2.5
               },
     "throughput":  {
-                       "completed_24h":  14,
+                       "completed_24h":  15,
                        "admissions_24h":  2,
                        "reroutes_24h":  0
                    },
@@ -42,7 +42,7 @@
                        "incidents_24h":  1
                    },
     "lanes":  {
-                  "active_workers":  2,
+                  "active_workers":  1,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -91,21 +91,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  690,
+                    "last_run_age_seconds":  815,
                     "next_run_utc":  "2026-10-07T14:41:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  84,
+                          "reconciliation_age_seconds":  89,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-07T14:15:52Z",
+                        "last_change_utc":  "2026-10-07T14:27:48Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
