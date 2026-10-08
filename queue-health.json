@@ -1,14 +1,14 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-08T13:59:28Z",
-    "published_at_utc":  "2026-10-08T13:59:47Z",
-    "sequence":  16613,
-    "age_seconds_at_publish":  19,
+    "generated_at_utc":  "2026-10-08T14:01:32Z",
+    "published_at_utc":  "2026-10-08T14:01:56Z",
+    "sequence":  16614,
+    "age_seconds_at_publish":  25,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "DEGRADED_ACCOUNTED",
+    "verdict":  "DEGRADED",
     "problems":  [
-                     "queue-health computed HEALTHY but useful-progress caps the verdict at DEGRADED_ACCOUNTED (BLOCKED_ACCOUNTED); publishing the bounded verdict, because a queue that is internally fine while advancing nothing is not healthy"
+                     "claim-stall alarm WITHDRAWN: no row claimed for 61.4 min, but nothing is claimable and all 30 non-terminal row(s) carry an owned non-expired blocker (BLOCKED_ACCOUNTED). Zero progress is still reported -- the verdict is capped at DEGRADED_ACCOUNTED, not raised to HEALTHY."
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -27,7 +27,7 @@
                                            "declared-target-outside-write-set":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  59.3
+                  "minutes_since_last_claim":  61.4
               },
     "throughput":  {
                        "completed_24h":  36,
@@ -92,14 +92,14 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  879,
+                    "last_run_age_seconds":  1008,
                     "next_run_utc":  "2026-10-08T14:11:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  79,
+                          "reconciliation_age_seconds":  77,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
