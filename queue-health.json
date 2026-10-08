@@ -1,14 +1,14 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-08T06:45:32Z",
-    "published_at_utc":  "2026-10-08T06:45:52Z",
-    "sequence":  16422,
-    "age_seconds_at_publish":  20,
+    "generated_at_utc":  "2026-10-08T06:47:32Z",
+    "published_at_utc":  "2026-10-08T06:47:53Z",
+    "sequence":  16423,
+    "age_seconds_at_publish":  21,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
-                     "claim-stall alarm WITHDRAWN: no row claimed for 433.4 min, but nothing is claimable and all 30 non-terminal row(s) carry an owned non-expired blocker (BLOCKED_ACCOUNTED). Zero progress is still reported -- the verdict is capped at DEGRADED_ACCOUNTED, not raised to HEALTHY."
+                     "claim-stall alarm WITHDRAWN: no row claimed for 435.4 min, but nothing is claimable and all 30 non-terminal row(s) carry an owned non-expired blocker (BLOCKED_ACCOUNTED). Zero progress is still reported -- the verdict is capped at DEGRADED_ACCOUNTED, not raised to HEALTHY."
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -27,7 +27,7 @@
                                            "declared-target-outside-write-set":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  433.4
+                  "minutes_since_last_claim":  435.4
               },
     "throughput":  {
                        "completed_24h":  33,
@@ -92,7 +92,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  49,
+                    "last_run_age_seconds":  170,
                     "next_run_utc":  "2026-10-08T07:11:26Z",
                     "gaps":  4,
                     "admitted":  12,
@@ -106,7 +106,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-08T06:43:49Z",
+                        "last_change_utc":  "2026-10-08T06:45:52Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
