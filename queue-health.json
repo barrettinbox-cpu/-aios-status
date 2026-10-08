@@ -1,16 +1,16 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-08T08:39:30Z",
-    "published_at_utc":  "2026-10-08T08:40:02Z",
-    "sequence":  16479,
+    "generated_at_utc":  "2026-10-08T08:41:30Z",
+    "published_at_utc":  "2026-10-08T08:42:02Z",
+    "sequence":  16480,
     "age_seconds_at_publish":  32,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "DEGRADED",
     "problems":  [
-                     "scheduler telemetry is stale (1466s old)",
-                     "truth sources disagree: watcher telemetry is 1379.4s old; the watcher may not be ticking",
-                     "claim-stall alarm WITHDRAWN: no row claimed for 547.6 min, but nothing is claimable and all 30 non-terminal row(s) carry an owned non-expired blocker (BLOCKED_ACCOUNTED). Zero progress is still reported -- the verdict is capped at DEGRADED_ACCOUNTED, not raised to HEALTHY."
+                     "scheduler telemetry is stale (1586s old)",
+                     "truth sources disagree: watcher telemetry is 1500.9s old; the watcher may not be ticking",
+                     "claim-stall alarm WITHDRAWN: no row claimed for 549.6 min, but nothing is claimable and all 30 non-terminal row(s) carry an owned non-expired blocker (BLOCKED_ACCOUNTED). Zero progress is still reported -- the verdict is capped at DEGRADED_ACCOUNTED, not raised to HEALTHY."
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -29,7 +29,7 @@
                                            "declared-target-outside-write-set":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  547.6
+                  "minutes_since_last_claim":  549.6
               },
     "throughput":  {
                        "completed_24h":  33,
@@ -94,21 +94,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1496,
-                    "next_run_utc":  "2026-10-08T08:41:26Z",
+                    "last_run_age_seconds":  1617,
+                    "next_run_utc":  "2026-10-08T09:11:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  95,
+                          "reconciliation_age_seconds":  94,
                           "sources_agree":  false,
                           "disagreement_count":  1
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-08T08:37:58Z",
+                        "last_change_utc":  "2026-10-08T08:40:02Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
