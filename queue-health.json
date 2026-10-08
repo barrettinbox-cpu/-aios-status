@@ -1,14 +1,14 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-08T03:47:31Z",
-    "published_at_utc":  "2026-10-08T03:47:50Z",
-    "sequence":  16333,
-    "age_seconds_at_publish":  19,
+    "generated_at_utc":  "2026-10-08T03:49:30Z",
+    "published_at_utc":  "2026-10-08T03:49:47Z",
+    "sequence":  16334,
+    "age_seconds_at_publish":  17,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
-                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 255.4 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth, and not explained away by a run-after-future schedule (ready_blocked_by: run-after-future, declared-target-outside-write-set)"
+                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 257.4 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth, and not explained away by a run-after-future schedule (ready_blocked_by: run-after-future, declared-target-outside-write-set)"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -27,7 +27,7 @@
                                            "declared-target-outside-write-set":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  255.4
+                  "minutes_since_last_claim":  257.4
               },
     "throughput":  {
                        "completed_24h":  35,
@@ -92,21 +92,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  171,
+                    "last_run_age_seconds":  289,
                     "next_run_utc":  "2026-10-08T04:11:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  77,
+                          "reconciliation_age_seconds":  72,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-08T03:45:50Z",
+                        "last_change_utc":  "2026-10-08T03:47:50Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
