@@ -1,26 +1,25 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-09T12:53:31Z",
-    "published_at_utc":  "2026-10-09T12:53:53Z",
-    "sequence":  17293,
-    "age_seconds_at_publish":  22,
+    "generated_at_utc":  "2026-10-09T12:55:28Z",
+    "published_at_utc":  "2026-10-09T12:55:45Z",
+    "sequence":  17294,
+    "age_seconds_at_publish":  17,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
-    "verdict":  "UNHEALTHY",
+    "verdict":  "DEGRADED",
     "problems":  [
-                     "truth sources disagree: Notion says 1 row(s) Running; 0 registered worker process(es) are alive (0 of them settled past the claim/finalize window)",
-                     "USEFUL-PROGRESS VIOLATION: zero useful progress with 32 non-terminal row(s) and no claimable work; and 1 of 32 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 0 proven-satisfied row(s) still parked)",
-                     "queue-health computed DEGRADED but useful-progress caps the verdict at UNHEALTHY (UNEXPLAINED_IDLE); publishing the bounded verdict, because a queue that is internally fine while advancing nothing is not healthy"
+                     "stuck lease: 1 registered worker pid(s) no longer exist",
+                     "truth sources disagree: Notion says 1 row(s) Running; 0 registered worker process(es) are alive (0 of them settled past the claim/finalize window)"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
                   "ready":  6,
-                  "running":  0,
+                  "running":  1,
                   "done":  1331,
                   "draft":  1,
-                  "failed":  1,
+                  "failed":  0,
                   "dependency_wait":  2,
                   "capability_wait":  0,
                   "claimable_now":  0,
@@ -30,7 +29,7 @@
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  1.4
+                  "minutes_since_last_claim":  1.3
               },
     "throughput":  {
                        "completed_24h":  345,
@@ -95,7 +94,7 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  493,
+                    "last_run_age_seconds":  606,
                     "next_run_utc":  "2026-10-09T13:11:26Z",
                     "gaps":  6,
                     "admitted":  12,
@@ -109,7 +108,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-09T12:51:51Z",
+                        "last_change_utc":  "2026-10-09T12:53:53Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -118,7 +117,7 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  25,
+                     "last_sample_age_minutes":  26.8,
                      "expected_next_sample_by":  "2026-10-09T12:58:57.1594130Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
