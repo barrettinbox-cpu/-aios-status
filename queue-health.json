@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-09T02:21:31Z",
-    "published_at_utc":  "2026-10-09T02:21:49Z",
-    "sequence":  16977,
+    "generated_at_utc":  "2026-10-09T02:23:31Z",
+    "published_at_utc":  "2026-10-09T02:23:49Z",
+    "sequence":  16978,
     "age_seconds_at_publish":  18,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -28,7 +28,7 @@
                                            "declared-target-outside-write-set":  1
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  27.3
+                  "minutes_since_last_claim":  29.3
               },
     "throughput":  {
                        "completed_24h":  104,
@@ -93,21 +93,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  373,
+                    "last_run_age_seconds":  493,
                     "next_run_utc":  "2026-10-09T02:41:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  78,
+                          "reconciliation_age_seconds":  77,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-09T02:19:49Z",
+                        "last_change_utc":  "2026-10-09T02:21:49Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -116,7 +116,7 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  22.9,
+                     "last_sample_age_minutes":  24.9,
                      "expected_next_sample_by":  "2026-10-09T02:28:57.0705389Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
@@ -151,5 +151,83 @@
                                                           ]
                                          }
                                      ]
-                 }
+                 },
+    "cash_reconciliation":  {
+                                "available":  true,
+                                "generated_at":  "2026-10-09T01:58:43.966567+00:00",
+                                "settlement":  {
+                                                   "VERIFIED":  {
+                                                                    "events":  12,
+                                                                    "dollars":  13983.7
+                                                                },
+                                                   "INFERRED":  {
+                                                                    "events":  28,
+                                                                    "dollars":  60692.3
+                                                                },
+                                                   "AMBIGUOUS":  {
+                                                                     "events":  10,
+                                                                     "dollars":  11663.17
+                                                                 },
+                                                   "UNMATCHED":  {
+                                                                     "events":  137,
+                                                                     "dollars":  138652.09
+                                                                 }
+                                               },
+                                "unmatched_reasons":  {
+                                                          "3 deposit lines share this amount inside the window, so an a":  6,
+                                                          "no deposit line of this amount within the instrument\u0027s settl":  137,
+                                                          "2 deposit lines share this amount inside the window, so an a":  4
+                                                      },
+                                "evidence_source":  "quickbooks.deposit_line.description (bank feed text)",
+                                "aged_undeposited":  {
+                                                         "population_dollars":  20796.21,
+                                                         "VERIFIED_SETTLED":  {
+                                                                                  "payments":  3,
+                                                                                  "dollars":  6897.58
+                                                                              },
+                                                         "AMBIGUOUS":  {
+                                                                           "payments":  9,
+                                                                           "dollars":  8144.97
+                                                                       },
+                                                         "UNRESOLVED":  {
+                                                                            "payments":  5,
+                                                                            "dollars":  1708.75
+                                                                        },
+                                                         "INFERRED_LIKELY":  {
+                                                                                 "payments":  3,
+                                                                                 "dollars":  2262
+                                                                             },
+                                                         "REJECTED_DIRECTION":  {
+                                                                                    "payments":  3,
+                                                                                    "dollars":  1782.91
+                                                                                }
+                                                     },
+                                "settlement_batches":  {
+                                                           "NO_SUBSET_SUM":  {
+                                                                                 "deposit_lines":  51,
+                                                                                 "dollars":  170423.96
+                                                                             },
+                                                           "INFERRED_BATCH_UNIQUE":  {
+                                                                                         "deposit_lines":  44,
+                                                                                         "dollars":  95607.81
+                                                                                     },
+                                                           "ALREADY_LINKED_IN_QBO":  {
+                                                                                         "deposit_lines":  113,
+                                                                                         "dollars":  114603.75
+                                                                                     },
+                                                           "NO_CANDIDATES":  {
+                                                                                 "deposit_lines":  17,
+                                                                                 "dollars":  20089.64
+                                                                             },
+                                                           "AMBIGUOUS_MULTIPLE_SUBSETS":  {
+                                                                                              "deposit_lines":  6,
+                                                                                              "dollars":  10910.5
+                                                                                          }
+                                                       },
+                                "confidence_ceiling":  "INFERRED_BATCH_UNIQUE. A subset sum is never VERIFIED; only the bank\u0027s own per-transaction detail can promote it, and that is the pending access request.",
+                                "blocked_on_external_access":  [
+                                                                   "Enterprise Bank \u0026 Trust acct ...7262 transaction export, 2026-07-01 to present (read-only CSV/OFX)",
+                                                                   "merchant-bankcard processor settlement report (Stripe identified; the larger channel is not named in any data)"
+                                                               ]
+                            }
 }
