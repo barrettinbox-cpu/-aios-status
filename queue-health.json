@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-10T20:39:32Z",
-    "published_at_utc":  "2026-10-10T20:39:50Z",
-    "sequence":  18247,
-    "age_seconds_at_publish":  18,
+    "generated_at_utc":  "2026-10-10T20:41:32Z",
+    "published_at_utc":  "2026-10-10T20:41:57Z",
+    "sequence":  18248,
+    "age_seconds_at_publish":  24,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
@@ -31,7 +31,7 @@
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  0.4
+                  "minutes_since_last_claim":  0.5
               },
     "throughput":  {
                        "completed_24h":  559,
@@ -96,21 +96,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1445,
-                    "next_run_utc":  "2026-10-10T20:41:26Z",
+                    "last_run_age_seconds":  1571,
+                    "next_run_utc":  "2026-10-10T21:11:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  75,
+                          "reconciliation_age_seconds":  86,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-10T20:37:50Z",
+                        "last_change_utc":  "2026-10-10T20:39:50Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -119,7 +119,7 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  10.9,
+                     "last_sample_age_minutes":  13,
                      "expected_next_sample_by":  "2026-10-10T20:58:57.7714059Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
