@@ -1,8 +1,8 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-10T22:37:32Z",
-    "published_at_utc":  "2026-10-10T22:37:51Z",
-    "sequence":  18306,
+    "generated_at_utc":  "2026-10-10T22:39:32Z",
+    "published_at_utc":  "2026-10-10T22:39:50Z",
+    "sequence":  18307,
     "age_seconds_at_publish":  19,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
@@ -96,21 +96,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1313,
+                    "last_run_age_seconds":  1433,
                     "next_run_utc":  "2026-10-10T22:41:26Z",
                     "gaps":  5,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  80,
+                          "reconciliation_age_seconds":  76,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-10T22:35:49Z",
+                        "last_change_utc":  "2026-10-10T22:37:51Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -119,7 +119,7 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  8.9,
+                     "last_sample_age_minutes":  10.9,
                      "expected_next_sample_by":  "2026-10-10T22:58:57.7915226Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
