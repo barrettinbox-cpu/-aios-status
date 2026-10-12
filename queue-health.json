@@ -1,15 +1,14 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-12T19:57:31Z",
-    "published_at_utc":  "2026-10-12T19:57:50Z",
-    "sequence":  19663,
-    "age_seconds_at_publish":  19,
+    "generated_at_utc":  "2026-10-12T19:59:31Z",
+    "published_at_utc":  "2026-10-12T19:59:54Z",
+    "sequence":  19664,
+    "age_seconds_at_publish":  22,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
                      "stuck lease: 1 registered worker pid(s) no longer exist",
-                     "truth sources disagree: Notion says 1 row(s) Running; 0 registered worker process(es) are alive (0 of them settled past the claim/finalize window)",
                      "USEFUL-PROGRESS VIOLATION: 1 lane(s) executing; and 2 of 33 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 1 proven-satisfied row(s) still parked)",
                      "1 row(s) are parked on an ask a probe proves already satisfied; they are claimable work being withheld by a stale gate",
                      "queue-health computed DEGRADED but useful-progress caps the verdict at UNHEALTHY (PROGRESSING_UNACCOUNTED); publishing the bounded verdict, because a queue that is internally fine while advancing nothing is not healthy"
@@ -32,7 +31,7 @@
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  1.3
+                  "minutes_since_last_claim":  0.3
               },
     "throughput":  {
                        "completed_24h":  619,
@@ -97,21 +96,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  384,
+                    "last_run_age_seconds":  507,
                     "next_run_utc":  "2026-10-12T20:11:26Z",
                     "gaps":  5,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  62,
-                          "sources_agree":  false,
-                          "disagreement_count":  1
+                          "reconciliation_age_seconds":  77,
+                          "sources_agree":  true,
+                          "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-12T19:55:57Z",
+                        "last_change_utc":  "2026-10-12T19:57:50Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -120,8 +119,8 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  28.9,
-                     "expected_next_sample_by":  "2026-10-12T19:59:00.4421886Z",
+                     "last_sample_age_minutes":  0.9,
+                     "expected_next_sample_by":  "2026-10-12T20:29:02.0694353Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
                                          {
@@ -145,8 +144,8 @@
                                              "frozen":  false,
                                              "effective_from":  "2026-10-08T17:40:00Z",
                                              "verdict":  "FAILED",
-                                             "uptime_pct":  12.76,
-                                             "samples":  196,
+                                             "uptime_pct":  12.69,
+                                             "samples":  197,
                                              "starved_samples":  88,
                                              "longest_run":  6,
                                              "run_threshold":  3,
