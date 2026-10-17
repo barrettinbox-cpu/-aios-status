@@ -1,15 +1,14 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-17T08:43:32Z",
-    "published_at_utc":  "2026-10-17T08:44:00Z",
-    "sequence":  22913,
-    "age_seconds_at_publish":  28,
+    "generated_at_utc":  "2026-10-17T08:45:29Z",
+    "published_at_utc":  "2026-10-17T08:46:00Z",
+    "sequence":  22914,
+    "age_seconds_at_publish":  31,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
-                     "truth sources disagree: watcher telemetry is 1609.7s old; the watcher may not be ticking",
-                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 150.5 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth, and not explained away by a run-after-future schedule (ready_blocked_by: run-after-future, dependency-open)",
+                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 152.5 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth, and not explained away by a run-after-future schedule (ready_blocked_by: run-after-future, dependency-open)",
                      "USEFUL-PROGRESS VIOLATION: zero useful progress with 41 non-terminal row(s) and no claimable work; and 4 of 41 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 1 proven-satisfied row(s) still parked)",
                      "1 row(s) are parked on an ask a probe proves already satisfied; they are claimable work being withheld by a stale gate"
                  ],
@@ -30,7 +29,7 @@
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  0,
-                  "minutes_since_last_claim":  150.5
+                  "minutes_since_last_claim":  152.5
               },
     "throughput":  {
                        "completed_24h":  17,
@@ -95,21 +94,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  3461,
+                    "last_run_age_seconds":  3580,
                     "next_run_utc":  "2026-10-17T09:11:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  94,
-                          "sources_agree":  false,
-                          "disagreement_count":  1
+                          "reconciliation_age_seconds":  62,
+                          "sources_agree":  true,
+                          "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-17T08:41:55Z",
+                        "last_change_utc":  "2026-10-17T08:44:00Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -118,7 +117,7 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  45,
+                     "last_sample_age_minutes":  47,
                      "expected_next_sample_by":  "2026-10-17T08:29:04.1734151Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
