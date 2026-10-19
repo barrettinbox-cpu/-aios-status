@@ -1,14 +1,14 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-19T22:03:32Z",
-    "published_at_utc":  "2026-10-19T22:04:04Z",
-    "sequence":  24735,
+    "generated_at_utc":  "2026-10-19T22:05:32Z",
+    "published_at_utc":  "2026-10-19T22:06:02Z",
+    "sequence":  24736,
     "age_seconds_at_publish":  31,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
-                     "USEFUL-PROGRESS VIOLATION: 1 lane(s) executing; and 11 of 45 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 1 proven-satisfied row(s) still parked)",
+                     "USEFUL-PROGRESS VIOLATION: 2 lane(s) executing; and 10 of 44 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 1 proven-satisfied row(s) still parked)",
                      "1 row(s) are parked on an ask a probe proves already satisfied; they are claimable work being withheld by a stale gate",
                      "queue-health computed HEALTHY but useful-progress caps the verdict at UNHEALTHY (PROGRESSING_UNACCOUNTED); publishing the bounded verdict, because a queue that is internally fine while advancing nothing is not healthy"
                  ],
@@ -16,25 +16,25 @@
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  12,
-                  "running":  1,
-                  "done":  1589,
+                  "ready":  11,
+                  "running":  2,
+                  "done":  1590,
                   "draft":  1,
-                  "failed":  3,
+                  "failed":  1,
                   "dependency_wait":  1,
                   "capability_wait":  0,
-                  "claimable_now":  2,
+                  "claimable_now":  1,
                   "ready_blocked_by":  {
                                            "declared-target-outside-write-set":  2,
-                                           "run-after-future":  4,
-                                           "conflict-blocked":  1,
+                                           "run-after-future":  3,
+                                           "conflict-blocked":  2,
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  0.6,
-                  "minutes_since_last_claim":  2.3
+                  "minutes_since_last_claim":  0.3
               },
     "throughput":  {
-                       "completed_24h":  351,
+                       "completed_24h":  353,
                        "admissions_24h":  1,
                        "reroutes_24h":  0
                    },
@@ -47,7 +47,7 @@
                        "incidents_24h":  12
                    },
     "lanes":  {
-                  "active_workers":  0,
+                  "active_workers":  3,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -96,21 +96,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  962,
+                    "last_run_age_seconds":  28,
                     "next_run_utc":  "2026-10-19T22:11:26Z",
-                    "gaps":  6,
+                    "gaps":  7,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  58,
+                          "reconciliation_age_seconds":  67,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-19T22:02:06Z",
+                        "last_change_utc":  "2026-10-19T22:04:04Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -119,7 +119,7 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  5,
+                     "last_sample_age_minutes":  7,
                      "expected_next_sample_by":  "2026-10-19T22:29:08.5346282Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
