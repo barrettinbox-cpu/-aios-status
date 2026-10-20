@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-20T16:27:31Z",
-    "published_at_utc":  "2026-10-20T16:27:58Z",
-    "sequence":  25283,
-    "age_seconds_at_publish":  26,
+    "generated_at_utc":  "2026-10-20T16:29:31Z",
+    "published_at_utc":  "2026-10-20T16:29:56Z",
+    "sequence":  25284,
+    "age_seconds_at_publish":  25,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
@@ -30,18 +30,18 @@
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  169.1,
-                  "minutes_since_last_claim":  5.5
+                  "minutes_since_last_claim":  7.4
               },
     "throughput":  {
-                       "completed_24h":  292,
+                       "completed_24h":  287,
                        "admissions_24h":  1,
                        "reroutes_24h":  0
                    },
     "starvation":  {
-                       "current_seconds":  6844,
+                       "current_seconds":  6969,
                        "p50_seconds":  129,
                        "p95_seconds":  2396,
-                       "max_seconds":  6844,
+                       "max_seconds":  6969,
                        "samples_24h":  710,
                        "incidents_24h":  48
                    },
@@ -95,21 +95,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  710,
+                    "last_run_age_seconds":  829,
                     "next_run_utc":  "2026-10-20T16:41:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  70,
+                          "reconciliation_age_seconds":  63,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-20T16:26:01Z",
+                        "last_change_utc":  "2026-10-20T16:27:58Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -118,8 +118,8 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  28.9,
-                     "expected_next_sample_by":  "2026-10-20T16:29:05.0750348Z",
+                     "last_sample_age_minutes":  0.9,
+                     "expected_next_sample_by":  "2026-10-20T16:59:05.6933138Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
                                          {
@@ -144,13 +144,14 @@
                                              "effective_from":  "2026-10-08T17:40:00Z",
                                              "verdict":  "FAILED",
                                              "uptime_pct":  4.36,
-                                             "samples":  573,
+                                             "samples":  574,
                                              "starved_samples":  356,
                                              "longest_run":  129,
                                              "run_threshold":  3,
                                              "failures":  [
                                                               "unexplained starvation in 129 consecutive sample(s) (threshold 3; 356 starved sample(s) total)",
-                                                              "proven-satisfied ask left parked: max 2"
+                                                              "proven-satisfied ask left parked: max 2",
+                                                              "approval(s) left unclosed: max 1"
                                                           ]
                                          }
                                      ]
