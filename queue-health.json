@@ -1,9 +1,9 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-23T01:15:32Z",
-    "published_at_utc":  "2026-10-23T01:16:01Z",
-    "sequence":  26969,
-    "age_seconds_at_publish":  30,
+    "generated_at_utc":  "2026-10-23T01:17:28Z",
+    "published_at_utc":  "2026-10-23T01:18:00Z",
+    "sequence":  26970,
+    "age_seconds_at_publish":  32,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
@@ -28,16 +28,16 @@
                                            "declared-target-outside-write-set":  19,
                                            "dependency-open":  5
                                        },
-                  "oldest_runnable_age_hours":  225.9,
-                  "minutes_since_last_claim":  15.3
+                  "oldest_runnable_age_hours":  226,
+                  "minutes_since_last_claim":  17.3
               },
     "throughput":  {
-                       "completed_24h":  251,
+                       "completed_24h":  249,
                        "admissions_24h":  1,
                        "reroutes_24h":  2
                    },
     "starvation":  {
-                       "current_seconds":  593,
+                       "current_seconds":  713,
                        "p50_seconds":  243,
                        "p95_seconds":  2774,
                        "max_seconds":  4532,
@@ -105,7 +105,7 @@
                             }
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1662,
+                    "last_run_age_seconds":  1781,
                     "next_run_utc":  "2026-10-23T01:41:26Z",
                     "gaps":  2,
                     "admitted":  12,
@@ -119,7 +119,7 @@
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-23T01:14:04Z",
+                        "last_change_utc":  "2026-10-23T01:16:01Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -128,7 +128,7 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  17,
+                     "last_sample_age_minutes":  19,
                      "expected_next_sample_by":  "2026-10-23T01:29:02.9086774Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
