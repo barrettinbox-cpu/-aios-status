@@ -1,39 +1,39 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-23T18:37:30Z",
-    "published_at_utc":  "2026-10-23T18:37:58Z",
-    "sequence":  27489,
+    "generated_at_utc":  "2026-10-23T18:39:31Z",
+    "published_at_utc":  "2026-10-23T18:39:59Z",
+    "sequence":  27490,
     "age_seconds_at_publish":  28,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
-                     "USEFUL-PROGRESS VIOLATION: 1 lane(s) executing; and 16 of 73 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 0 proven-satisfied row(s) still parked)",
+                     "USEFUL-PROGRESS VIOLATION: 1 lane(s) executing; and 15 of 73 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 0 proven-satisfied row(s) still parked)",
                      "queue-health computed HEALTHY but useful-progress caps the verdict at UNHEALTHY (PROGRESSING_UNACCOUNTED); publishing the bounded verdict, because a queue that is internally fine while advancing nothing is not healthy"
                  ],
     "verdict_independent":  true,
     "queue":  {
                   "source_of_truth":  "notion",
                   "source_ok":  true,
-                  "ready":  10,
+                  "ready":  9,
                   "running":  1,
                   "done":  1819,
                   "draft":  11,
-                  "failed":  4,
+                  "failed":  5,
                   "dependency_wait":  0,
                   "capability_wait":  0,
                   "claimable_now":  1,
                   "ready_blocked_by":  {
                                            "declared-target-outside-write-set":  18,
                                            "run-after-future":  2,
-                                           "conflict-blocked":  2,
+                                           "conflict-blocked":  1,
                                            "dependency-open":  5
                                        },
                   "oldest_runnable_age_hours":  243.3,
-                  "minutes_since_last_claim":  3.2
+                  "minutes_since_last_claim":  1.3
               },
     "throughput":  {
-                       "completed_24h":  131,
+                       "completed_24h":  132,
                        "admissions_24h":  1,
                        "reroutes_24h":  0
                    },
@@ -46,7 +46,7 @@
                        "incidents_24h":  76
                    },
     "lanes":  {
-                  "active_workers":  0,
+                  "active_workers":  1,
                   "usable_capacity":  8
               },
     "providers":  {
@@ -95,21 +95,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1155,
+                    "last_run_age_seconds":  1276,
                     "next_run_utc":  "2026-10-23T18:41:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  77,
+                          "reconciliation_age_seconds":  58,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-23T18:35:58Z",
+                        "last_change_utc":  "2026-10-23T18:37:58Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -118,7 +118,7 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  9,
+                     "last_sample_age_minutes":  11,
                      "expected_next_sample_by":  "2026-10-23T18:59:03.8497569Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
