@@ -1,16 +1,16 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-23T10:11:31Z",
-    "published_at_utc":  "2026-10-23T10:11:59Z",
-    "sequence":  27236,
-    "age_seconds_at_publish":  29,
+    "generated_at_utc":  "2026-10-23T10:13:28Z",
+    "published_at_utc":  "2026-10-23T10:13:58Z",
+    "sequence":  27237,
+    "age_seconds_at_publish":  30,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
-                     "possible silent block: 1 claimable row(s) in the source of truth, scheduler reports 0 eligible (dependency-blocked), and nothing has been claimed for 84.4 min",
-                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 84.4 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth, and not explained away by a run-after-future schedule (ready_blocked_by: run-after-future, declared-target-outside-write-set, dependency-open)",
-                     "USEFUL-PROGRESS VIOLATION: 1 claimable row(s) and 84.4 minute(s) since the last claim with 0 lane(s) open -- an execution stall; and 15 of 67 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 0 proven-satisfied row(s) still parked)"
+                     "possible silent block: 1 claimable row(s) in the source of truth, scheduler reports 0 eligible (dependency-blocked), and nothing has been claimed for 86.3 min",
+                     "THE 2026-09-29 FAILURE MODE: no row has been claimed for 86.3 min while 8 lane(s) are free and a provider is admissible -- a claim stall, independent of Ready/claimable depth, and not explained away by a run-after-future schedule (ready_blocked_by: run-after-future, declared-target-outside-write-set, dependency-open)",
+                     "USEFUL-PROGRESS VIOLATION: 1 claimable row(s) and 86.3 minute(s) since the last claim with 0 lane(s) open -- an execution stall; and 15 of 67 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 0 proven-satisfied row(s) still parked)"
                  ],
     "verdict_independent":  true,
     "queue":  {
@@ -29,18 +29,18 @@
                                            "declared-target-outside-write-set":  18,
                                            "dependency-open":  5
                                        },
-                  "oldest_runnable_age_hours":  234.8,
-                  "minutes_since_last_claim":  84.4
+                  "oldest_runnable_age_hours":  234.9,
+                  "minutes_since_last_claim":  86.3
               },
     "throughput":  {
-                       "completed_24h":  69,
+                       "completed_24h":  68,
                        "admissions_24h":  1,
                        "reroutes_24h":  0
                    },
     "starvation":  {
-                       "current_seconds":  3231,
+                       "current_seconds":  3367,
                        "p50_seconds":  618,
-                       "p95_seconds":  3231,
+                       "p95_seconds":  3367,
                        "max_seconds":  4532,
                        "samples_24h":  717,
                        "incidents_24h":  69
@@ -95,21 +95,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1392,
+                    "last_run_age_seconds":  1510,
                     "next_run_utc":  "2026-10-23T10:41:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  76,
+                          "reconciliation_age_seconds":  59,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-23T10:09:58Z",
+                        "last_change_utc":  "2026-10-23T10:11:59Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -118,7 +118,7 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  13,
+                     "last_sample_age_minutes":  15,
                      "expected_next_sample_by":  "2026-10-23T10:29:01.2126658Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
