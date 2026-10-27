@@ -1,15 +1,15 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-10-27T07:09:33Z",
-    "published_at_utc":  "2026-10-27T07:10:09Z",
-    "sequence":  29896,
-    "age_seconds_at_publish":  36,
+    "generated_at_utc":  "2026-10-27T07:11:34Z",
+    "published_at_utc":  "2026-10-27T07:12:13Z",
+    "sequence":  29897,
+    "age_seconds_at_publish":  38,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
                      "1 HumanWait row(s) declare class=machine_repair in their own BLOCKED.md contract -- AIOS owns these and they must not sit on a person\u0027s list: 3d6942fb3eca81bc8811cc33e978bcaa",
-                     "USEFUL-PROGRESS VIOLATION: 1 lane(s) executing; and 4 of 66 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 1 proven-satisfied row(s) still parked)",
+                     "USEFUL-PROGRESS VIOLATION: 2 lane(s) executing; and 4 of 66 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 1 proven-satisfied row(s) still parked)",
                      "1 row(s) are parked on an ask a probe proves already satisfied; they are claimable work being withheld by a stale gate",
                      "queue-health computed DEGRADED but useful-progress caps the verdict at UNHEALTHY (PROGRESSING_UNACCOUNTED); publishing the bounded verdict, because a queue that is internally fine while advancing nothing is not healthy"
                  ],
@@ -18,10 +18,10 @@
                   "source_of_truth":  "notion",
                   "source_ok":  true,
                   "ready":  4,
-                  "running":  1,
+                  "running":  2,
                   "done":  2003,
                   "draft":  7,
-                  "failed":  10,
+                  "failed":  9,
                   "dependency_wait":  4,
                   "capability_wait":  0,
                   "claimable_now":  1,
@@ -30,8 +30,8 @@
                                            "declared-target-outside-write-set":  12,
                                            "dependency-open":  2
                                        },
-                  "oldest_runnable_age_hours":  327.8,
-                  "minutes_since_last_claim":  1.5
+                  "oldest_runnable_age_hours":  327.9,
+                  "minutes_since_last_claim":  1.3
               },
     "throughput":  {
                        "completed_24h":  205,
@@ -96,21 +96,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  1205,
-                    "next_run_utc":  "2026-10-27T07:11:26Z",
+                    "last_run_age_seconds":  1328,
+                    "next_run_utc":  "2026-10-27T07:41:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  55,
+                          "reconciliation_age_seconds":  71,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-10-27T07:08:07Z",
+                        "last_change_utc":  "2026-10-27T07:10:09Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -119,7 +119,7 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  11.1,
+                     "last_sample_age_minutes":  13.2,
                      "expected_next_sample_by":  "2026-10-27T07:29:05.6616203Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
