@@ -1,14 +1,14 @@
 {
     "schema":  "aios.queue-health.published.v1",
-    "generated_at_utc":  "2026-11-01T17:55:34Z",
-    "published_at_utc":  "2026-11-01T17:56:25Z",
-    "sequence":  33093,
-    "age_seconds_at_publish":  51,
+    "generated_at_utc":  "2026-11-01T17:59:33Z",
+    "published_at_utc":  "2026-11-01T18:00:23Z",
+    "sequence":  33094,
+    "age_seconds_at_publish":  50,
     "stale_after_seconds":  600,
     "freshness_rule":  "compute age as now_utc minus generated_at_utc; treat as stale beyond stale_after_seconds. age_seconds_at_publish does NOT tick and understates age on a cached copy.",
     "verdict":  "UNHEALTHY",
     "problems":  [
-                     "USEFUL-PROGRESS VIOLATION: 1 claimable row(s) and 30.6 minute(s) since the last claim with 0 lane(s) open -- an execution stall; and 3 of 51 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 1 proven-satisfied row(s) still parked)",
+                     "USEFUL-PROGRESS VIOLATION: 1 claimable row(s) and 34.6 minute(s) since the last claim with 0 lane(s) open -- an execution stall; and 3 of 51 non-terminal row(s) have no owned non-expired blocker explaining why (0 orphan ask(s), 0 ask(s) with no completion probe, 1 proven-satisfied row(s) still parked)",
                      "1 row(s) are parked on an ask a probe proves already satisfied; they are claimable work being withheld by a stale gate",
                      "queue-health computed HEALTHY but useful-progress caps the verdict at UNHEALTHY (STALLED_UNACCOUNTED); publishing the bounded verdict, because a queue that is internally fine while advancing nothing is not healthy"
                  ],
@@ -29,8 +29,8 @@
                                            "declared-target-outside-write-set":  1,
                                            "dependency-open":  2
                                        },
-                  "oldest_runnable_age_hours":  458.6,
-                  "minutes_since_last_claim":  30.6
+                  "oldest_runnable_age_hours":  458.7,
+                  "minutes_since_last_claim":  34.6
               },
     "throughput":  {
                        "completed_24h":  13,
@@ -38,7 +38,7 @@
                        "reroutes_24h":  0
                    },
     "starvation":  {
-                       "current_seconds":  2876,
+                       "current_seconds":  3123,
                        "p50_seconds":  3135,
                        "p95_seconds":  22460,
                        "max_seconds":  22460,
@@ -95,21 +95,21 @@
 
                         ],
     "planner":  {
-                    "last_run_age_seconds":  327,
+                    "last_run_age_seconds":  565,
                     "next_run_utc":  "2026-11-01T18:11:26Z",
                     "gaps":  4,
                     "admitted":  12,
                     "verified_completions":  10
                 },
     "truth_monitor":  {
-                          "reconciliation_age_seconds":  181,
+                          "reconciliation_age_seconds":  172,
                           "sources_agree":  true,
                           "disagreement_count":  0
                       },
     "publication":  {
                         "heartbeat_seconds":  120,
                         "min_interval_seconds":  60,
-                        "last_change_utc":  "2026-11-01T17:52:21Z",
+                        "last_change_utc":  "2026-11-01T17:56:25Z",
                         "consecutive_failures":  0,
                         "degraded":  false,
                         "destination_kind":  "github"
@@ -118,8 +118,8 @@
                      "observation":  "open",
                      "window_started_at":  "2026-10-07T23:51:46.9654647Z",
                      "window_ends_at":  "2026-10-10T23:51:46.9733150Z",
-                     "last_sample_age_minutes":  27.3,
-                     "expected_next_sample_by":  "2026-11-01T17:59:12.9782002Z",
+                     "last_sample_age_minutes":  1.3,
+                     "expected_next_sample_by":  "2026-11-01T18:29:12.3463435Z",
                      "baseline_preserved":  true,
                      "evaluations":  [
                                          {
@@ -144,7 +144,7 @@
                                              "effective_from":  "2026-10-08T17:40:00Z",
                                              "verdict":  "FAILED",
                                              "uptime_pct":  5.79,
-                                             "samples":  1139,
+                                             "samples":  1140,
                                              "starved_samples":  356,
                                              "longest_run":  129,
                                              "run_threshold":  3,
